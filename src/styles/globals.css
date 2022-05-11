@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.MuiBreadcrumbs-separator{
+  color: white;
+  font-size: 25px;
+  position: relative;
+  top: -2px;
+  }
