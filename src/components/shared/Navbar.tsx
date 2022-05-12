@@ -20,6 +20,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const pages = [
   "Online Degrees",
@@ -53,16 +54,6 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-// const SearchIconWrapper = styled("div")(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: "100%",
-//   position: "absolute",
-//   pointerEvents: "none",
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "center",
-// }));
-
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
@@ -78,6 +69,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
   },
+}));
+
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
 }));
 
 const Navbar = () => {
@@ -138,11 +140,20 @@ const Navbar = () => {
             <Button
               sx={{
                 marginLeft: "20px",
-                backgroundColor: "#0056d2",
+                backgroundColor: "#0056d2 !important",
                 color: "white",
               }}
             >
-              Explore
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  textTransform: "none",
+                  fontWeight: "bold",
+                }}
+              >
+                Explore
+              </Typography>{" "}
+              <ExpandMoreIcon />
             </Button>
           </Typography>
           <Search
@@ -178,31 +189,464 @@ const Navbar = () => {
               open={navMenuState}
               onClose={() => setNavMenuState(false)}
             >
-              <Box
-                sx={{
-                  width: 380,
-                  bgcolor: "white",
-                  height: "100vh",
-                  textAlign: "center",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Box sx={{ marginTop: "20px" }}>
-                  <Image
-                    src="/assets/images/courseralogo.svg"
-                    width="127px"
-                    height="32px"
-                    alt="Courseralogo"
-                  />
-                </Box>
-
-                <Box>
-                  <CloseIcon
-                    onClick={() => setNavMenuState(false)}
-                    sx={{ position: "absolute", left: "340px", top: "22px" }}
-                  />
-                </Box>
+              <Box sx={{ flexGrow: 1, width: "375px" }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={10}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box sx={{ marginLeft: "60px" }}>
+                        <Image
+                          src="/assets/images/courseralogo.svg"
+                          width="127px"
+                          height="32px"
+                          alt="Courseralogo"
+                        />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <CloseIcon
+                        onClick={() => setNavMenuState(false)}
+                        sx={{ marginTop: "5px" }}
+                      />
+                    </Item>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Item
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "left",
+                      }}
+                    >
+                      <Box>
+                        <PersonOutlineIcon
+                          sx={{
+                            backgroundColor: "#3BAFDA",
+                            borderRadius: "50%",
+                            color: "white",
+                            fontSize: "40px",
+                            marginLeft: "10px",
+                          }}
+                        />
+                      </Box>
+                      <Typography sx={{ marginLeft: "10px", color: "black" }}>
+                        Hello, Hamdan!
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Your Account
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        For Enterprise
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sx={{ borderBottom: "1px solid lightgray" }}
+                  >
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ marginBottom: "10px", color: "black" }}>
+                        Find your new career
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black", fontWeight: "bold" }}>
+                        Goals
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Take a free course
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Earn a Degree
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Earn a Certificate
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={10}
+                    sx={{ borderBottom: "1px solid lightgray" }}
+                  >
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Advanced your career
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={2}
+                    sx={{ borderBottom: "1px solid lightgray" }}
+                  >
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black", fontWeight: "bold" }}>
+                        Subjects
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Data Science
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>Business</Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Computer Science
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Information Technology
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Language Learning
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>Health</Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Personal Development
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Physical Science & Engineering
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Social Science
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Arts and Humanities
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={10}
+                    sx={{ borderBottom: "1px solid lightgray" }}
+                  >
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ color: "black" }}>
+                        Math and Logic
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={2}
+                    sx={{ borderBottom: "1px solid lightgray" }}
+                  >
+                    <Item sx={{ boxShadow: "0" }}>
+                      <Box>
+                        <ArrowForwardIosIcon />
+                      </Box>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ marginBottom: "10px", color: "black" }}>
+                        Help Center
+                      </Typography>
+                    </Item>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sx={{ borderBottom: "1px solid lightgray" }}
+                  >
+                    <Item
+                      sx={{
+                        boxShadow: "0",
+                        textAlign: "left",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <Typography sx={{ marginBottom: "10px", color: "black" }}>
+                        For Universities
+                      </Typography>
+                    </Item>
+                  </Grid>
+                </Grid>
               </Box>
             </Drawer>
             <Menu
