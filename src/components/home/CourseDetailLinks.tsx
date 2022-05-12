@@ -52,6 +52,7 @@ const CourseDetailLinks = () => {
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
+            variant="scrollable"
             sx={{
               "& .MuiTabs-indicator": {
                 backgroundColor: "#fff",
