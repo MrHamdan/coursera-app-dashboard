@@ -195,14 +195,7 @@ const CourseOverview = () => {
                       }}
                     >
                       Robert Sedgewick{" "}
-                      <span
-                        style={{
-                          textDecoration: "underline",
-                          marginLeft: "10px",
-                        }}
-                      >
-                        +1 more instructor
-                      </span>
+                      <span className="link">+1 more instructor</span>
                     </Typography>
                   </Box>
                 </Box>
