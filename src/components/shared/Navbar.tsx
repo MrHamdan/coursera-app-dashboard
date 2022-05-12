@@ -105,6 +105,7 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event: any) {
+    event.preventDefault();
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
     }
@@ -159,7 +160,7 @@ const Navbar = () => {
               height="32px"
               alt="Courseralogo"
             />
-            <Box onMouseOver={handleClick}>
+            <Box onClick={handleClick}>
               <Button
                 sx={{
                   marginLeft: "20px",
@@ -184,7 +185,6 @@ const Navbar = () => {
                   anchorEl={anchorEl}
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
-                  MenuListProps={{ onMouseLeave: handleClose }}
                   sx={{ marginTop: "30px" }}
                 >
                   <ExploreNav />
