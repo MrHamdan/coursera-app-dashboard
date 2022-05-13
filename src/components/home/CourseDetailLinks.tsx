@@ -106,12 +106,122 @@ const CourseDetailLinks = () => {
         <TabPanel value={value} index={0}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-              <Grid item xs={8}>
-                <Item>xs=8</Item>
+              <Grid item xs={12} xl={8}>
+                <Item sx={{ boxShadow: "0" }}>
+                  <Typography sx={{ textAlign: "left", fontSize: "24px" }}>
+                    About This Course
+                  </Typography>
+                  <Typography
+                    sx={{
+                      textAlign: "left",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    150,270 recent views
+                  </Typography>
+                  <Typography sx={{ textAlign: "left", fontSize: "18px" }}>
+                    The basis for education in the last millennium was “reading,
+                    writing, and arithmetic;” now it is reading, writing, and
+                    computing. Learning to program is an essential part of the
+                    education of every student, not just in the sciences and
+                    engineering, but in the arts, social sciences, and
+                    humanities, as well. Beyond direct applications, it is the
+                    first step in understanding the nature of computer science’s
+                    undeniable impact on the modern world. This course covers
+                    the first half of our book Computer Science: An
+                    Interdisciplinary Approach (the second half is covered in
+                    our Coursera course Computer Science: Algorithms, Theory,
+                    and Machines). Our intent is to teach programming to those
+                    who need or want to learn it, in a scientific context. We
+                    begin by introducing basic programming elements such as
+                    variables, conditionals, loops, arrays, and I/O. Next, we
+                    turn to functions, introducing key concepts such as
+                    recursion, modular programming, and code reuse. Then, we
+                    present a modern introduction to object-oriented
+                    programming. We use the Java programming language and teach
+                    basic skills for computational problem solving that are
+                    applicable in many modern computing environments.
+                    Proficiency in Java is a goal, but we focus on fundamental
+                    concepts in programming, not Java per se. All the features
+                    of this course are available for free. It does not offer a
+                    certificate upon completion.
+                  </Typography>
+                </Item>
               </Grid>
-              <Grid item xs={4}>
-                <Item>
+              <Grid item xs={12} xl={4}>
+                <Item sx={{ boxShadow: "0" }}>
                   <CourseShortDetail />
+                </Item>
+              </Grid>
+              <Grid item xs={12} xl={8}>
+                <Item
+                  sx={{
+                    padding: "20px",
+                    boxShadow: "0",
+                    border: "1px solid lightgray",
+                  }}
+                >
+                  <Typography sx={{ textAlign: { xl: "left", xs: "center" } }}>
+                    SKILLS YOU WILL GAIN
+                  </Typography>
+                  <Box sx={{ flexGrow: 1, marginTop: "20px" }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            Programming Principles
+                          </Typography>
+                        </Item>
+                      </Grid>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            Computer Science
+                          </Typography>
+                        </Item>
+                      </Grid>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            Algorithms
+                          </Typography>
+                        </Item>
+                      </Grid>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            Java Programming
+                          </Typography>
+                        </Item>
+                      </Grid>
+                    </Grid>
+                  </Box>
                 </Item>
               </Grid>
             </Grid>

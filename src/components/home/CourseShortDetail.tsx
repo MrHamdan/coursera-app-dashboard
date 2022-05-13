@@ -26,19 +26,20 @@ const CourseShortDetail = () => {
         sx={{ display: "flex", alignItems: "center" }}
       >
         <Grid item xs={2}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <CalendarMonthIcon
               sx={{
-                border: "1px solid lightgray",
+                border: "2px solid lightgray",
                 borderRadius: "50%",
-                fontSize: "34px",
-                padding: "5px",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
               }}
             />
           </Item>
         </Grid>
         <Grid item xs={10}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
               Flexible deadlines <br />
               Reset deadlines in accordance to your schedule.
@@ -46,19 +47,20 @@ const CourseShortDetail = () => {
           </Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <LanguageIcon
               sx={{
-                border: "1px solid lightgray",
+                border: "2px solid lightgray",
                 borderRadius: "50%",
-                fontSize: "34px",
-                padding: "5px",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
               }}
             />
           </Item>
         </Grid>
         <Grid item xs={10}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
               100% online <br />
               Start instantly and learn at your own schedule.
@@ -66,55 +68,58 @@ const CourseShortDetail = () => {
           </Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <SignalCellularAltIcon
               sx={{
-                border: "1px solid lightgray",
+                border: "2px solid lightgray",
                 borderRadius: "50%",
-                fontSize: "34px",
-                padding: "5px",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
               }}
             />
           </Item>
         </Grid>
         <Grid item xs={10}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>Beginner Level</Typography>
           </Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <AccessTimeIcon
               sx={{
-                border: "1px solid lightgray",
+                border: "2px solid lightgray",
                 borderRadius: "50%",
-                fontSize: "34px",
-                padding: "5px",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
               }}
             />
           </Item>
         </Grid>
         <Grid item xs={10}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
               Approx. 88 hours to complete
             </Typography>
           </Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>
-            <AccessTimeIcon
+          <Item sx={{ boxShadow: "0" }}>
+            <ChatOutlinedIcon
               sx={{
-                border: "1px solid lightgray",
+                border: "2px solid lightgray",
                 borderRadius: "50%",
-                fontSize: "34px",
-                padding: "5px",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
               }}
             />
           </Item>
         </Grid>
         <Grid item xs={10}>
-          <Item>
+          <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
               English <br />
               <Typography sx={{ fontSize: "14px" }}>

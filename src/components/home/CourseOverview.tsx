@@ -213,11 +213,14 @@ const CourseOverview = () => {
               >
                 <Button
                   sx={{
-                    backgroundColor: "white",
+                    backgroundColor: "white !important",
                     textTransform: "none",
                     borderRadius: "0",
                     width: "179.05px",
                     height: "71px",
+                    "&:hover": {
+                      opacity: "0.5",
+                    },
                   }}
                 >
                   <Typography sx={{ color: "black" }}>
