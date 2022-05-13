@@ -11,8 +11,10 @@ import Footer from "components/shared/Footer";
 const Home: NextPage = () => {
   return (
     <div>
+      <Navbar />
       <CourseOverview />
       <CourseDetailLinks />
+      <Footer />
     </div>
   );
 };

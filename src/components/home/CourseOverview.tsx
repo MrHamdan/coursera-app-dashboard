@@ -211,22 +211,24 @@ const CourseOverview = () => {
                   alignItems: "center",
                 }}
               >
-                <Button
-                  sx={{
-                    backgroundColor: "white !important",
-                    textTransform: "none",
-                    borderRadius: "0",
-                    width: "179.05px",
-                    height: "71px",
-                    "&:hover": {
-                      opacity: "0.5",
-                    },
-                  }}
-                >
-                  <Typography sx={{ color: "black" }}>
-                    Enroll For Free <br /> Starts May 11
-                  </Typography>
-                </Button>
+                <Link href={`/course/1`} sx={{ textDecoration: "none" }}>
+                  <Button
+                    sx={{
+                      backgroundColor: "white !important",
+                      textTransform: "none",
+                      borderRadius: "0",
+                      width: "179.05px",
+                      height: "71px",
+                      "&:hover": {
+                        opacity: "0.5",
+                      },
+                    }}
+                  >
+                    <Typography sx={{ color: "black" }}>
+                      Enroll For Free <br /> Starts May 11
+                    </Typography>
+                  </Button>
+                </Link>
               </Item>
             </Grid>
             <Grid item xs={12} xl={12}>
