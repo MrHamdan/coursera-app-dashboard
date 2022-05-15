@@ -73,7 +73,7 @@ const CourseOverview = () => {
                         fontSize: "14px",
                       }}
                     >
-                      Conputer Science
+                      Computer Science
                     </Link>
                     <Typography
                       color="white"
@@ -211,7 +211,7 @@ const CourseOverview = () => {
                   alignItems: "center",
                 }}
               >
-                <Link href={`/course/1`} sx={{ textDecoration: "none" }}>
+                <Link href={`/course/week/1`} sx={{ textDecoration: "none" }}>
                   <Button
                     sx={{
                       backgroundColor: "white !important",
