@@ -66,20 +66,20 @@ const LectureDetails = () => {
   };
 
   const handleNext = () => {
-    // click next button to go to next tab
+    // click next button to go to next tab if tab length is over then stop
     if (value < 6) {
       setValue(value + 1);
     } else {
-      setValue(0);
+      console.info("You can't go next");
     }
   };
 
   const handleBack = () => {
-    // click back button to go to previous tab
+    // click back button to go to previous tab if tab length is over then stop
     if (value > 0) {
       setValue(value - 1);
     } else {
-      setValue(6);
+      console.info("You can't go back");
     }
   };
 
@@ -89,7 +89,7 @@ const LectureDetails = () => {
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            <Grid item xs={8}>
+            <Grid item xs={12} xl={8}>
               <Item
                 sx={{
                   display: "flex",
@@ -119,205 +119,256 @@ const LectureDetails = () => {
                 </div>
               </Item>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} xl={4}>
               <Item>
                 <Button onClick={handleBack}>Back</Button>
                 <Button onClick={handleNext}>Next</Button>
               </Item>
             </Grid>
-            <Grid item xs={3}>
-              <Item sx={{ height: "700px" }}>
-                <Typography sx={{ textAlign: "left", marginLeft: "30px" }}>
-                  Lecture 1: BASIC PROGRAMMING <br /> CONCEPTS
-                </Typography>
-                <Box
-                  sx={{
-                    flexGrow: 1,
-                    bgcolor: "background.paper",
-                    display: "flex",
-                    height: 224,
-                  }}
-                >
-                  <Tabs
-                    orientation="vertical"
-                    variant="scrollable"
-                    value={value}
-                    onChange={handleChange}
-                    aria-label="Vertical tabs example"
-                    sx={{
-                      borderRight: 0,
-                      borderColor: "divider",
-                      height: "692px",
-                    }}
-                  >
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex", alignItems: "center" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Reading: Supplements for Lecture 1 <br /> 10 min
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(0)}
-                    />
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Video: Why Programming? <br /> 15 min
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(1)}
-                    />
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Video: Program Development <br /> 16 min
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(2)}
-                    />
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Video: Built-in data types <br /> 32 min
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(3)}
-                    />
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Video: Type Conversion <br /> 10 min
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(4)}
-                    />
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Reading: Optional Enrichment on <br /> Basic
-                                Programming Concepts <br /> 10 min
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(5)}
-                    />
-                    <Tab
-                      label={
-                        <>
-                          <Box sx={{ display: "flex" }}>
-                            <Box>
-                              <PlayCircleOutlineIcon sx={{ color: "gray" }} />
-                            </Box>
-                            <Box>
-                              <Typography
-                                sx={{
-                                  textAlign: "left",
-                                  fontSize: "14px",
-                                  textTransform: "none",
-                                }}
-                              >
-                                Programming Assignment: Hello, <br /> World{" "}
-                                <br /> 8h
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </>
-                      }
-                      {...a11yProps(6)}
-                    />
-                  </Tabs>
+            <Grid item xs={12} xl={3}>
+              <Item sx={{ boxShadow: "0" }}>
+                <Box sx={{ flexGrow: 1 }}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                      <Item sx={{ boxShadow: "0" }}>
+                        <Typography
+                          sx={{
+                            textAlign: "left",
+                            marginLeft: "20px",
+                            fontWeight: "bold",
+                            fontSize: "14px",
+                          }}
+                        >
+                          Lecture 1: BASIC PROGRAMMING <br /> CONCEPTS
+                        </Typography>
+                      </Item>
+                    </Grid>
+                    <Grid item xs={12} sx={{ marginTop: "-20px" }}>
+                      <Item sx={{ boxShadow: "0" }}>
+                        <Box
+                          sx={{
+                            flexGrow: 1,
+                            bgcolor: "background.paper",
+                            display: "flex",
+                          }}
+                        >
+                          <Tabs
+                            orientation="vertical"
+                            variant="scrollable"
+                            value={value}
+                            onChange={handleChange}
+                            aria-label="Vertical tabs example"
+                            sx={{
+                              borderRight: 0,
+                              borderColor: "divider",
+                            }}
+                          >
+                            <Tab
+                              label={
+                                <>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="reading">Reading</span>
+                                        : Supplements for Lecture 1 <br /> 10
+                                        min
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(0)}
+                            />
+                            <Tab
+                              label={
+                                <>
+                                  <Box sx={{ display: "flex" }}>
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="video">Video</span>:
+                                        Why Programming? <br /> 15 min
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(1)}
+                            />
+                            <Tab
+                              label={
+                                <>
+                                  <Box sx={{ display: "flex" }}>
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="video">Video</span>:
+                                        Program Development <br /> 16 min
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(2)}
+                            />
+                            <Tab
+                              label={
+                                <>
+                                  <Box sx={{ display: "flex" }}>
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="video">Video</span>:
+                                        Built-in data types <br /> 32 min
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(3)}
+                            />
+                            <Tab
+                              label={
+                                <>
+                                  <Box sx={{ display: "flex" }}>
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="video">Video</span>:
+                                        Type Conversion <br /> 10 min
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(4)}
+                            />
+                            <Tab
+                              label={
+                                <>
+                                  <Box sx={{ display: "flex" }}>
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="reading">Reading</span>
+                                        : Optional Enrichment on <br /> Basic
+                                        Programming Concepts <br /> 10 min
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(5)}
+                            />
+                            <Tab
+                              label={
+                                <>
+                                  <Box sx={{ display: "flex" }}>
+                                    <Box>
+                                      <PlayCircleOutlineIcon
+                                        sx={{ color: "gray" }}
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          textAlign: "left",
+                                          fontSize: "14px",
+                                          textTransform: "none",
+                                          marginLeft: "10px",
+                                        }}
+                                      >
+                                        <span className="quiz">Quiz</span>:
+                                        Basic Programming <br /> Concepts <br />{" "}
+                                        4 questions
+                                      </Typography>
+                                    </Box>
+                                  </Box>
+                                </>
+                              }
+                              {...a11yProps(6)}
+                            />
+                          </Tabs>
+                        </Box>
+                      </Item>
+                    </Grid>
+                  </Grid>
                 </Box>
               </Item>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={12} xl={9}>
               <Item>
                 <TabPanel value={value} index={0}>
                   Item One
@@ -345,52 +396,6 @@ const LectureDetails = () => {
           </Grid>
         </Box>
       </Container>
-      {/* <Box
-          sx={{
-            flexGrow: 1,
-            bgcolor: "background.paper",
-            display: "flex",
-            height: 224,
-          }}
-        >
-          <Tabs
-            orientation="vertical"
-            variant="scrollable"
-            value={value}
-            onChange={handleChange}
-            aria-label="Vertical tabs example"
-            sx={{ borderRight: 1, borderColor: "divider", height:'700px' }}
-          >
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
-            <Tab label="Item Four" {...a11yProps(3)} />
-            <Tab label="Item Five" {...a11yProps(4)} />
-            <Tab label="Item Six" {...a11yProps(5)} />
-            <Tab label="Item Seven" {...a11yProps(6)} />
-          </Tabs>
-          <TabPanel value={value} index={0}>
-            Item One
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            Item Two
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            Item Four
-          </TabPanel>
-          <TabPanel value={value} index={4}>
-            Item Five
-          </TabPanel>
-          <TabPanel value={value} index={5}>
-            Item Six
-          </TabPanel>
-          <TabPanel value={value} index={6}>
-            Item Seven
-          </TabPanel>
-        </Box> */}
     </Box>
   );
 };

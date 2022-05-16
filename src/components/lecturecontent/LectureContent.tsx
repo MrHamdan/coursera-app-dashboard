@@ -112,6 +112,7 @@ const LectureContent = () => {
                 <AccordionSummary
                   aria-controls="panel1a-content"
                   id="panel1a-header"
+                  sx={{backgroundColor:'transparent'}}
                 >
                   <Typography>BASICPROGRAMMING CONCEPTS</Typography>
                 </AccordionSummary>
@@ -119,11 +120,11 @@ const LectureContent = () => {
                   <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                       <Grid item xs={12}>
-                        <Item>
+                        <Item sx={{ boxShadow: "0" }}>
                           <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
                               <Grid item xs={12} xl={4}>
-                                <Item>
+                                <Item sx={{boxShadow: "0" }}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -147,7 +148,7 @@ const LectureContent = () => {
                                 </Item>
                               </Grid>
                               <Grid item xs={12} xl={4}>
-                                <Item>
+                                <Item sx={{boxShadow: "0" }}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -177,7 +178,7 @@ const LectureContent = () => {
                                 </Item>
                               </Grid>
                               <Grid item xs={12} xl={4}>
-                                <Item>
+                                <Item sx={{boxShadow: "0" }}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -200,8 +201,8 @@ const LectureContent = () => {
                                   </Box>
                                 </Item>
                               </Grid>
-                              <Grid item xs={12}>
-                                <Item>
+                              <Grid item xs={12} sx={{borderTop: "1px solid lightgray"}}>
+                                <Item sx={{ boxShadow: "0", marginBottom:'30px' }}>
                                   <Typography sx={{ textAlign: "left" }}>
                                     Why program? This lecture addresses that
                                     basic question. Then it describes the
@@ -226,18 +227,19 @@ const LectureContent = () => {
                     <AccordionSummary
                       aria-controls="panel2a-content"
                       id="panel2a-header"
+                      sx={{borderBottom:'1px solid lightgray', backgroundColor:'transparent'}}
                     >
                       <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                           <Grid item xs={12} xl={8}>
-                            <Item>
-                              <Typography>
+                            <Item sx={{ boxShadow: "0" }}>
+                              <Typography sx={{textAlign: "left"}}>
                                 Lecture1: BASICPROGRAMMING CONCEPTS
                               </Typography>
                             </Item>
                           </Grid>
                           <Grid item xs={12} xl={4}>
-                            <Item>
+                            <Item sx={{ boxShadow: "0" }}>
                               <Typography>
                                 2 graded assignments left
                               </Typography>
@@ -273,7 +275,7 @@ const LectureContent = () => {
                                 <Box>
                                   <AutoStoriesIcon
                                     sx={{
-                                      border: "1px solid black",
+                                      border: "2px solid #666666",
                                       borderRadius: "50%",
                                       padding: "3px",
                                     }}
@@ -308,7 +310,7 @@ const LectureContent = () => {
                                       marginLeft: "20px",
                                     }}
                                   >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
+                                    Why Programming? <br /> Video . 15
                                     min
                                   </Typography>
                                 </Box>
@@ -330,7 +332,7 @@ const LectureContent = () => {
                                       marginLeft: "20px",
                                     }}
                                   >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
+                                    Programming Development <br /> Video . 16
                                     min
                                   </Typography>
                                 </Box>
@@ -352,7 +354,7 @@ const LectureContent = () => {
                                       marginLeft: "20px",
                                     }}
                                   >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
+                                    Built-in data types <br /> Video . 32
                                     min
                                   </Typography>
                                 </Box>
@@ -374,7 +376,7 @@ const LectureContent = () => {
                                       marginLeft: "20px",
                                     }}
                                   >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
+                                    Type conversion <br /> Video . 10
                                     min
                                   </Typography>
                                 </Box>
@@ -387,7 +389,11 @@ const LectureContent = () => {
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
                                 <Box>
-                                  <PlayCircleOutlineIcon />
+                                  <AutoStoriesIcon sx={{
+                                      border: "2px solid #666666",
+                                      borderRadius: "50%",
+                                      padding: "3px",
+                                    }}/>
                                 </Box>
                                 <Box>
                                   <Typography
@@ -396,7 +402,7 @@ const LectureContent = () => {
                                       marginLeft: "20px",
                                     }}
                                   >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
+                                    Optional Enrichment on Basic Programming Concepts <br /> Reading . 10
                                     min
                                   </Typography>
                                 </Box>
@@ -411,7 +417,7 @@ const LectureContent = () => {
                                 <Box>
                                   <QuizIcon
                                     sx={{
-                                      border: "1px solid black",
+                                      border: "2px solid #666666",
                                       borderRadius: "50%",
                                       padding: "3px",
                                     }}
@@ -424,8 +430,8 @@ const LectureContent = () => {
                                       marginLeft: "20px",
                                     }}
                                   >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
-                                    min
+                                    Basic Programming Concepts <br /> Quiz . 4 questions . Grade
+                                    
                                   </Typography>
                                 </Box>
                               </Box>

@@ -103,7 +103,7 @@ function a11yProps(index: number) {
   };
 }
 
-const index = () => {
+const Index = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -172,11 +172,14 @@ const index = () => {
                                   <Tab
                                     label={
                                       <>
+                                        <Box sx={{display: "flex"}}>
+                                        <span className="circle"></span>
                                         <Typography
-                                          sx={{ textTransform: "none" }}
+                                          sx={{ textTransform: "none", marginLeft: "10px"}}
                                         >
                                           Week 1
                                         </Typography>
+                                        </Box>
                                       </>
                                     }
                                     {...a11yProps(0)}
@@ -184,11 +187,14 @@ const index = () => {
                                   <Tab
                                     label={
                                       <>
+                                        <Box sx={{display: "flex"}}>
+                                        <span className="circle"></span>
                                         <Typography
-                                          sx={{ textTransform: "none" }}
+                                          sx={{ textTransform: "none", marginLeft: "10px"}}
                                         >
                                           Week 2
                                         </Typography>
+                                        </Box>
                                       </>
                                     }
                                     {...a11yProps(1)}
@@ -202,7 +208,7 @@ const index = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Box sx={{ marginTop: "-30px" }}>
+                <Box sx={{ marginTop: "-20px" }}>
                   <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                       <Grid item xs={12}>
@@ -266,48 +272,129 @@ const index = () => {
               </Item>
             </Grid>
             <Grid item xs={12} xl={3} md={4}>
-              <Item sx={{ borderBottom: "1px solid lightgray" }}>
-                <Typography sx={{ textAlign: "left" }}>Schedule</Typography>
-                <Box sx={{ display: "flex", textAlign: "left" }}>
+              <Item
+                sx={{
+                  borderBottom: "1px solid lightgray",
+                  boxShadow: "0",
+                  marginBottom: "10px",
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    marginBottom: "20px",
+                  }}
+                >
+                  Schedule
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    textAlign: "left",
+                    alignItems: "center",
+                  }}
+                >
                   <Box>
                     <LocationOnIcon />
                   </Box>
                   <Box>
-                    <Typography>Start date: May 14,2022 PDT</Typography>
+                    <Typography sx={{ marginLeft: "10px", fontSize: "14px" }}>
+                      Start date: May 14,2022 PDT
+                    </Typography>
                   </Box>
                 </Box>
-                <Box sx={{ display: "flex", textAlign: "left" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    textAlign: "left",
+                    alignItems: "center",
+                  }}
+                >
                   <Box>
                     <BadgeOutlinedIcon />
                   </Box>
                   <Box>
-                    <Typography>Start date: May 14,2022 PDT</Typography>
+                    <Typography sx={{ marginLeft: "10px", fontSize: "14px" }}>
+                      Estimated end date:{" "}
+                      <span className="date">June 3, 2022 PDT</span>
+                    </Typography>
                   </Box>
                 </Box>
               </Item>
-              <Item sx={{ borderBottom: "1px solid lightgray" }}>
-                <Typography sx={{ textAlign: "left" }}>Upcoming</Typography>
-                <Typography sx={{ textAlign: "left" }}>
+              <Item
+                sx={{
+                  borderBottom: "1px solid lightgray",
+                  boxShadow: "0",
+                  marginBottom: "20px",
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    marginBottom: "10px",
+                  }}
+                >
+                  Upcoming
+                </Typography>
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    color: "rgb(0 86 210)",
+                    "&:hover": { textDecoration: "underline" },
+                    marginBottom: "5px",
+                  }}
+                >
                   Basic Programming Concepts
                 </Typography>
-                <Typography sx={{ textAlign: "left" }}>
-                  Due May 16, 11:59 PM PDT Graded Quiz
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    fontSize: "14px",
+                    marginBottom: "5px",
+                  }}
+                >
+                  <span className="dates">Due May 16, 11:59 PM PDT</span>{" "}
+                  <span className="text-graded">Graded</span> Quiz
                 </Typography>
-                <Typography sx={{ textAlign: "left" }}>Hello, World</Typography>
-                <Typography sx={{ textAlign: "left" }}>
-                  Due May 16, 11:59 PM PDT Graded
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    color: "rgb(0 86 210)",
+                    "&:hover": { textDecoration: "underline" },
+                  }}
+                >
+                  Hello, World
                 </Typography>
-                <Typography sx={{ textAlign: "left" }}>
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    fontSize: "14px",
+                    marginBottom: "5px",
+                  }}
+                >
+                  <span className="dates">Due May 16, 11:59 PM PDT</span> <span className='text-graded'>Graded</span>
+                </Typography>
+                <Typography sx={{ textAlign: "left", fontSize: "14px" }}>
                   Programming Assignment
                 </Typography>
               </Item>
-              <Item sx={{ borderBottom: "1px solid lightgray" }}>
-                <Typography sx={{ textAlign: "left" }}>
+              <Item
+                sx={{ borderBottom: "1px solid lightgray", boxShadow: "0" }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    marginBottom: "5px",
+                  }}
+                >
                   Lets set a weekly goal
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Box>
-                    <Typography sx={{ textAlign: "left" }}>
+                    <Typography sx={{ textAlign: "left", marginBottom: "5px" }}>
                       Learners who set a goal are 75% more likely to complete
                       the course. We’ll help you track your progress.
                     </Typography>
@@ -316,7 +403,7 @@ const index = () => {
                     <LoupeOutlinedIcon sx={{ fontSize: "44px" }} />
                   </Box>
                 </Box>
-                <Box sx={{ textAlign: "left" }}>
+                <Box sx={{ textAlign: "left", marginBottom: "20px" }}>
                   <Button variant="outlined" sx={{ textTransform: "none" }}>
                     Set goal
                   </Button>
@@ -330,4 +417,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

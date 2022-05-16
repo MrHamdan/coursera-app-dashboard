@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
-
+import { wrapper } from "redux/store";
 function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
   useEffect(() => {
@@ -19,4 +19,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

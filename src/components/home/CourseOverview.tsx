@@ -8,6 +8,13 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
+import { Course } from "datatypes/coursetypes";
+
+
+type Props = {
+  courses: Course[];
+}
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -22,8 +29,9 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   console.info("You clicked a breadcrumb.");
 }
 
-const CourseOverview = () => {
+const CourseOverview = ({ courses }: Props) => {
   const [value, setValue] = React.useState<number | null>();
+  console.log(courses)
   return (
     <Box
       sx={{
@@ -34,7 +42,9 @@ const CourseOverview = () => {
       }}
     >
       <Container maxWidth="xl">
-        <Box sx={{ flexGrow: 1 }}>
+        {
+          courses.map((course)=> (
+            <Box sx={{ flexGrow: 1 }} key={course.id}>
           <Grid
             container
             spacing={2}
@@ -75,8 +85,10 @@ const CourseOverview = () => {
                     >
                       Computer Science
                     </Link>
-                    <Typography
+                    <Link
+                      underline="hover"
                       color="white"
+                      href="/material-ui/getting-started/installation/"
                       sx={{
                         fontFamily: "Open Sans",
                         fontWeight: "700",
@@ -84,7 +96,7 @@ const CourseOverview = () => {
                       }}
                     >
                       Software Development
-                    </Typography>
+                    </Link>
                   </Breadcrumbs>
                 </div>
               </Item>
@@ -123,7 +135,7 @@ const CourseOverview = () => {
                     fontWeight: "700",
                   }}
                 >
-                  Computer Science: Programming with a <br /> Purpose
+                  {course.courseTitle}
                 </Typography>
               </Item>
             </Grid>
@@ -194,7 +206,7 @@ const CourseOverview = () => {
                         fontSize: "14px",
                       }}
                     >
-                      Robert Sedgewick{" "}
+                      {course.instructorName}
                       <span className="link">+1 more instructor</span>
                     </Typography>
                   </Box>
@@ -242,12 +254,14 @@ const CourseOverview = () => {
                 }}
               >
                 <Typography sx={{ color: "white" }}>
-                  162,900 <span>already enrolled</span>
+                  {course.enrolled} <span>already enrolled</span>
                 </Typography>
               </Item>
             </Grid>
           </Grid>
         </Box>
+          ))
+        }
       </Container>
     </Box>
   );

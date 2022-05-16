@@ -9,6 +9,12 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import CourseShortDetail from "./CourseShortDetail";
+import { Course } from "datatypes/coursetypes";
+
+type Props = {
+  courses: Course[];
+}
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -51,7 +57,7 @@ function a11yProps(index: number) {
   };
 }
 
-const CourseDetailLinks = () => {
+const CourseDetailLinks = ({ courses }: Props) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -102,7 +108,9 @@ const CourseDetailLinks = () => {
           </Tabs>
         </Container>
       </Box>
-      <Container maxWidth="xl">
+      {
+        courses.map((course) => (
+          <Container maxWidth="xl" key={course.id}>
         <TabPanel value={value} index={0}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
@@ -119,34 +127,10 @@ const CourseDetailLinks = () => {
                       marginBottom: "20px",
                     }}
                   >
-                    150,270 recent views
+                    {course.recentViews} recent views
                   </Typography>
                   <Typography sx={{ textAlign: "left", fontSize: "18px" }}>
-                    The basis for education in the last millennium was “reading,
-                    writing, and arithmetic;” now it is reading, writing, and
-                    computing. Learning to program is an essential part of the
-                    education of every student, not just in the sciences and
-                    engineering, but in the arts, social sciences, and
-                    humanities, as well. Beyond direct applications, it is the
-                    first step in understanding the nature of computer science’s
-                    undeniable impact on the modern world. This course covers
-                    the first half of our book Computer Science: An
-                    Interdisciplinary Approach (the second half is covered in
-                    our Coursera course Computer Science: Algorithms, Theory,
-                    and Machines). Our intent is to teach programming to those
-                    who need or want to learn it, in a scientific context. We
-                    begin by introducing basic programming elements such as
-                    variables, conditionals, loops, arrays, and I/O. Next, we
-                    turn to functions, introducing key concepts such as
-                    recursion, modular programming, and code reuse. Then, we
-                    present a modern introduction to object-oriented
-                    programming. We use the Java programming language and teach
-                    basic skills for computational problem solving that are
-                    applicable in many modern computing environments.
-                    Proficiency in Java is a goal, but we focus on fundamental
-                    concepts in programming, not Java per se. All the features
-                    of this course are available for free. It does not offer a
-                    certificate upon completion.
+                    {course.aboutCourse}
                   </Typography>
                 </Item>
               </Grid>
@@ -243,6 +227,8 @@ const CourseDetailLinks = () => {
           FAQ
         </TabPanel>
       </Container>
+        ))
+      }
     </Box>
   );
 };
