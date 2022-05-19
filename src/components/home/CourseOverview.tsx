@@ -8,13 +8,10 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
+
+import { useSelector } from "react-redux";
+import { State } from "redux/reducers";
 import { Course } from "datatypes/coursetypes";
-
-
-type Props = {
-  courses: Course[];
-}
-
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -29,9 +26,14 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   console.info("You clicked a breadcrumb.");
 }
 
-const CourseOverview = ({ courses }: Props) => {
+const CourseOverview = () => {
   const [value, setValue] = React.useState<number | null>();
-  console.log(courses)
+  // console.log(course);
+
+  const course: Course = useSelector(
+    (state: State) => state.courses.courseData[0]
+  );
+
   return (
     <Box
       sx={{
@@ -42,9 +44,7 @@ const CourseOverview = ({ courses }: Props) => {
       }}
     >
       <Container maxWidth="xl">
-        {
-          courses.map((course)=> (
-            <Box sx={{ flexGrow: 1 }} key={course.id}>
+        <Box sx={{ flexGrow: 1 }}>
           <Grid
             container
             spacing={2}
@@ -135,7 +135,7 @@ const CourseOverview = ({ courses }: Props) => {
                     fontWeight: "700",
                   }}
                 >
-                  {course.courseTitle}
+                  {course.title}
                 </Typography>
               </Item>
             </Grid>
@@ -177,7 +177,7 @@ const CourseOverview = ({ courses }: Props) => {
                   precision={0.5}
                 />
                 <Typography sx={{ marginLeft: "10px", color: "white" }}>
-                  4.7 656 ratings
+                  {course.rating} 656 ratings
                 </Typography>
               </Item>
             </Grid>
@@ -254,14 +254,12 @@ const CourseOverview = ({ courses }: Props) => {
                 }}
               >
                 <Typography sx={{ color: "white" }}>
-                  {course.enrolled} <span>already enrolled</span>
+                  {course.enrolledStudents} <span>already enrolled</span>
                 </Typography>
               </Item>
             </Grid>
           </Grid>
         </Box>
-          ))
-        }
       </Container>
     </Box>
   );

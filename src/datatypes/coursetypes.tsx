@@ -1,104 +1,48 @@
-
 export interface Course {
-  id:             string;
-  courseTitle:    string;
-  instructorName: string;
-  enrolled:       string;
-  recentViews:    string;
-  aboutCourse:    string;
-  skills:         string[];
-  courseModule:   CourseModule[];
+  id:                number;
+  progress:          number;
+  title:             string;
+  rating:            string;
+  instructorName:    string;
+  enrolledStudents:  string;
+  recentViews:       string;
+  courseDescription: string;
+  skillOne:          string;
+  skillTwo:          string;
+  skillThree:        string;
+  skillFour:         string;
+  courseDeadline:    string;
+  courseState:       string;
+  courseLevel:       string;
+  courseDuration:    string;
+  courseLanguage:    string;
+  courseWeek:        CourseWeek[];
 }
 
-export interface CourseModule {
-  id:              string;
-  courseMaterials: string;
-  materials:       Material[];
+export interface CourseWeek {
+  id:                        number;
+  weekTitle:                 string;
+  lectureTitle:              string;
+  lectureVideos:             string;
+  lectureSheet:              string;
+  lectureAssignment:         string;
+  lectureDescription:        string;
+  lectureResourceTitle:      string;
+  lectureResourceAssignment: string;
+  lectureResources:          LectureResource[];
 }
 
-export interface Material {
-  id:                  string;
-  materialTitle:       string;
-  videoLength:         string;
-  readingLength:       string;
-  assignments:         string;
-  materialDescription: string;
-  lecture:             Lecture[];
+export interface LectureResource {
+  id:               number;
+  resourceTitle:    string;
+  resourceType:     ResourceType;
+  resourceDuration: string;
 }
 
-export interface Lecture {
-  id:             string;
-  lectureTitle:   string;
-  lectureContent: LectureContent[];
+export enum ResourceType {
+  ProgrammingAssignment = "Programming Assignment",
+  Quiz = "Quiz",
+  Reading = "Reading",
+  Video = "Video",
 }
 
-export interface LectureContent {
-  id:                  string;
-  lectureContentTitle: string;
-  readingTime?:        string;
-  videoTime?:          string;
-  quiz?:               string;
-}
-
-
-
-// export interface CourseData {
-//   data: Course[];
-// }
-
-// export interface Course {
-//   id: number;
-//   courseTitle: string;
-//   instructorName: string;
-//   enrolled: string;
-//   recentViews: string;
-//   aboutCourse: string;
-//   skills: Skills[];
-//   courseModule: CourseModule[];
-// }
-
-// export interface CourseModule {
-//   id: number;
-//   courseMaterials: string;
-//   materials: Materials[];
-// }
-
-// export interface Materials {
-//   id: number;
-//   materialTitle: string;
-//   videoLength: string;
-//   readingLength: string;
-//   assignments: string;
-//   materialDescription: string;
-//   lecture: Lecture[];
-// }
-
-// export interface Lecture {
-//   id: number;
-//   lectureTitle: string;
-//   lectureContent: LectureContent[];
-// }
-
-// export interface LectureContent {
-//   id: number;
-//   lectureContentTitle: string;
-//   readingTime: string;
-//   videoTime: string;
-//   quiz: string;
-// }
-
-// export interface Skills {}
-
-// export interface AboutCourse {
-//   id: string;
-//   title: string;
-//   textContent: string;
-//   links: string[];
-// }
-
-// export interface ModuleContent {
-//   type: string;
-//   id: string;
-//   title: string;
-//   content: string;
-// }

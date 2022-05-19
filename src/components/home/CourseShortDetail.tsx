@@ -9,6 +9,9 @@ import LanguageIcon from "@mui/icons-material/Language";
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import { useSelector } from "react-redux";
+import { State } from "redux/reducers";
+import { Course } from "datatypes/coursetypes";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,6 +21,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const CourseShortDetail = () => {
+
+const course: Course = useSelector(
+  (state: State) => state.courses.courseData[0]
+);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid
@@ -41,7 +49,7 @@ const CourseShortDetail = () => {
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              Flexible deadlines <br />
+              {course.courseDeadline} <br />
               Reset deadlines in accordance to your schedule.
             </Typography>
           </Item>
@@ -62,7 +70,7 @@ const CourseShortDetail = () => {
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              100% online <br />
+              {course.courseState} <br />
               Start instantly and learn at your own schedule.
             </Typography>
           </Item>
@@ -82,7 +90,7 @@ const CourseShortDetail = () => {
         </Grid>
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
-            <Typography sx={{ textAlign: "left" }}>Beginner Level</Typography>
+            <Typography sx={{ textAlign: "left" }}>{course.courseLevel}</Typography>
           </Item>
         </Grid>
         <Grid item xs={2}>
@@ -101,7 +109,7 @@ const CourseShortDetail = () => {
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              Approx. 88 hours to complete
+              {course.courseDuration}
             </Typography>
           </Item>
         </Grid>
@@ -121,7 +129,7 @@ const CourseShortDetail = () => {
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              English <br />
+              {course.courseLanguage} 
               <Typography sx={{ fontSize: "14px" }}>
                 Subtitles: Arabic, French, Portuguese (European), Italian,
                 Vietnamese, German, Russian, English, Spanish

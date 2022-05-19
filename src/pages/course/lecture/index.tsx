@@ -1,11 +1,12 @@
+import { Box } from '@mui/material';
 import LectureDetails from 'components/lecture/LectureDetails';
 import React from 'react';
 
 const index = () => {
     return (
-        <div>
+        <Box>
             <LectureDetails/>
-        </div>
+        </Box>
     );
 };
 

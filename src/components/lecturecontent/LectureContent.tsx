@@ -24,6 +24,8 @@ import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import LoupeOutlinedIcon from "@mui/icons-material/LoupeOutlined";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import { Course } from "datatypes/coursetypes";
+
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -101,9 +103,13 @@ function a11yProps(index: number) {
   };
 }
 
-const LectureContent = () => {
+
+
+const LectureContent = ({week}:any) => {
+
+  console.log(week);
   return (
-    <div>
+    <Box>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} xl={12}>
@@ -112,7 +118,7 @@ const LectureContent = () => {
                 <AccordionSummary
                   aria-controls="panel1a-content"
                   id="panel1a-header"
-                  sx={{backgroundColor:'transparent'}}
+                  sx={{backgroundColor:'#F5F7F8'}}
                 >
                   <Typography>BASICPROGRAMMING CONCEPTS</Typography>
                 </AccordionSummary>
@@ -227,19 +233,19 @@ const LectureContent = () => {
                     <AccordionSummary
                       aria-controls="panel2a-content"
                       id="panel2a-header"
-                      sx={{borderBottom:'1px solid lightgray', backgroundColor:'transparent'}}
+                      sx={{borderBottom:'1px solid lightgray', '&:hover':{backgroundColor:'#F5F7F8'}}}
                     >
                       <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                           <Grid item xs={12} xl={8}>
-                            <Item sx={{ boxShadow: "0" }}>
+                            <Item sx={{ boxShadow: "0", backgroundColor:'transparent'}}>
                               <Typography sx={{textAlign: "left"}}>
                                 Lecture1: BASICPROGRAMMING CONCEPTS
                               </Typography>
                             </Item>
                           </Grid>
                           <Grid item xs={12} xl={4}>
-                            <Item sx={{ boxShadow: "0" }}>
+                            <Item sx={{ boxShadow: "0",backgroundColor:'transparent' }}>
                               <Typography>
                                 2 graded assignments left
                               </Typography>
@@ -247,28 +253,13 @@ const LectureContent = () => {
                           </Grid>
                         </Grid>
                       </Box>
-                      {/* <Box
-                        sx={{
-                          display: "flex",
-                        }}
-                      >
-                        <Box>
-                          <Typography>
-                            Lecture1: BASICPROGRAMMING CONCEPTS
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Typography sx={{ marginLeft: "100px" }}>
-                            2 graded assignments left
-                          </Typography>
-                        </Box>
-                      </Box> */}
                     </AccordionSummary>
                     <AccordionDetails>
                       <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                           <Grid item xs={12}>
-                            <Item>
+                            <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -294,9 +285,11 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                           <Grid item xs={12}>
-                            <Item>
+                          <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -316,9 +309,11 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                           <Grid item xs={12}>
-                            <Item>
+                          <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -338,9 +333,11 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                           <Grid item xs={12}>
-                            <Item>
+                          <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -360,9 +357,11 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                           <Grid item xs={12}>
-                            <Item>
+                            <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -382,9 +381,11 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                           <Grid item xs={12}>
-                            <Item>
+                          <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -408,9 +409,11 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                           <Grid item xs={12}>
-                            <Item>
+                          <Link href={`/course/lecture`}>
+                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
                               <Box
                                 sx={{ display: "flex", alignItems: "center" }}
                               >
@@ -436,6 +439,7 @@ const LectureContent = () => {
                                 </Box>
                               </Box>
                             </Item>
+                            </Link>
                           </Grid>
                         </Grid>
                       </Box>
@@ -447,7 +451,7 @@ const LectureContent = () => {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </Box>
   );
 };
 

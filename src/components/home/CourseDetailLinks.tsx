@@ -10,10 +10,10 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import CourseShortDetail from "./CourseShortDetail";
 import { Course } from "datatypes/coursetypes";
+import { useSelector } from "react-redux";
+import { State } from "redux/reducers";
 
-type Props = {
-  courses: Course[];
-}
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -57,12 +57,18 @@ function a11yProps(index: number) {
   };
 }
 
-const CourseDetailLinks = ({ courses }: Props) => {
+const CourseDetailLinks = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+const course: Course = useSelector(
+  (state: State) => state.courses.courseData[0]
+);
+
+  console.log(course);
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -108,9 +114,8 @@ const CourseDetailLinks = ({ courses }: Props) => {
           </Tabs>
         </Container>
       </Box>
-      {
-        courses.map((course) => (
-          <Container maxWidth="xl" key={course.id}>
+
+      <Container maxWidth="xl">
         <TabPanel value={value} index={0}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
@@ -130,7 +135,7 @@ const CourseDetailLinks = ({ courses }: Props) => {
                     {course.recentViews} recent views
                   </Typography>
                   <Typography sx={{ textAlign: "left", fontSize: "18px" }}>
-                    {course.aboutCourse}
+                    {course.courseDescription}
                   </Typography>
                 </Item>
               </Grid>
@@ -161,7 +166,7 @@ const CourseDetailLinks = ({ courses }: Props) => {
                               padding: "8px",
                             }}
                           >
-                            Programming Principles
+                            {course.skillOne}
                           </Typography>
                         </Item>
                       </Grid>
@@ -174,7 +179,7 @@ const CourseDetailLinks = ({ courses }: Props) => {
                               padding: "8px",
                             }}
                           >
-                            Computer Science
+                            {course.skillTwo}
                           </Typography>
                         </Item>
                       </Grid>
@@ -187,7 +192,7 @@ const CourseDetailLinks = ({ courses }: Props) => {
                               padding: "8px",
                             }}
                           >
-                            Algorithms
+                            {course.skillThree}
                           </Typography>
                         </Item>
                       </Grid>
@@ -200,7 +205,7 @@ const CourseDetailLinks = ({ courses }: Props) => {
                               padding: "8px",
                             }}
                           >
-                            Java Programming
+                            {course.skillFour}
                           </Typography>
                         </Item>
                       </Grid>
@@ -227,8 +232,6 @@ const CourseDetailLinks = ({ courses }: Props) => {
           FAQ
         </TabPanel>
       </Container>
-        ))
-      }
     </Box>
   );
 };

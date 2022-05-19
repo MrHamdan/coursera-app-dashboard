@@ -31,7 +31,7 @@ const ExploreNav = () => {
   }
 
   return (
-    <div>
+    <Box>
       <Box sx={{ width: "450px", height: "650px" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
@@ -349,7 +349,7 @@ const ExploreNav = () => {
           </Grid>
         </Box>
       </Box>
-    </div>
+    </Box>
   );
 };
 

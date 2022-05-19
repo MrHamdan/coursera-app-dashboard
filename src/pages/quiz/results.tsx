@@ -1,11 +1,12 @@
+import { Box } from "@mui/material";
 import ResultsHome from "components/quiz/ResultsHome";
 
 
 const results = () => {
   return (
-    <div>
+    <Box>
       <ResultsHome />
-    </div>
+    </Box>
   );
 };
 
