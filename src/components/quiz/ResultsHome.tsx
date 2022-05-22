@@ -60,11 +60,13 @@ const ResultsHome = () => {
     
     
   return (
-    <Container>
+    <div>
+        <Container>
         <QuizResultHeader answer={answer} correctAnswerArray={correctAnswerArray}/>
         <Answer answer={answer}></Answer>
         <QuizCourse level={level}/>
     </Container>
+    </div>
   )
 }
 

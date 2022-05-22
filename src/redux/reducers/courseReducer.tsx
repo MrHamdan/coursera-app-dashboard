@@ -1,7 +1,8 @@
 
 
 const initialState = {
-  courseData: [],
+  courseData: {},
+  weekData: {},
   
 };
 
@@ -12,7 +13,11 @@ export const courseReducer = (state: any = initialState, action: any): any => {
         ...state,
         courseData: action.payload,
       };
-    
+    case "'WEEK_FETCH": 
+    return{
+      ...state,
+      weekData: action.payload
+    }
     default:
       return state;
   }

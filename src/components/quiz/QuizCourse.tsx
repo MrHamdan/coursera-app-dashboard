@@ -36,7 +36,8 @@ const QuizCourse = (props:Props) => {
         setCourses(courseBylevel)
     },[allCourses,level])
   return (
-    <Box sx={{my:3}}>
+    <div>
+        <Box sx={{my:3}}>
         <Container>
             <Box sx={{display:'flex',justifyContent:'center'}}>
                 <Typography  variant="h3" sx={{ fontSize: "36px", textAlign: "center",my:3 }}>Recommended Courses For you</Typography>
@@ -68,6 +69,7 @@ const QuizCourse = (props:Props) => {
         </Container>
 
     </Box>
+    </div>
   )
 }
 

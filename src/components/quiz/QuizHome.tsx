@@ -91,7 +91,8 @@ const QuizHome = (props:QuizProps) => {
         router.push("/quiz/results");
   };
   return (
-    <Box>
+    <div>
+      <Box>
         <Container 
               sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",}}>
 
@@ -142,6 +143,7 @@ const QuizHome = (props:QuizProps) => {
               }
         </Container>
     </Box>
+    </div>
   )
 }
 

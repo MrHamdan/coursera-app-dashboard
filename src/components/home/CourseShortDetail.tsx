@@ -23,11 +23,12 @@ const Item = styled(Paper)(({ theme }) => ({
 const CourseShortDetail = () => {
 
 const course: Course = useSelector(
-  (state: State) => state.courses.courseData[0]
+  (state: State) => state.courses.courseData
 );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <div>
+      <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
         spacing={2}
@@ -49,7 +50,7 @@ const course: Course = useSelector(
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              {course.courseDeadline} <br />
+              {course?.courseDeadline} <br />
               Reset deadlines in accordance to your schedule.
             </Typography>
           </Item>
@@ -70,7 +71,7 @@ const course: Course = useSelector(
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              {course.courseState} <br />
+              {course?.courseState} <br />
               Start instantly and learn at your own schedule.
             </Typography>
           </Item>
@@ -90,7 +91,7 @@ const course: Course = useSelector(
         </Grid>
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
-            <Typography sx={{ textAlign: "left" }}>{course.courseLevel}</Typography>
+            <Typography sx={{ textAlign: "left" }}>{course?.courseLevel}</Typography>
           </Item>
         </Grid>
         <Grid item xs={2}>
@@ -109,7 +110,7 @@ const course: Course = useSelector(
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              {course.courseDuration}
+              {course?.courseDuration}
             </Typography>
           </Item>
         </Grid>
@@ -129,7 +130,7 @@ const course: Course = useSelector(
         <Grid item xs={10}>
           <Item sx={{ boxShadow: "0" }}>
             <Typography sx={{ textAlign: "left" }}>
-              {course.courseLanguage} 
+              {course?.courseLanguage} 
               <Typography sx={{ fontSize: "14px" }}>
                 Subtitles: Arabic, French, Portuguese (European), Italian,
                 Vietnamese, German, Russian, English, Spanish
@@ -139,6 +140,7 @@ const course: Course = useSelector(
         </Grid>
       </Grid>
     </Box>
+    </div>
   );
 };
 

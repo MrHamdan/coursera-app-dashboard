@@ -19,7 +19,8 @@ type Props ={
 const QuizResultHeader = (props:Props) => {
     const {answer,correctAnswerArray}=props
   return (
-    <Box sx={{background: "#282D37",px:2,mt:2,color:"#fff", height:"50px", display: 'flex',justifyContent: 'space-between',alignItems: 'center',borderTopRightRadius:"10px",borderTopLeftRadius:"10px"}}>
+    <div>
+      <Box sx={{background: "#282D37",px:2,mt:2,color:"#fff", height:"50px", display: 'flex',justifyContent: 'space-between',alignItems: 'center',borderTopRightRadius:"10px",borderTopLeftRadius:"10px"}}>
        <Typography>{correctAnswerArray.length} /{ answer.length} answer</Typography>
 
        { 
@@ -27,6 +28,7 @@ const QuizResultHeader = (props:Props) => {
        }
     
     </Box>
+    </div>
   )
 }
 

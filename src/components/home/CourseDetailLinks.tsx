@@ -57,7 +57,7 @@ function a11yProps(index: number) {
   };
 }
 
-const CourseDetailLinks = () => {
+const CourseDetailLinks = (courses:any) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -65,12 +65,13 @@ const CourseDetailLinks = () => {
   };
 
 const course: Course = useSelector(
-  (state: State) => state.courses.courseData[0]
+  (state: State) => state.courses.courseData
 );
 
-  console.log(course);
+  // console.log(course);
   return (
-    <Box sx={{ width: "100%" }}>
+    <div>
+      <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Container maxWidth="xl">
           <Tabs
@@ -132,10 +133,10 @@ const course: Course = useSelector(
                       marginBottom: "20px",
                     }}
                   >
-                    {course.recentViews} recent views
+                    {course?.recentViews} recent views
                   </Typography>
                   <Typography sx={{ textAlign: "left", fontSize: "18px" }}>
-                    {course.courseDescription}
+                    {course?.courseDescription}
                   </Typography>
                 </Item>
               </Grid>
@@ -166,7 +167,7 @@ const course: Course = useSelector(
                               padding: "8px",
                             }}
                           >
-                            {course.skillOne}
+                            {course?.skillOne}
                           </Typography>
                         </Item>
                       </Grid>
@@ -179,7 +180,7 @@ const course: Course = useSelector(
                               padding: "8px",
                             }}
                           >
-                            {course.skillTwo}
+                            {course?.skillTwo}
                           </Typography>
                         </Item>
                       </Grid>
@@ -192,7 +193,7 @@ const course: Course = useSelector(
                               padding: "8px",
                             }}
                           >
-                            {course.skillThree}
+                            {course?.skillThree}
                           </Typography>
                         </Item>
                       </Grid>
@@ -205,7 +206,7 @@ const course: Course = useSelector(
                               padding: "8px",
                             }}
                           >
-                            {course.skillFour}
+                            {course?.skillFour}
                           </Typography>
                         </Item>
                       </Grid>
@@ -233,6 +234,7 @@ const course: Course = useSelector(
         </TabPanel>
       </Container>
     </Box>
+    </div>
   );
 };
 

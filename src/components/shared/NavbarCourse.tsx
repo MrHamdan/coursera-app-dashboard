@@ -131,7 +131,8 @@ const NavbarCourse = () => {
     setAnchorElUser(null);
   };
   return (
-    <AppBar
+    <div>
+      <AppBar
       sx={{
         backgroundColor: "transparent",
         position: "static",
@@ -482,6 +483,7 @@ const NavbarCourse = () => {
         </Toolbar>
       </Box>
     </AppBar>
+    </div>
   );
 };
 

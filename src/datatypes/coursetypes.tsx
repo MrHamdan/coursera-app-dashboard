@@ -16,7 +16,7 @@ export interface Course {
   courseLevel:       string;
   courseDuration:    string;
   courseLanguage:    string;
-  courseWeek:        CourseWeek[];
+  courseWeeks:       CourseWeek[];
 }
 
 export interface CourseWeek {
@@ -35,14 +35,6 @@ export interface CourseWeek {
 export interface LectureResource {
   id:               number;
   resourceTitle:    string;
-  resourceType:     ResourceType;
+  resourceType:     string;
   resourceDuration: string;
 }
-
-export enum ResourceType {
-  ProgrammingAssignment = "Programming Assignment",
-  Quiz = "Quiz",
-  Reading = "Reading",
-  Video = "Video",
-}
-

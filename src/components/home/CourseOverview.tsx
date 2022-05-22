@@ -31,11 +31,12 @@ const CourseOverview = () => {
   // console.log(course);
 
   const course: Course = useSelector(
-    (state: State) => state.courses.courseData[0]
+    (state: State) => state.courses.courseData
   );
 
   return (
-    <Box
+    <div>
+      <Box
       sx={{
         width: "100%",
         height: { xl: "554px", xs: "660px" },
@@ -223,7 +224,7 @@ const CourseOverview = () => {
                   alignItems: "center",
                 }}
               >
-                <Link href={`/course/week/1`} sx={{ textDecoration: "none" }}>
+                <Link href={`/home/week/1`} sx={{ textDecoration: "none" }}>
                   <Button
                     sx={{
                       backgroundColor: "white !important",
@@ -262,6 +263,7 @@ const CourseOverview = () => {
         </Box>
       </Container>
     </Box>
+    </div>
   );
 };
 

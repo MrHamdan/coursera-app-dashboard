@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -25,6 +25,8 @@ import LoupeOutlinedIcon from "@mui/icons-material/LoupeOutlined";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Course } from "datatypes/coursetypes";
+import { useRouter } from 'next/router'
+
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -103,13 +105,19 @@ function a11yProps(index: number) {
   };
 }
 
+// const router = useRouter()
+// console.log(router)
 
-
-const LectureContent = ({week}:any) => {
-
-  console.log(week);
+const LectureContent = ({ week }: any) => {
+  console.log(week, "wweekkksakkewkek")
+  // const router = useRouter();
+  // console.log(week.courses)
+  // const weekNumber = router.asPath.split("/")['3'];
+  // let matchedWeek = week?.courses?.find((item):any => parseInt(item.id) === parseInt(weekNumber));
+  
   return (
-    <Box>
+    <div>
+      <Box>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} xl={12}>
@@ -118,9 +126,9 @@ const LectureContent = ({week}:any) => {
                 <AccordionSummary
                   aria-controls="panel1a-content"
                   id="panel1a-header"
-                  sx={{backgroundColor:'#F5F7F8'}}
+                  sx={{ backgroundColor: '#F5F7F8' }}
                 >
-                  <Typography>BASICPROGRAMMING CONCEPTS</Typography>
+                  <Typography>{week?.lectureTitle}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Box sx={{ flexGrow: 1 }}>
@@ -130,7 +138,7 @@ const LectureContent = ({week}:any) => {
                           <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
                               <Grid item xs={12} xl={4}>
-                                <Item sx={{boxShadow: "0" }}>
+                                <Item sx={{ boxShadow: "0" }}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -154,7 +162,7 @@ const LectureContent = ({week}:any) => {
                                 </Item>
                               </Grid>
                               <Grid item xs={12} xl={4}>
-                                <Item sx={{boxShadow: "0" }}>
+                                <Item sx={{ boxShadow: "0" }}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -184,7 +192,7 @@ const LectureContent = ({week}:any) => {
                                 </Item>
                               </Grid>
                               <Grid item xs={12} xl={4}>
-                                <Item sx={{boxShadow: "0" }}>
+                                <Item sx={{ boxShadow: "0" }}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -207,8 +215,8 @@ const LectureContent = ({week}:any) => {
                                   </Box>
                                 </Item>
                               </Grid>
-                              <Grid item xs={12} sx={{borderTop: "1px solid lightgray"}}>
-                                <Item sx={{ boxShadow: "0", marginBottom:'30px' }}>
+                              <Grid item xs={12} sx={{ borderTop: "1px solid lightgray" }}>
+                                <Item sx={{ boxShadow: "0", marginBottom: '30px' }}>
                                   <Typography sx={{ textAlign: "left" }}>
                                     Why program? This lecture addresses that
                                     basic question. Then it describes the
@@ -233,19 +241,19 @@ const LectureContent = ({week}:any) => {
                     <AccordionSummary
                       aria-controls="panel2a-content"
                       id="panel2a-header"
-                      sx={{borderBottom:'1px solid lightgray', '&:hover':{backgroundColor:'#F5F7F8'}}}
+                      sx={{ borderBottom: '1px solid lightgray', '&:hover': { backgroundColor: '#F5F7F8' } }}
                     >
                       <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                           <Grid item xs={12} xl={8}>
-                            <Item sx={{ boxShadow: "0", backgroundColor:'transparent'}}>
-                              <Typography sx={{textAlign: "left"}}>
+                            <Item sx={{ boxShadow: "0", backgroundColor: 'transparent' }}>
+                              <Typography sx={{ textAlign: "left" }}>
                                 Lecture1: BASICPROGRAMMING CONCEPTS
                               </Typography>
                             </Item>
                           </Grid>
                           <Grid item xs={12} xl={4}>
-                            <Item sx={{ boxShadow: "0",backgroundColor:'transparent' }}>
+                            <Item sx={{ boxShadow: "0", backgroundColor: 'transparent' }}>
                               <Typography>
                                 2 graded assignments left
                               </Typography>
@@ -258,187 +266,187 @@ const LectureContent = ({week}:any) => {
                       <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                           <Grid item xs={12}>
-                            <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <AutoStoriesIcon
-                                    sx={{
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <AutoStoriesIcon
+                                      sx={{
+                                        border: "2px solid #666666",
+                                        borderRadius: "50%",
+                                        padding: "3px",
+                                      }}
+                                    />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Supplementsfor Lecture1 <br /> Reading . 10
+                                      min
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </Item>
+                            </Link>
+                          </Grid>
+                          <Grid item xs={12}>
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <PlayCircleOutlineIcon />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Why Programming? <br /> Video . 15
+                                      min
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </Item>
+                            </Link>
+                          </Grid>
+                          <Grid item xs={12}>
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <PlayCircleOutlineIcon />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Programming Development <br /> Video . 16
+                                      min
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </Item>
+                            </Link>
+                          </Grid>
+                          <Grid item xs={12}>
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <PlayCircleOutlineIcon />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Built-in data types <br /> Video . 32
+                                      min
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </Item>
+                            </Link>
+                          </Grid>
+                          <Grid item xs={12}>
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <PlayCircleOutlineIcon />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Type conversion <br /> Video . 10
+                                      min
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </Item>
+                            </Link>
+                          </Grid>
+                          <Grid item xs={12}>
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <AutoStoriesIcon sx={{
                                       border: "2px solid #666666",
                                       borderRadius: "50%",
                                       padding: "3px",
-                                    }}
-                                  />
+                                    }} />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Optional Enrichment on Basic Programming Concepts <br /> Reading . 10
+                                      min
+                                    </Typography>
+                                  </Box>
                                 </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Supplementsfor Lecture1 <br /> Reading . 10
-                                    min
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
+                              </Item>
                             </Link>
                           </Grid>
                           <Grid item xs={12}>
-                          <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <PlayCircleOutlineIcon />
+                            <Link href={`/home/lecture`}>
+                              <Item sx={{ boxShadow: "0", '&:hover': { backgroundColor: '#F5F7F8', cursor: 'pointer' } }}>
+                                <Box
+                                  sx={{ display: "flex", alignItems: "center" }}
+                                >
+                                  <Box>
+                                    <QuizIcon
+                                      sx={{
+                                        border: "2px solid #666666",
+                                        borderRadius: "50%",
+                                        padding: "3px",
+                                      }}
+                                    />
+                                  </Box>
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        textAlign: "left",
+                                        marginLeft: "20px",
+                                      }}
+                                    >
+                                      Basic Programming Concepts <br /> Quiz . 4 questions . Grade
+
+                                    </Typography>
+                                  </Box>
                                 </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Why Programming? <br /> Video . 15
-                                    min
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
-                            </Link>
-                          </Grid>
-                          <Grid item xs={12}>
-                          <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <PlayCircleOutlineIcon />
-                                </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Programming Development <br /> Video . 16
-                                    min
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
-                            </Link>
-                          </Grid>
-                          <Grid item xs={12}>
-                          <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <PlayCircleOutlineIcon />
-                                </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Built-in data types <br /> Video . 32
-                                    min
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
-                            </Link>
-                          </Grid>
-                          <Grid item xs={12}>
-                            <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <PlayCircleOutlineIcon />
-                                </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Type conversion <br /> Video . 10
-                                    min
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
-                            </Link>
-                          </Grid>
-                          <Grid item xs={12}>
-                          <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <AutoStoriesIcon sx={{
-                                      border: "2px solid #666666",
-                                      borderRadius: "50%",
-                                      padding: "3px",
-                                    }}/>
-                                </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Optional Enrichment on Basic Programming Concepts <br /> Reading . 10
-                                    min
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
-                            </Link>
-                          </Grid>
-                          <Grid item xs={12}>
-                          <Link href={`/course/lecture`}>
-                            <Item sx={{boxShadow: "0", '&:hover':{backgroundColor:'#F5F7F8', cursor:'pointer'} }}>
-                              <Box
-                                sx={{ display: "flex", alignItems: "center" }}
-                              >
-                                <Box>
-                                  <QuizIcon
-                                    sx={{
-                                      border: "2px solid #666666",
-                                      borderRadius: "50%",
-                                      padding: "3px",
-                                    }}
-                                  />
-                                </Box>
-                                <Box>
-                                  <Typography
-                                    sx={{
-                                      textAlign: "left",
-                                      marginLeft: "20px",
-                                    }}
-                                  >
-                                    Basic Programming Concepts <br /> Quiz . 4 questions . Grade
-                                    
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Item>
+                              </Item>
                             </Link>
                           </Grid>
                         </Grid>
@@ -452,6 +460,7 @@ const LectureContent = ({week}:any) => {
         </Grid>
       </Box>
     </Box>
+    </div>
   );
 };
 

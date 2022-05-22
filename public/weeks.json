@@ -1,0 +1,157 @@
+[
+    {
+        "id": "1",
+        "weekTitle": "Week 1",
+        "lectureTitle": "BASIC nothin CONCEPTS",
+        "lectureVideos": "58 minutes of videos left",
+        "lectureSheet": "10 min of reading left",
+        "lectureAssignment": "2 graded assignments left",
+        "lectureDescription": "Why program? This lecture addresses that basic question. Then it describes the anatomy of your first program and the process of developing a program in Java using either virtual terminals or a program development environment, with some historical context. Most of the lecture is devoted to a thorough coverage of Javas built-in data types, with example programs for each.",
+        "lectureResourceTitle": "Lecture1: BASIC PROGRAMMING CONCEPTS",
+        "lectureResourceAssignment": "2 graded assignments left",
+        "lectureResources": [
+            {
+                "id": "1",
+                "resourceTitle": "Suppliments For Lecture 1",
+                "resourceType": "Reading",
+                "resourceDuration": "10 min",
+                "content": [
+                    {
+                       "id": "1",
+                       "title": "Supplements for Lecture 1",
+                       "subtitle": "Lecture Suppor",
+                       "html": "<p>This lecture is based on Sections 1.1 and 1.2 (pages 1–49) in <a>Computer Science: An Interdisciplinary Approach </a> and these online materials. Here are the <a>lecture slides.</a></p>",	
+                        "isComplete": false
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "resourceTitle": "Why Programming?",
+                "resourceType": "Video",
+                "resourceDuration": "15 min",
+                "content": [
+                    {
+                       "id": "1",
+                       "title": "Supplements for Lecture 1",
+                       "subtitle": "Lecture Suppor",
+                       "link": "https://www.youtube.com/watch?v=R59e1Vl5lO8",	
+                        "isComplete": false
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "resourceTitle": "Programming Development",
+                "resourceType": "Video",
+                "resourceDuration": "16 min",
+                "content": [
+                    {
+                       "id": "1",
+                       "title": "Supplements for Lecture 1",
+                       "subtitle": "Lecture Suppor",
+                       "link": "https://www.youtube.com/watch?v=R59e1Vl5lO8",	
+                        "isComplete": false
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "resourceTitle": "Built-in Data Types",
+                "resourceType": "Video",
+                "resourceDuration": "32 min",
+                "content": [
+                    {
+                       "id": "1",
+                       "title": "Supplements for Lecture 1",
+                       "subtitle": "Lecture Suppor",
+                       "link": "https://www.youtube.com/watch?v=R59e1Vl5lO8",	
+                        "isComplete": false
+                    }
+                ]
+            },
+            {
+                "id": "5",
+                "resourceTitle": "Type Conversion",
+                "resourceType": "Video",
+                "resourceDuration": "10 min",
+                "content": [
+                    {
+                       "id": "1",
+                       "title": "Supplements for Lecture 1",
+                       "subtitle": "Lecture Suppor",
+                       "link": "https://www.youtube.com/watch?v=R59e1Vl5lO8",	
+                        "isComplete": false
+                    }
+                ]
+            },
+            {
+                "id": "6",
+                "resourceTitle": "Basic Programming Concepts",
+                "resourceType": "Quiz",
+                "resourceDuration": "4 Questions Grade:--"
+            },
+            {
+                "id": "7",
+                "resourceTitle": "Hello, World",
+                "resourceType": "Programming Assignment",
+                "resourceDuration": "8h Grade:--"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "weekTitle": "Week 2",
+        "lectureTitle": "BASIC fucking CONCEPTS",
+        "lectureVideos": "58 minutes of videos left",
+        "lectureSheet": "10 min of reading left",
+        "lectureAssignment": "2 graded assignments left",
+        "lectureDescription": "Why program? This lecture addresses that basic question. Then it describes the anatomy of your first program and the process of developing a program in Java using either virtual terminals or a program development environment, with some historical context. Most of the lecture is devoted to a thorough coverage of Javas built-in data types, with example programs for each.",
+        "lectureResourceTitle": "Lecture1: BASIC PROGRAMMING CONCEPTS",
+        "lectureResourceAssignment": "2 graded assignments left",
+        "lectureResources": [
+            {
+                "id": "1",
+                "resourceTitle": "Suppliments For Lecture 1",
+                "resourceType": "Reading",
+                "resourceDuration": "10 min"
+            },
+            {
+                "id": "2",
+                "resourceTitle": "Why Programming?",
+                "resourceType": "Video",
+                "resourceDuration": "15 min"
+            },
+            {
+                "id": "3",
+                "resourceTitle": "Programming Development",
+                "resourceType": "Video",
+                "resourceDuration": "16 min"
+            },
+            {
+                "id": "4",
+                "resourceTitle": "Built-in Data Types",
+                "resourceType": "Video",
+                "resourceDuration": "32 min"
+            },
+            {
+                "id": "5",
+                "resourceTitle": "Type Conversion",
+                "resourceType": "Video",
+                "resourceDuration": "10 min"
+            },
+            {
+                "id": "6",
+                "resourceTitle": "Basic Programming Concepts",
+                "resourceType": "Quiz",
+                "resourceDuration": "4 Questions Grade:--"
+            },
+            {
+                "id": "7",
+                "resourceTitle": "Hello, World",
+                "resourceType": "Programming Assignment",
+                "resourceDuration": "8h Grade:--"
+            }
+        ]
+    }
+]

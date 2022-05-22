@@ -33,7 +33,8 @@ import {
     const {course}=props
    
     return (
-     <Card sx={{ maxWidth: 345, bgcolor: "#21252D", color: "#fff" }}>
+     <div>
+         <Card sx={{ maxWidth: 345, bgcolor: "#21252D", color: "#fff" }}>
       <CardMedia
        component="img"
        height="212"
@@ -48,7 +49,7 @@ import {
         {course.title}
        </Typography>
        <Typography variant="body2" sx={{ color: "#969696" }}>
-        {course.courseDetails}
+        {course?.courseDetails}
        </Typography>
       </CardContent>
       <CardActions
@@ -63,6 +64,7 @@ import {
        /> */}
       </CardActions>
      </Card>
+     </div>
     );
    };
    

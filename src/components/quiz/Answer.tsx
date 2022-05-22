@@ -20,7 +20,8 @@ type Props ={
 const Answer = (props:Props) => {
     const {answer}= props
   return (
-    <Box sx={{p:5,backgroundColor: '#494949'}}>{
+    <div>
+      <Box sx={{p:5,backgroundColor: '#494949'}}>{
         answer.map((ans,index)=>
          
               <Box key={ans.questionId} sx={{borderBottom:"0.6px solid #999",pt:2}}>
@@ -56,6 +57,7 @@ const Answer = (props:Props) => {
          
         )
       }</Box>
+    </div>
   )
 }
 

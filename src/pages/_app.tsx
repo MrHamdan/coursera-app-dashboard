@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
     return <></>;
   } else {
     return (
-      <>
+      <div>
         {Component.PageLayout ? (
           <Component.PageLayout>
             <Component {...pageProps} />
@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
         ) : (
           <Component {...pageProps} />
         )}
-      </>
+      </div>
     );
   }
 }

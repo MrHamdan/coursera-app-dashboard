@@ -116,7 +116,8 @@ const MenuNav = () => {
     setAnchorElUser(null);
   };
   return (
-    <Box>
+    <div>
+      <Box>
       <Box sx={{ flexGrow: 1, width: "375px" }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -517,6 +518,7 @@ const MenuNav = () => {
         </Grid>
       </Box>
     </Box>
+    </div>
   );
 };
 

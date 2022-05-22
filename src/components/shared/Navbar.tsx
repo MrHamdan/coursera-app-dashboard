@@ -130,7 +130,8 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
   return (
-    <AppBar
+    <div>
+      <AppBar
       sx={{
         backgroundColor: "transparent",
         position: "static",
@@ -451,6 +452,7 @@ const Navbar = () => {
         </Toolbar>
       </Box>
     </AppBar>
+    </div>
   );
 };
 

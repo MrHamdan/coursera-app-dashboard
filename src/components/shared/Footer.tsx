@@ -16,7 +16,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Footer = () => {
   return (
-    <Box sx={{ borderTop: "1px solid lightgray" }}>
+    <div>
+      <Box sx={{ borderTop: "1px solid lightgray" }}>
       <Container maxWidth="xl" sx={{ paddingTop: "44px" }}>
         <Box sx={{ flexGrow: 1, borderBottom: "1px solid lightgray" }}>
           <Grid container spacing={2} sx={{ marginBottom: "30px" }}>
@@ -213,6 +214,7 @@ const Footer = () => {
         </Box>
       </Container>
     </Box>
+    </div>
   );
 };
 

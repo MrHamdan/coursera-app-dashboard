@@ -11,9 +11,7 @@ import CourseOverview from "./CourseOverview";
 
 const CourseHome = () => {
   
-  const course: Course = useSelector(
-    (state: State) => state.courses.courseData[0]
-  );
+  const course = useSelector((state: State) => state.courses.courseData);
 
   console.log(course);
 
@@ -26,12 +24,12 @@ if (!course) {
 }
 
   return (
-    <Box>
+    <div>
       
         <CourseOverview />
         <CourseDetailLinks />
       
-    </Box>
+    </div>
   );
 };
 

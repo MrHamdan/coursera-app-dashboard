@@ -115,13 +115,14 @@ const CourseLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   const course: Course = useSelector(
-    (state: State) => state.courses.courseData[0]
+    (state: State) => state.courses.courseData
   );
 
   console.log(course);
 
   return (
-    <Box>
+    <div>
+      <Box>
       <NavbarCourse />
       <Container maxWidth="xl" sx={{ marginTop: "30px" }}>
         <Box sx={{ flexGrow: 1 }}>
@@ -180,29 +181,29 @@ const CourseLayout = ({ children }: { children: React.ReactNode }) => {
                                     marginTop: "-30px",
                                   }}
                                 >
-                                  {course?.courseWeek?.map((week) => (
+                                  {course?.courseWeeks?.map((week) => (
                                     <Tab
                                       key={week.id}
                                       label={
                                         <>
-                                          <Link href={`/course/week/${week.id}`}>
-                                          <Box sx={{ display: "flex" }}>
-                                            <span className="circle"></span>
-                                            <Typography
-                                              sx={{
-                                                textTransform: "none",
-                                                marginLeft: "10px",
-                                              }}
-                                            >
-                                              {week.weekTitle}
-                                            </Typography>
-                                          </Box>
+                                          <Link href={`/home/week/${week.id}`}>
+                                            <Box sx={{ display: "flex" }}>
+                                              <span className="circle"></span>
+                                              <Typography
+                                                sx={{
+                                                  textTransform: "none",
+                                                  marginLeft: "10px",
+                                                }}
+                                              >
+                                                {week.weekTitle}
+                                              </Typography>
+                                            </Box>
                                           </Link>
                                         </>
                                       }
                                       {...a11yProps(0)}
                                     />
-                                    
+
                                   ))}
                                 </Tabs>
                               </Box>
@@ -421,6 +422,7 @@ const CourseLayout = ({ children }: { children: React.ReactNode }) => {
         </Box>
       </Container>
     </Box>
+    </div>
   );
 };
 
