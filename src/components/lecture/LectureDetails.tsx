@@ -60,10 +60,7 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 }
 
 const LectureDetails = () => {
-  // console.log(courses);
-  // let getLesson = courses?.courseWeeks?.map((course):any => {
-  //   course.lectureResources.map(item => console.log(item, "hello busterd"))
-  // })
+  
 
   const [value, setValue] = React.useState(0);
 
@@ -72,7 +69,7 @@ const LectureDetails = () => {
   };
 
   const handleNext = () => {
-    // click next button to go to next tab if tab length is over then stop
+    
     if (value < 6) {
       setValue(value + 1);
     } else {
@@ -81,7 +78,7 @@ const LectureDetails = () => {
   };
 
   const handleBack = () => {
-    // click back button to go to previous tab if tab length is over then stop
+    
     if (value > 0) {
       setValue(value - 1);
     } else {
@@ -91,7 +88,7 @@ const LectureDetails = () => {
   return (
     <div>
       <Box>
-      {/* <NavbarCourse /> */}
+      
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
