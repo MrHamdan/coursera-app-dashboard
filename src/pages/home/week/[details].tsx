@@ -149,7 +149,7 @@ const Index = (courses: any, week: any) => {
           <Grid container spacing={2}>
             <Grid item xs={12} xl={3} md={4}>
               <Item>
-                <Box sx={{ textAlign: "left", marginLeft: "20px" }}>
+                <Box sx={{ textAlign: "left", marginLeft: "20px", marginTop:'20px' }}>
                   <Image
                     src="/assets/images/princetonuniversity.png"
                     width="80"
@@ -157,13 +157,13 @@ const Index = (courses: any, week: any) => {
                     alt="princetonuniversity"
                   />
                 </Box>
-                <Typography sx={{ textAlign: "left", marginLeft: "20px" }}>
+                <Typography sx={{ textAlign: "left", marginLeft: "20px", marginTop:'20px' }}>
                   Computer Science: Programming with a Purpose
                 </Typography>
                 <Typography sx={{ textAlign: "left", marginLeft: "20px" }}>
                   Princeton University
                 </Typography>
-                <Accordion>
+                <Accordion sx={{marginTop:'20px'}}>
                   <AccordionSummary
                     aria-controls="panel1a-content"
                     id="panel1a-header"
