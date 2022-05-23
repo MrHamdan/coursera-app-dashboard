@@ -380,7 +380,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
                 </Box>
               </Item>
             </Grid>
-            <Grid item xs={12} xl={9}>
+            <Grid item xs={12} xl={8}>
               <Item sx={{ boxShadow: "0" }}>
                 <TabPanel value={value} index={0}>
                  <Html/>

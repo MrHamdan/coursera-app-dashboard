@@ -19,23 +19,23 @@ const Html = () => {
         <div>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={8} xl={12} md={12}>
+        <Grid item xs={12} xl={12} md={12}>
           <Item sx={{marginTop:'50px', boxShadow: "0"}}>
-              <Typography sx={{fontSize:'40px', textAlign: 'left'}}>
+              <Typography sx={{fontSize:{xl:'40px', xs:'20px'}, textAlign: 'left'}}>
               Supplements for Lecture 1
               </Typography>
           </Item>
         </Grid>
-        <Grid item xs={4} xl={12} md={12}>
+        <Grid item xs={12} xl={12} md={12}>
           <Item sx={{marginTop:'80px', boxShadow: "0"}}>
-              <Typography sx={{fontSize:'40px', textAlign: 'left'}}>
+              <Typography sx={{fontSize:{xl:'40px', xs:'20px'}, textAlign: 'left'}}>
                 Lecture Supplements
               </Typography>
               <Box sx={{border:'3px solid #D0E3D4'}}></Box>
               <Box sx={{border:'2px solid black'}}></Box>
           </Item>
         </Grid>
-        <Grid item xs={4} xl={12} md={12}>
+        <Grid item xs={12} xl={12} md={12}>
           <Item sx={{marginTop:'40px', boxShadow: "0"}}>
               <Typography sx={{fontSize:'16px', textAlign:'left'}}>
               This lecture is based on Sections 1.1 and 1.2 (pages 1–49) in Computer Science: An Interdisciplinary Approach and <br/>
@@ -43,7 +43,7 @@ const Html = () => {
               </Typography>
           </Item>
         </Grid>
-        <Grid item xs={8} xl={12} md={12}>
+        <Grid item xs={12} xl={12} md={12}>
           <Item sx={{ boxShadow: "0",marginTop:'40px'}}>
               <Box sx={{display:'flex', alignItems: "center"}}>
                   <Box>
