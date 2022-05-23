@@ -126,7 +126,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
               </Item>
             </Grid>
             <Grid item xs={12} xl={4}>
-              <Item>
+              <Item sx={{ boxShadow: "0" }}>
                 <Button onClick={handleBack}>Back</Button>
                 <Button onClick={handleNext}>Next</Button>
               </Item>
@@ -172,6 +172,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
                             <Tab
                               label={
                                 <>
+                                  <Link href={`/home/lecture/html`}>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -198,6 +199,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
                                       </Typography>
                                     </Box>
                                   </Box>
+                                  </Link>
                                 </>
                               }
                               {...a11yProps(0)}
@@ -205,6 +207,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
                             <Tab
                               label={
                                 <>
+                                <Link href={`/home/lecture/video`}>
                                   <Box sx={{ display: "flex" }}>
                                     <Box>
                                       <PlayCircleOutlineIcon
@@ -225,6 +228,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
                                       </Typography>
                                     </Box>
                                   </Box>
+                                  </Link>
                                 </>
                               }
                               {...a11yProps(1)}
@@ -375,7 +379,7 @@ const LectureLayout = ({ children }: { children: React.ReactNode }) => {
               </Item>
             </Grid>
             <Grid item xs={12} xl={9}>
-              <Item>
+              <Item sx={{ boxShadow: "0" }}>
                 {/* <TabPanel value={value} index={0}>
                   Item One
                 </TabPanel>

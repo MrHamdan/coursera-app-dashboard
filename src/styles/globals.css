@@ -128,3 +128,7 @@ a {
 .MuiTab-root{
   align-items: flex-start !important;
 }
+
+.MuiBox-root{
+  padding: 0px !important;
+}

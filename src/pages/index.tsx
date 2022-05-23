@@ -14,7 +14,7 @@ import { Course } from "datatypes/coursetypes";
 import { Box } from "@mui/material";
 
 
-const Home: NextPage<{ courses: Course[] }> = (courses) => {
+const Home: NextPage<{ courses: Course }> = (courses) => {
   const dispatch = useDispatch();
 
 
@@ -41,7 +41,7 @@ const Home: NextPage<{ courses: Course[] }> = (courses) => {
 export default Home;
 
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://jsonkeeper.com/b/M6QQ");
   const courses: Course = await res.json();
   return {

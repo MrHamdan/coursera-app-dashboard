@@ -55,6 +55,9 @@ const ExploreNav = () => {
                   boxShadow: "0",
                   textAlign: "left",
                   marginLeft: "20px",
+                  '&:hover': {
+                    backgroundColor: "#F5F7F8",
+                  }
                 }}
               >
                 <Typography sx={{ color: "black" }}>

@@ -126,6 +126,7 @@ const MenuNav = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "left",
+                boxShadow: "0",
               }}
             >
               <Box>
