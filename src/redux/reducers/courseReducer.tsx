@@ -1,7 +1,5 @@
-
-
 const initialState = {
-  courseData: {},
+  coursesData: [],
 };
 
 export const courseReducer = (state: any = initialState, action: any): any => {

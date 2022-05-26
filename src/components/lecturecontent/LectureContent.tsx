@@ -105,7 +105,7 @@ function a11yProps(index: number) {
 }
 
 const LectureContent = ({ week }: any) => {
-  console.log(week, "wweekkksakkewkek");
+  console.log(week);
 
   return (
     <div>
@@ -113,225 +113,229 @@ const LectureContent = ({ week }: any) => {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} xl={12}>
-              <Item sx={{ padding: "0px !important" }}>
-                <Accordion
-                  sx={{
-                    border: "1px solid black",
-                    backgroundColor: "transparent",
-                  }}
-                >
-                  <AccordionSummary
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                    sx={{ backgroundColor: "transparent" }}
+              {week.map((weekdetail: any) => (
+                <Item key={weekdetail.id} sx={{ padding: "0px !important" }}>
+                  <Accordion
+                    sx={{
+                      border: "1px solid black",
+                      backgroundColor: "transparent",
+                    }}
                   >
-                    <Typography>{week?.lectureTitle}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Box sx={{ flexGrow: 1 }}>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                          <Item sx={{ boxShadow: "0" }}>
-                            <Box sx={{ flexGrow: 1 }}>
-                              <Grid container spacing={2}>
-                                <Grid item xs={12} xl={4}>
-                                  <Item sx={{ boxShadow: "0" }}>
-                                    <Box
-                                      sx={{
-                                        display: "flex",
-                                      }}
-                                    >
-                                      <Box>
-                                        <PlayCircleOutlineIcon />
-                                      </Box>
-                                      <Box>
-                                        <Typography
-                                          sx={{
-                                            marginLeft: "5px",
-                                            fontSize: "14px",
-                                            marginTop: "2px",
-                                          }}
-                                        >
-                                          {week.lectureVideos}
-                                        </Typography>
-                                      </Box>
-                                    </Box>
-                                  </Item>
-                                </Grid>
-                                <Grid item xs={12} xl={4}>
-                                  <Item sx={{ boxShadow: "0" }}>
-                                    <Box
-                                      sx={{
-                                        display: "flex",
-                                      }}
-                                    >
-                                      <Box>
-                                        <AutoStoriesIcon
-                                          sx={{
-                                            border: "1px solid lightgray",
-                                            borderRadius: "50%",
-                                            padding: "3px",
-                                          }}
-                                        />
-                                      </Box>
-                                      <Box>
-                                        <Typography
-                                          sx={{
-                                            marginLeft: "5px",
-                                            fontSize: "14px",
-                                            marginTop: "2px",
-                                          }}
-                                        >
-                                          {week.lectureSheet}
-                                        </Typography>
-                                      </Box>
-                                    </Box>
-                                  </Item>
-                                </Grid>
-                                <Grid item xs={12} xl={4}>
-                                  <Item sx={{ boxShadow: "0" }}>
-                                    <Box
-                                      sx={{
-                                        display: "flex",
-                                      }}
-                                    >
-                                      <Box>
-                                        <PlayCircleOutlineIcon />
-                                      </Box>
-                                      <Box>
-                                        <Typography
-                                          sx={{
-                                            marginLeft: "5px",
-                                            fontSize: "14px",
-                                            marginTop: "2px",
-                                          }}
-                                        >
-                                          {week.lectureAssignment}
-                                        </Typography>
-                                      </Box>
-                                    </Box>
-                                  </Item>
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sx={{ borderTop: "1px solid lightgray" }}
-                                >
-                                  <Item
-                                    sx={{
-                                      boxShadow: "0",
-                                      marginBottom: "30px",
-                                    }}
-                                  >
-                                    <Typography sx={{ textAlign: "left" }}>
-                                      {week.lectureDescription}
-                                    </Typography>
-                                  </Item>
-                                </Grid>
-                              </Grid>
-                            </Box>
-                          </Item>
-                        </Grid>
-                      </Grid>
-                    </Box>
-                    <Accordion
-                      sx={{ "&:hover": { border: "1px solid black" } }}
+                    <AccordionSummary
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                      sx={{ backgroundColor: "transparent" }}
                     >
-                      <AccordionSummary
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        sx={{
-                          borderBottom: "1px solid lightgray",
-                          "&:hover": { backgroundColor: "#F3F8FF" },
-                          backgroundColor: "transparent",
-                        }}
-                      >
-                        <Box sx={{ flexGrow: 1 }}>
-                          <Grid container spacing={2}>
-                            <Grid item xs={12} xl={8}>
-                              <Item
-                                sx={{
-                                  boxShadow: "0",
-                                  backgroundColor: "transparent",
-                                }}
-                              >
-                                <Typography sx={{ textAlign: "left" }}>
-                                  Lecture1: BASICPROGRAMMING CONCEPTS
-                                </Typography>
-                              </Item>
-                            </Grid>
-                            <Grid item xs={12} xl={4}>
-                              <Item
-                                sx={{
-                                  boxShadow: "0",
-                                  backgroundColor: "transparent",
-                                }}
-                              >
-                                <Typography>
-                                  2 graded assignments left
-                                </Typography>
-                              </Item>
-                            </Grid>
-                          </Grid>
-                        </Box>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Box sx={{ flexGrow: 1 }}>
-                          <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                              {week?.lectureResources?.map((lecture: any) => (
-                                <Link
-                                  key={lecture.id}
-                                  href={`/home/lecture/${lecture.id}`}
-                                >
-                                  <Item
-                                    sx={{
-                                      boxShadow: "0",
-                                      "&:hover": {
-                                        backgroundColor: "#F5F7F8",
-                                        cursor: "pointer",
-                                      },
-                                    }}
+                      <Typography>{weekdetail?.lectureTitle}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={2}>
+                          <Grid item xs={12}>
+                            <Item sx={{ boxShadow: "0" }}>
+                              <Box sx={{ flexGrow: 1 }}>
+                                <Grid container spacing={2}>
+                                  <Grid item xs={12} xl={4}>
+                                    <Item sx={{ boxShadow: "0" }}>
+                                      <Box
+                                        sx={{
+                                          display: "flex",
+                                        }}
+                                      >
+                                        <Box>
+                                          <PlayCircleOutlineIcon />
+                                        </Box>
+                                        <Box>
+                                          <Typography
+                                            sx={{
+                                              marginLeft: "5px",
+                                              fontSize: "14px",
+                                              marginTop: "2px",
+                                            }}
+                                          >
+                                            {weekdetail.lectureVideos}
+                                          </Typography>
+                                        </Box>
+                                      </Box>
+                                    </Item>
+                                  </Grid>
+                                  <Grid item xs={12} xl={4}>
+                                    <Item sx={{ boxShadow: "0" }}>
+                                      <Box
+                                        sx={{
+                                          display: "flex",
+                                        }}
+                                      >
+                                        <Box>
+                                          <AutoStoriesIcon
+                                            sx={{
+                                              border: "1px solid lightgray",
+                                              borderRadius: "50%",
+                                              padding: "3px",
+                                            }}
+                                          />
+                                        </Box>
+                                        <Box>
+                                          <Typography
+                                            sx={{
+                                              marginLeft: "5px",
+                                              fontSize: "14px",
+                                              marginTop: "2px",
+                                            }}
+                                          >
+                                            {weekdetail.lectureSheet}
+                                          </Typography>
+                                        </Box>
+                                      </Box>
+                                    </Item>
+                                  </Grid>
+                                  <Grid item xs={12} xl={4}>
+                                    <Item sx={{ boxShadow: "0" }}>
+                                      <Box
+                                        sx={{
+                                          display: "flex",
+                                        }}
+                                      >
+                                        <Box>
+                                          <PlayCircleOutlineIcon />
+                                        </Box>
+                                        <Box>
+                                          <Typography
+                                            sx={{
+                                              marginLeft: "5px",
+                                              fontSize: "14px",
+                                              marginTop: "2px",
+                                            }}
+                                          >
+                                            {weekdetail.lectureAssignment}
+                                          </Typography>
+                                        </Box>
+                                      </Box>
+                                    </Item>
+                                  </Grid>
+                                  <Grid
+                                    item
+                                    xs={12}
+                                    sx={{ borderTop: "1px solid lightgray" }}
                                   >
-                                    <Box
+                                    <Item
                                       sx={{
-                                        display: "flex",
-                                        alignItems: "center",
+                                        boxShadow: "0",
+                                        marginBottom: "30px",
                                       }}
                                     >
-                                      <Box>
-                                        <AutoStoriesIcon
+                                      <Typography sx={{ textAlign: "left" }}>
+                                        {weekdetail.lectureDescription}
+                                      </Typography>
+                                    </Item>
+                                  </Grid>
+                                </Grid>
+                              </Box>
+                            </Item>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                      <Accordion
+                        sx={{ "&:hover": { border: "1px solid black" } }}
+                      >
+                        <AccordionSummary
+                          aria-controls="panel2a-content"
+                          id="panel2a-header"
+                          sx={{
+                            borderBottom: "1px solid lightgray",
+                            "&:hover": { backgroundColor: "#F3F8FF" },
+                            backgroundColor: "transparent",
+                          }}
+                        >
+                          <Box sx={{ flexGrow: 1 }}>
+                            <Grid container spacing={2}>
+                              <Grid item xs={12} xl={8}>
+                                <Item
+                                  sx={{
+                                    boxShadow: "0",
+                                    backgroundColor: "transparent",
+                                  }}
+                                >
+                                  <Typography sx={{ textAlign: "left" }}>
+                                    Lecture1: BASICPROGRAMMING CONCEPTS
+                                  </Typography>
+                                </Item>
+                              </Grid>
+                              <Grid item xs={12} xl={4}>
+                                <Item
+                                  sx={{
+                                    boxShadow: "0",
+                                    backgroundColor: "transparent",
+                                  }}
+                                >
+                                  <Typography>
+                                    2 graded assignments left
+                                  </Typography>
+                                </Item>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Box sx={{ flexGrow: 1 }}>
+                            <Grid container spacing={2}>
+                              <Grid item xs={12}>
+                                {weekdetail?.lectureResources?.map(
+                                  (lecture: any) => (
+                                    <Link
+                                      key={lecture.id}
+                                      href={`/home/lecture/${lecture.id}`}
+                                    >
+                                      <Item
+                                        sx={{
+                                          boxShadow: "0",
+                                          "&:hover": {
+                                            backgroundColor: "#F5F7F8",
+                                            cursor: "pointer",
+                                          },
+                                        }}
+                                      >
+                                        <Box
                                           sx={{
-                                            border: "2px solid #666666",
-                                            borderRadius: "50%",
-                                            padding: "3px",
-                                          }}
-                                        />
-                                      </Box>
-                                      <Box>
-                                        <Typography
-                                          sx={{
-                                            textAlign: "left",
-                                            marginLeft: "20px",
+                                            display: "flex",
+                                            alignItems: "center",
                                           }}
                                         >
-                                          {lecture.resourceTitle} <br />{" "}
-                                          {lecture.resourceType}.
-                                          {lecture.resourceDuration}
-                                        </Typography>
-                                      </Box>
-                                    </Box>
-                                  </Item>
-                                </Link>
-                              ))}
+                                          <Box>
+                                            <AutoStoriesIcon
+                                              sx={{
+                                                border: "2px solid #666666",
+                                                borderRadius: "50%",
+                                                padding: "3px",
+                                              }}
+                                            />
+                                          </Box>
+                                          <Box>
+                                            <Typography
+                                              sx={{
+                                                textAlign: "left",
+                                                marginLeft: "20px",
+                                              }}
+                                            >
+                                              {lecture.resourceTitle} <br />{" "}
+                                              {lecture.resourceType}.
+                                              {lecture.resourceDuration}
+                                            </Typography>
+                                          </Box>
+                                        </Box>
+                                      </Item>
+                                    </Link>
+                                  )
+                                )}
+                              </Grid>
                             </Grid>
-                          </Grid>
-                        </Box>
-                      </AccordionDetails>
-                    </Accordion>
-                  </AccordionDetails>
-                </Accordion>
-              </Item>
+                          </Box>
+                        </AccordionDetails>
+                      </Accordion>
+                    </AccordionDetails>
+                  </Accordion>
+                </Item>
+              ))}
             </Grid>
           </Grid>
         </Box>

@@ -67,6 +67,9 @@ const Index = ({ week, lecture }: any) => {
   console.log(week);
   console.log(lecture);
 
+  const router = useRouter();
+  console.log(router);
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -251,22 +254,26 @@ const Index = ({ week, lecture }: any) => {
 export default Index;
 
 export async function getStaticPaths() {
-  const res = await fetch("https://jsonkeeper.com/b/LAPC");
-  const weeks: Course = await res.json();
+  const res = await fetch("https://jsonkeeper.com/b/87F3");
+  const courses: Course[] = await res.json();
 
-  // const paths = weeks.courseWeeks.map((item: any) => {
-  //   const lecture = item.lectureResources.map((item: any) => ({
-  //     params: {
-  //       id: item.id,
-  //     }
-  //   }));
-  // })
+  let weekId: string[] = [];
 
-  const paths = weeks.courseWeeks.map((week: any) => ({
+  courses.map((course) =>
+    course.courseWeeks.map((week) =>
+      week.lectureResources.forEach((resource) => {
+        weekId.push(resource.id.toString());
+      })
+    )
+  );
+
+  const paths = weekId.map((item) => ({
     params: {
-      id: week.id.toString(),
+      id: "1",
     },
   }));
+
+  console.log(paths);
 
   return {
     paths,
@@ -275,7 +282,8 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
-  const res = await fetch("https://jsonkeeper.com/b/LAPC");
+  console.log(context);
+  const res = await fetch("https://jsonkeeper.com/b/87F3");
   const courses: Course = await res.json();
   const week = courses?.courseWeeks?.find(
     (item: any) => parseInt(item.id) === parseInt(context.params?.id)

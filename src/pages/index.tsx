@@ -10,16 +10,17 @@ import Footer from "components/shared/Footer";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import CourseHome from "components/home/CourseHome";
-import { Course } from "datatypes/coursetypes";
-import { Box } from "@mui/material";
 
-const Home: NextPage<{ courses: Course }> = (courses) => {
+import { Box } from "@mui/material";
+import { Course } from "datatypes/coursetypes";
+
+const Home: NextPage<{ courses: Course[] }> = ({ courses }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch({
       type: "COURSE_FETCH",
-      payload: courses.courses,
+      payload: courses,
     });
   }, [courses, dispatch]);
 
@@ -27,7 +28,7 @@ const Home: NextPage<{ courses: Course }> = (courses) => {
     <div>
       <Box>
         <Navbar />
-        <CourseHome />
+        <CourseHome courses={courses}/>
         <Footer />
       </Box>
     </div>
@@ -37,8 +38,8 @@ const Home: NextPage<{ courses: Course }> = (courses) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("https://jsonkeeper.com/b/LAPC");
-  const courses: Course = await res.json();
+  const res = await fetch("https://jsonkeeper.com/b/87F3");
+  const courses: Course[] = await res.json();
   return {
     props: {
       courses,

@@ -33,8 +33,10 @@ export interface CourseWeek {
 }
 
 export interface LectureResource {
-  id:               number;
-  resourceTitle:    string;
-  resourceType:     string;
-  resourceDuration: string;
+  id:                   number;
+  resourceTitle:        string;
+  resourceDescription?: string;
+  resourceType:         string;
+  resourceDuration:     string;
+  resourceVideoLink?:   string;
 }

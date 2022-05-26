@@ -28,7 +28,7 @@ import LectureContent from "components/lecturecontent/LectureContent";
 
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "redux/reducers";
-import { Course } from "datatypes/coursetypes";
+import { Course, CourseWeek } from "datatypes/coursetypes";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
 
@@ -109,15 +109,13 @@ function a11yProps(index: number) {
   };
 }
 
-const LectureDetails = ({ courses, week }: any) => {
-  const dispatch = useDispatch();
+interface Props {
+  courses: Course[];
+  week: CourseWeek;
+}
 
-  useEffect(() => {
-    dispatch({
-      type: "COURSE_FETCH",
-      payload: courses.courses,
-    });
-  }, [courses, dispatch]);
+const LectureDetails = ({ courses, week }: Props) => {
+  // const dispatch = useDispatch();
 
   // console.log(courses, "asdasdasdasdasdsadasdas");
   // console.log(week, "TTTTTTTTTTTTTT");
@@ -204,31 +202,33 @@ const LectureDetails = ({ courses, week }: any) => {
                                       marginTop: "-30px",
                                     }}
                                   >
-                                    {courses?.courseWeeks?.map((week: any) => (
-                                      <Tab
-                                        key={week.id}
-                                        label={
-                                          <>
-                                            <Link
-                                              href={`/home/week/${week.id}`}
-                                            >
-                                              <Box sx={{ display: "flex" }}>
-                                                <span className="circle"></span>
-                                                <Typography
-                                                  sx={{
-                                                    textTransform: "none",
-                                                    marginLeft: "10px",
-                                                  }}
-                                                >
-                                                  {week.weekTitle}
-                                                </Typography>
-                                              </Box>
-                                            </Link>
-                                          </>
-                                        }
-                                        {...a11yProps(0)}
-                                      />
-                                    ))}
+                                    {courses.map((course) =>
+                                      course.courseWeeks?.map((week: any) => (
+                                        <Tab
+                                          key={week.id}
+                                          label={
+                                            <>
+                                              <Link
+                                                href={`/home/week/${week.id.toString()}`}
+                                              >
+                                                <Box sx={{ display: "flex" }}>
+                                                  <span className="circle"></span>
+                                                  <Typography
+                                                    sx={{
+                                                      textTransform: "none",
+                                                      marginLeft: "10px",
+                                                    }}
+                                                  >
+                                                    {week.weekTitle}
+                                                  </Typography>
+                                                </Box>
+                                              </Link>
+                                            </>
+                                          }
+                                          {...a11yProps(0)}
+                                        />
+                                      ))
+                                    )}
                                   </Tabs>
                                 </Box>
                               </Item>
