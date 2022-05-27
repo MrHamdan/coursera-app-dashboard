@@ -1,6 +1,6 @@
 export interface Course {
-  id:                number;
-  progress:          number;
+  id:                string;
+  progress:          string;
   title:             string;
   rating:            string;
   instructorName:    string;
@@ -20,7 +20,7 @@ export interface Course {
 }
 
 export interface CourseWeek {
-  id:                        number;
+  id:                        string;
   weekTitle:                 string;
   lectureTitle:              string;
   lectureVideos:             string;
@@ -33,7 +33,7 @@ export interface CourseWeek {
 }
 
 export interface LectureResource {
-  id:                   number;
+  id:                   string;
   resourceTitle:        string;
   resourceDescription?: string;
   resourceType:         string;

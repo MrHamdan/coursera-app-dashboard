@@ -13,6 +13,9 @@ import { Course } from "datatypes/coursetypes";
 import { useSelector } from "react-redux";
 import { State } from "redux/reducers";
 
+
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -54,195 +57,183 @@ function a11yProps(index: number) {
   };
 }
 
-type Props = {
-  courses: Course[];
-};
-
-const CourseDetailLinks = ({ courses }: Props) => {
+const CourseDetailLinks = (courses:any) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const course: Course = useSelector(
-    (state: State) => state.courses.courseData
-  );
+const course: Course = useSelector(
+  (state: State) => state.courses.courseData
+);
 
   // console.log(course);
   return (
     <div>
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Container maxWidth="xl">
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-              variant="scrollable"
-              sx={{
-                "& .MuiTabs-indicator": {
-                  backgroundColor: "#fff",
-                  borderBottom: "0px !important",
-                },
-              }}
-            >
-              <Tab
-                label="About"
-                {...a11yProps(0)}
-                sx={{ textTransform: "none" }}
-              />
-              <Tab
-                label="Instructors"
-                {...a11yProps(1)}
-                sx={{ textTransform: "none" }}
-              />
-              <Tab
-                label="Syllabus"
-                {...a11yProps(2)}
-                sx={{ textTransform: "none" }}
-              />
-              <Tab
-                label="Reviews"
-                {...a11yProps(3)}
-                sx={{ textTransform: "none" }}
-              />
-              <Tab
-                label="Enrollment Options"
-                {...a11yProps(4)}
-                sx={{ textTransform: "none" }}
-              />
-              <Tab
-                label="FAQ"
-                {...a11yProps(5)}
-                sx={{ textTransform: "none" }}
-              />
-            </Tabs>
-          </Container>
-        </Box>
-
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Container maxWidth="xl">
-          <TabPanel value={value} index={0}>
-            {courses.map((course) => (
-              <Box key={course.id} sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} xl={8}>
-                    <Item sx={{ boxShadow: "0" }}>
-                      <Typography sx={{ textAlign: "left", fontSize: "24px" }}>
-                        About This Course
-                      </Typography>
-                      <Typography
-                        sx={{
-                          textAlign: "left",
-                          fontSize: "16px",
-                          fontWeight: "bold",
-                          marginBottom: "20px",
-                        }}
-                      >
-                        {course?.recentViews} recent views
-                      </Typography>
-                      <Typography sx={{ textAlign: "left", fontSize: "18px" }}>
-                        {course?.courseDescription}
-                      </Typography>
-                    </Item>
-                  </Grid>
-                  <Grid item xs={12} xl={4}>
-                    <Item sx={{ boxShadow: "0" }}>
-                      <CourseShortDetail courses={courses}/>
-                    </Item>
-                  </Grid>
-                  <Grid item xs={12} xl={8}>
-                    <Item
-                      sx={{
-                        padding: "20px",
-                        boxShadow: "0",
-                        border: "1px solid lightgray",
-                      }}
-                    >
-                      <Typography
-                        sx={{ textAlign: { xl: "left", xs: "center" } }}
-                      >
-                        SKILLS YOU WILL GAIN
-                      </Typography>
-                      <Box sx={{ flexGrow: 1, marginTop: "20px" }}>
-                        <Grid container spacing={2}>
-                          <Grid item xs={12} xl={3} md={3}>
-                            <Item sx={{ boxShadow: "0" }}>
-                              <Typography
-                                sx={{
-                                  backgroundColor: "lightgray",
-                                  borderRadius: "50px",
-                                  padding: "8px",
-                                }}
-                              >
-                                {course?.skillOne}
-                              </Typography>
-                            </Item>
-                          </Grid>
-                          <Grid item xs={12} xl={3} md={3}>
-                            <Item sx={{ boxShadow: "0" }}>
-                              <Typography
-                                sx={{
-                                  backgroundColor: "lightgray",
-                                  borderRadius: "50px",
-                                  padding: "8px",
-                                }}
-                              >
-                                {course?.skillTwo}
-                              </Typography>
-                            </Item>
-                          </Grid>
-                          <Grid item xs={12} xl={3} md={3}>
-                            <Item sx={{ boxShadow: "0" }}>
-                              <Typography
-                                sx={{
-                                  backgroundColor: "lightgray",
-                                  borderRadius: "50px",
-                                  padding: "8px",
-                                }}
-                              >
-                                {course?.skillThree}
-                              </Typography>
-                            </Item>
-                          </Grid>
-                          <Grid item xs={12} xl={3} md={3}>
-                            <Item sx={{ boxShadow: "0" }}>
-                              <Typography
-                                sx={{
-                                  backgroundColor: "lightgray",
-                                  borderRadius: "50px",
-                                  padding: "8px",
-                                }}
-                              >
-                                {course?.skillFour}
-                              </Typography>
-                            </Item>
-                          </Grid>
-                        </Grid>
-                      </Box>
-                    </Item>
-                  </Grid>
-                </Grid>
-              </Box>
-            ))}
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            Instructors
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Syllabus
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            Reviews
-          </TabPanel>
-          <TabPanel value={value} index={4}>
-            Enrollment Options
-          </TabPanel>
-          <TabPanel value={value} index={5}>
-            FAQ
-          </TabPanel>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+            variant="scrollable"
+            sx={{
+              "& .MuiTabs-indicator": {
+                backgroundColor: "#fff",
+                borderBottom: "0px !important",
+              },
+            }}
+          >
+            <Tab
+              label="About"
+              {...a11yProps(0)}
+              sx={{ textTransform: "none" }}
+            />
+            <Tab
+              label="Instructors"
+              {...a11yProps(1)}
+              sx={{ textTransform: "none" }}
+            />
+            <Tab
+              label="Syllabus"
+              {...a11yProps(2)}
+              sx={{ textTransform: "none" }}
+            />
+            <Tab
+              label="Reviews"
+              {...a11yProps(3)}
+              sx={{ textTransform: "none" }}
+            />
+            <Tab
+              label="Enrollment Options"
+              {...a11yProps(4)}
+              sx={{ textTransform: "none" }}
+            />
+            <Tab label="FAQ" {...a11yProps(5)} sx={{ textTransform: "none" }} />
+          </Tabs>
         </Container>
       </Box>
+
+      <Container maxWidth="xl">
+        <TabPanel value={value} index={0}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} xl={8}>
+                <Item sx={{ boxShadow: "0" }}>
+                  <Typography sx={{ textAlign: "left", fontSize: "24px" }}>
+                    About This Course
+                  </Typography>
+                  <Typography
+                    sx={{
+                      textAlign: "left",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {course?.recentViews} recent views
+                  </Typography>
+                  <Typography sx={{ textAlign: "left", fontSize: "18px" }}>
+                    {course?.courseDescription}
+                  </Typography>
+                </Item>
+              </Grid>
+              <Grid item xs={12} xl={4}>
+                <Item sx={{ boxShadow: "0" }}>
+                  <CourseShortDetail />
+                </Item>
+              </Grid>
+              <Grid item xs={12} xl={8}>
+                <Item
+                  sx={{
+                    padding: "20px",
+                    boxShadow: "0",
+                    border: "1px solid lightgray",
+                  }}
+                >
+                  <Typography sx={{ textAlign: { xl: "left", xs: "center" } }}>
+                    SKILLS YOU WILL GAIN
+                  </Typography>
+                  <Box sx={{ flexGrow: 1, marginTop: "20px" }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            {course?.skillOne}
+                          </Typography>
+                        </Item>
+                      </Grid>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            {course?.skillTwo}
+                          </Typography>
+                        </Item>
+                      </Grid>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            {course?.skillThree}
+                          </Typography>
+                        </Item>
+                      </Grid>
+                      <Grid item xs={12} xl={3} md={3}>
+                        <Item sx={{ boxShadow: "0" }}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "lightgray",
+                              borderRadius: "50px",
+                              padding: "8px",
+                            }}
+                          >
+                            {course?.skillFour}
+                          </Typography>
+                        </Item>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Item>
+              </Grid>
+            </Grid>
+          </Box>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Instructors
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Syllabus
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          Reviews
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          Enrollment Options
+        </TabPanel>
+        <TabPanel value={value} index={5}>
+          FAQ
+        </TabPanel>
+      </Container>
+    </Box>
     </div>
   );
 };

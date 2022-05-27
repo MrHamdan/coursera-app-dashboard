@@ -29,7 +29,7 @@ const QuizCourse = (props:Props) => {
         .then(res=>res.json())
         .then(data=>setAllCourses(data))
     },[])
-    console.log(allCourses);
+    // console.log(allCourses);
     
     useEffect(()=>{
         const courseBylevel=(allCourses).filter(course=>course.level === level)

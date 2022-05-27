@@ -20,134 +20,126 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+const CourseShortDetail = () => {
 
-type Props = {
-  courses: Course[];
-};
-
-const CourseShortDetail = ({ courses }: Props) => {
-  const course: Course = useSelector(
-    (state: State) => state.courses.courseData
-  );
+const course: Course = useSelector(
+  (state: State) => state.courses.courseData
+);
 
   return (
     <div>
-      {courses.map((course) => (
-        <Box key={course.id} sx={{ flexGrow: 1 }}>
-          <Grid
-            container
-            spacing={2}
-            sx={{ display: "flex", alignItems: "center" }}
-          >
-            <Grid item xs={2}>
-              <Item sx={{ boxShadow: "0" }}>
-                <CalendarMonthIcon
-                  sx={{
-                    border: "2px solid lightgray",
-                    borderRadius: "50%",
-                    fontSize: "45px",
-                    padding: "8px",
-                    color: "#f58025",
-                  }}
-                />
-              </Item>
-            </Grid>
-            <Grid item xs={10}>
-              <Item sx={{ boxShadow: "0" }}>
-                <Typography sx={{ textAlign: "left" }}>
-                  {course?.courseDeadline} <br />
-                  Reset deadlines in accordance to your schedule.
-                </Typography>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item sx={{ boxShadow: "0" }}>
-                <LanguageIcon
-                  sx={{
-                    border: "2px solid lightgray",
-                    borderRadius: "50%",
-                    fontSize: "45px",
-                    padding: "8px",
-                    color: "#f58025",
-                  }}
-                />
-              </Item>
-            </Grid>
-            <Grid item xs={10}>
-              <Item sx={{ boxShadow: "0" }}>
-                <Typography sx={{ textAlign: "left" }}>
-                  {course?.courseState} <br />
-                  Start instantly and learn at your own schedule.
-                </Typography>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item sx={{ boxShadow: "0" }}>
-                <SignalCellularAltIcon
-                  sx={{
-                    border: "2px solid lightgray",
-                    borderRadius: "50%",
-                    fontSize: "45px",
-                    padding: "8px",
-                    color: "#f58025",
-                  }}
-                />
-              </Item>
-            </Grid>
-            <Grid item xs={10}>
-              <Item sx={{ boxShadow: "0" }}>
-                <Typography sx={{ textAlign: "left" }}>
-                  {course?.courseLevel}
-                </Typography>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item sx={{ boxShadow: "0" }}>
-                <AccessTimeIcon
-                  sx={{
-                    border: "2px solid lightgray",
-                    borderRadius: "50%",
-                    fontSize: "45px",
-                    padding: "8px",
-                    color: "#f58025",
-                  }}
-                />
-              </Item>
-            </Grid>
-            <Grid item xs={10}>
-              <Item sx={{ boxShadow: "0" }}>
-                <Typography sx={{ textAlign: "left" }}>
-                  {course?.courseDuration}
-                </Typography>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item sx={{ boxShadow: "0" }}>
-                <ChatOutlinedIcon
-                  sx={{
-                    border: "2px solid lightgray",
-                    borderRadius: "50%",
-                    fontSize: "45px",
-                    padding: "8px",
-                    color: "#f58025",
-                  }}
-                />
-              </Item>
-            </Grid>
-            <Grid item xs={10}>
-              <Item sx={{ boxShadow: "0" }}>
-                <Typography sx={{ textAlign: "left" }}>
-                  {course?.courseLanguage}
-                  <Typography sx={{ fontSize: "14px" }}>
-                    Subtitles: Arabic, French, Portuguese (European), Italian,
-                    Vietnamese, German, Russian, English, Spanish
-                  </Typography>
-                </Typography>
-              </Item>
-            </Grid>
-          </Grid>
-        </Box>
-      ))}
+      <Box sx={{ flexGrow: 1 }}>
+      <Grid
+        container
+        spacing={2}
+        sx={{ display: "flex", alignItems: "center" }}
+      >
+        <Grid item xs={2}>
+          <Item sx={{ boxShadow: "0" }}>
+            <CalendarMonthIcon
+              sx={{
+                border: "2px solid lightgray",
+                borderRadius: "50%",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
+              }}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={10}>
+          <Item sx={{ boxShadow: "0" }}>
+            <Typography sx={{ textAlign: "left" }}>
+              {course?.courseDeadline} <br />
+              Reset deadlines in accordance to your schedule.
+            </Typography>
+          </Item>
+        </Grid>
+        <Grid item xs={2}>
+          <Item sx={{ boxShadow: "0" }}>
+            <LanguageIcon
+              sx={{
+                border: "2px solid lightgray",
+                borderRadius: "50%",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
+              }}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={10}>
+          <Item sx={{ boxShadow: "0" }}>
+            <Typography sx={{ textAlign: "left" }}>
+              {course?.courseState} <br />
+              Start instantly and learn at your own schedule.
+            </Typography>
+          </Item>
+        </Grid>
+        <Grid item xs={2}>
+          <Item sx={{ boxShadow: "0" }}>
+            <SignalCellularAltIcon
+              sx={{
+                border: "2px solid lightgray",
+                borderRadius: "50%",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
+              }}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={10}>
+          <Item sx={{ boxShadow: "0" }}>
+            <Typography sx={{ textAlign: "left" }}>{course?.courseLevel}</Typography>
+          </Item>
+        </Grid>
+        <Grid item xs={2}>
+          <Item sx={{ boxShadow: "0" }}>
+            <AccessTimeIcon
+              sx={{
+                border: "2px solid lightgray",
+                borderRadius: "50%",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
+              }}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={10}>
+          <Item sx={{ boxShadow: "0" }}>
+            <Typography sx={{ textAlign: "left" }}>
+              {course?.courseDuration}
+            </Typography>
+          </Item>
+        </Grid>
+        <Grid item xs={2}>
+          <Item sx={{ boxShadow: "0" }}>
+            <ChatOutlinedIcon
+              sx={{
+                border: "2px solid lightgray",
+                borderRadius: "50%",
+                fontSize: "45px",
+                padding: "8px",
+                color: "#f58025",
+              }}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={10}>
+          <Item sx={{ boxShadow: "0" }}>
+            <Typography sx={{ textAlign: "left" }}>
+              {course?.courseLanguage} 
+              <Typography sx={{ fontSize: "14px" }}>
+                Subtitles: Arabic, French, Portuguese (European), Italian,
+                Vietnamese, German, Russian, English, Spanish
+              </Typography>
+            </Typography>
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
     </div>
   );
 };

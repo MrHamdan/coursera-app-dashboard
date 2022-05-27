@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import Html from "components/html/Html";
 import Video from "components/video/Video";
 import { Course } from "datatypes/coursetypes";
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -63,12 +63,9 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   console.info("You clicked a breadcrumb.");
 }
 
-const Index = ({ week, lecture }: any) => {
-  console.log(week);
-  console.log(lecture);
-
-  const router = useRouter();
-  console.log(router);
+const Index = ({ weeks, lecture }: any) => {
+  console.log(weeks);
+  //   console.log(lecture);
 
   const [value, setValue] = React.useState(0);
 
@@ -172,43 +169,44 @@ const Index = ({ week, lecture }: any) => {
                                 borderColor: "divider",
                               }}
                             >
-                              {week.lectureResources.map((item: any) => (
-                                <Tab
-                                  key={item.id}
-                                  label={
-                                    <>
-                                      <Box
-                                        sx={{
-                                          display: "flex",
-                                          alignItems: "center",
-                                        }}
-                                      >
-                                        <Box>
-                                          <PlayCircleOutlineIcon
-                                            sx={{ color: "gray" }}
-                                          />
+                              {weeks.lectureResources.map((item: any) => (
+                                <Link key={item.id} href={``}>
+                                  <Tab
+                                    label={
+                                      <>
+                                        <Box
+                                          sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                          }}
+                                        >
+                                          <Box>
+                                            <PlayCircleOutlineIcon
+                                              sx={{ color: "gray" }}
+                                            />
+                                          </Box>
+                                          <Box>
+                                            <Typography
+                                              sx={{
+                                                textAlign: "left",
+                                                fontSize: "14px",
+                                                textTransform: "none",
+                                                marginLeft: "10px",
+                                              }}
+                                            >
+                                              <span className="reading">
+                                                {item.resourceType}
+                                              </span>
+                                              : {item.resourceTitle} <br />{" "}
+                                              {item.resourceDuration}
+                                            </Typography>
+                                          </Box>
                                         </Box>
-                                        <Box>
-                                          <Typography
-                                            sx={{
-                                              textAlign: "left",
-                                              fontSize: "14px",
-                                              textTransform: "none",
-                                              marginLeft: "10px",
-                                            }}
-                                          >
-                                            <span className="reading">
-                                              {item.resourceType}
-                                            </span>
-                                            : {item.resourceTitle} <br />{" "}
-                                            {item.resourceDuration}
-                                          </Typography>
-                                        </Box>
-                                      </Box>
-                                    </>
-                                  }
-                                  {...a11yProps(0)}
-                                />
+                                      </>
+                                    }
+                                    {...a11yProps(0)}
+                                  />
+                                </Link>
                               ))}
                             </Tabs>
                           </Box>
@@ -254,24 +252,18 @@ const Index = ({ week, lecture }: any) => {
 export default Index;
 
 export async function getStaticPaths() {
-  const res = await fetch("https://jsonkeeper.com/b/87F3");
-  const courses: Course[] = await res.json();
+  const res = await fetch("https://jsonkeeper.com/b/21U8");
+  const courses: Course = await res.json();
 
-  let weekId: string[] = [];
-
-  courses.map((course) =>
-    course.courseWeeks.map((week) =>
-      week.lectureResources.forEach((resource) => {
-        weekId.push(resource.id.toString());
-      })
+  const paths = courses.courseWeeks
+    .map((week) =>
+      week?.lectureResources?.map((lecture) => ({
+        params: {
+          id: lecture.id,
+        },
+      }))
     )
-  );
-
-  const paths = weekId.map((item) => ({
-    params: {
-      id: "1",
-    },
-  }));
+    .flat();
 
   console.log(paths);
 
@@ -282,19 +274,17 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
-  console.log(context);
-  const res = await fetch("https://jsonkeeper.com/b/87F3");
+  const res = await fetch("https://jsonkeeper.com/b/21U8");
   const courses: Course = await res.json();
-  const week = courses?.courseWeeks?.find(
-    (item: any) => parseInt(item.id) === parseInt(context.params?.id)
-  );
+  const weeks = courses?.courseWeeks?.find((week) => week.id);
 
-  const lecture = week?.lectureResources?.find(
-    (item: any) => parseInt(item.id) === parseInt(context.params?.id)
-  );
+  const lecture = weeks?.lectureResources?.find((resource) => resource.id);
+
+  // console.log(lecture);
+
   return {
     props: {
-      week,
+      weeks,
       lecture,
     },
   };

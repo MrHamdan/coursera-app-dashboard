@@ -24,7 +24,7 @@ const ResultsHome = () => {
     let intermediate:number = 0;
     let advanced:number = 0;
     let correctAnswerArray:string[]=[];
-    console.log(Array(answer));
+    // console.log(Array(answer));
     
     answer?.forEach((element)=>{
             element.options.forEach((option)=>{

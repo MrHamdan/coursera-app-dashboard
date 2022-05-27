@@ -28,7 +28,7 @@ import LectureContent from "components/lecturecontent/LectureContent";
 
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "redux/reducers";
-import { Course, CourseWeek } from "datatypes/coursetypes";
+import { Course } from "datatypes/coursetypes";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
 
@@ -109,16 +109,17 @@ function a11yProps(index: number) {
   };
 }
 
-interface Props {
-  courses: Course[];
-  week: CourseWeek;
-}
+const LectureDetails = ({ courses, week }: any) => {
+  const dispatch = useDispatch();
 
-const LectureDetails = ({ courses, week }: Props) => {
-  // const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({
+      type: "COURSE_FETCH",
+      payload: courses.courses,
+    });
+  }, [courses, dispatch]);
 
-  // console.log(courses, "asdasdasdasdasdsadasdas");
-  // console.log(week, "TTTTTTTTTTTTTT");
+  
 
   const [value, setValue] = React.useState(0);
 
@@ -202,33 +203,31 @@ const LectureDetails = ({ courses, week }: Props) => {
                                       marginTop: "-30px",
                                     }}
                                   >
-                                    {courses.map((course) =>
-                                      course.courseWeeks?.map((week: any) => (
-                                        <Tab
-                                          key={week.id}
-                                          label={
-                                            <>
-                                              <Link
-                                                href={`/home/week/${week.id.toString()}`}
-                                              >
-                                                <Box sx={{ display: "flex" }}>
-                                                  <span className="circle"></span>
-                                                  <Typography
-                                                    sx={{
-                                                      textTransform: "none",
-                                                      marginLeft: "10px",
-                                                    }}
-                                                  >
-                                                    {week.weekTitle}
-                                                  </Typography>
-                                                </Box>
-                                              </Link>
-                                            </>
-                                          }
-                                          {...a11yProps(0)}
-                                        />
-                                      ))
-                                    )}
+                                    {courses?.courseWeeks?.map((weekModule: any) => (
+                                      <Tab
+                                        key={weekModule.id}
+                                        label={
+                                          <>
+                                            <Link
+                                              href={`/home/week/${weekModule.id}`}
+                                            >
+                                              <Box sx={{ display: "flex" }}>
+                                                <span className="circle"></span>
+                                                <Typography
+                                                  sx={{
+                                                    textTransform: "none",
+                                                    marginLeft: "10px",
+                                                  }}
+                                                >
+                                                  {weekModule.weekTitle}
+                                                </Typography>
+                                              </Box>
+                                            </Link>
+                                          </>
+                                        }
+                                        {...a11yProps(0)}
+                                      />
+                                    ))}
                                   </Tabs>
                                 </Box>
                               </Item>
