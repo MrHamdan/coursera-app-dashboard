@@ -169,8 +169,11 @@ const Index = ({ weeks, lecture }: any) => {
                                 borderColor: "divider",
                               }}
                             >
-                              {weeks.lectureResources.map((item: any) => (
-                                <Link key={item.id} href={``}>
+                              {weeks?.lectureResources?.map((item: any) => (
+                                <Link
+                                  key={item.id}
+                                  href={`/home/lecture/${item.id}`}
+                                >
                                   <Tab
                                     label={
                                       <>
@@ -219,22 +222,22 @@ const Index = ({ weeks, lecture }: any) => {
               <Grid item xs={12} xl={8}>
                 <Item sx={{ boxShadow: "0" }}>
                   <TabPanel value={value} index={0}>
-                    <Html lecture={lecture} />
+                    {/* <Html lecture={lecture} /> */}
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                    <Video lecture={lecture} />
+                    {/* <Video lecture={lecture} /> */}
                   </TabPanel>
                   <TabPanel value={value} index={2}>
-                    <Video lecture={lecture} />
+                    {/* <Video lecture={lecture} /> */}
                   </TabPanel>
                   <TabPanel value={value} index={3}>
-                    <Video lecture={lecture} />
+                    {/* <Video lecture={lecture} /> */}
                   </TabPanel>
                   <TabPanel value={value} index={4}>
-                    <Video lecture={lecture} />
+                    {/* <Video lecture={lecture} /> */}
                   </TabPanel>
                   <TabPanel value={value} index={5}>
-                    <Html lecture={lecture} />
+                    {/* <Html lecture={lecture} /> */}
                   </TabPanel>
                   <TabPanel value={value} index={6}>
                     Item Seven
@@ -276,16 +279,16 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async (context: any) => {
   const res = await fetch("https://jsonkeeper.com/b/21U8");
   const courses: Course = await res.json();
-  const weeks = courses?.courseWeeks?.find((week) => week.id);
 
-  const lecture = weeks?.lectureResources?.find((resource) => resource.id);
+  const weeks = courses?.courseWeeks?.find(
+    (lecture) => lecture
+  );
 
-  // console.log(lecture);
+  console.log(weeks);
 
   return {
     props: {
       weeks,
-      lecture,
     },
   };
 };
