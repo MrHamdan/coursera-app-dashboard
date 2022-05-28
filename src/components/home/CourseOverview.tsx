@@ -26,13 +26,22 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   console.info("You clicked a breadcrumb.");
 }
 
-const CourseOverview = () => {
+type Props = {
+  course: Course;
+}
+
+const CourseOverview = (props:Props) => {
+  const { course } = props;
+
+  
   const [value, setValue] = React.useState<number | null>();
   // console.log(course);
 
-  const course: Course = useSelector(
-    (state: State) => state.courses.courseData
-  );
+  
+
+  // const course: Course = useSelector(
+  //   (state: State) => state.courses.courseData
+  // );
 
   return (
     <div>

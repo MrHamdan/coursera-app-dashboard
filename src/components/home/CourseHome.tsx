@@ -7,9 +7,11 @@ import { State } from "redux/reducers";
 import CourseDetailLinks from "./CourseDetailLinks";
 import CourseOverview from "./CourseOverview";
 
+type Props = {
+  courses: Course[];
+}
 
-
-const CourseHome = () => {
+const CourseHome = ({courses}: Props) => {
   
   const course = useSelector((state: State) => state.courses.courseData);
 
@@ -26,8 +28,16 @@ if (!course) {
   return (
     <div>
       
-        <CourseOverview />
-        <CourseDetailLinks />
+        <Box>
+          {
+            courses.map((course: Course) => (
+              <Box key={course.id}>
+                <CourseOverview course={course}/>
+                <CourseDetailLinks course={course}/>
+              </Box>
+            ))
+          }
+        </Box>
       
     </div>
   );

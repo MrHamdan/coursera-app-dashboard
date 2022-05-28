@@ -20,11 +20,19 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-const CourseShortDetail = () => {
 
-const course: Course = useSelector(
-  (state: State) => state.courses.courseData
-);
+
+type Props = {
+  course: Course;
+}
+
+
+const CourseShortDetail = (props:Props) => {
+  const { course } = props;
+
+// const course: Course = useSelector(
+//   (state: State) => state.courses.courseData
+// );
 
   return (
     <div>

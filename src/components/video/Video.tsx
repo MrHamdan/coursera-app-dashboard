@@ -4,6 +4,7 @@ import ReactPlayer from "react-player";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import { LectureResource } from "datatypes/coursetypes";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -13,7 +14,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Video = ({ lecture }: any) => {
+type Props = {
+  singleLectureData: LectureResource;
+}
+
+const Video = ({ singleLectureData }: Props) => {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -23,7 +28,7 @@ const Video = ({ lecture }: any) => {
               <ReactPlayer
                 width="100%"
                 height="500px"
-                url={lecture?.resourceVideoLink}
+                url={singleLectureData?.resourceVideoLink}
               />
             </Item>
           </Grid>

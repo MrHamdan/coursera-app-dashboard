@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Button, Typography } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
+import { LectureResource } from "datatypes/coursetypes";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -14,7 +15,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Html = ({ lecture }: any) => {
+type Props = {
+  singleLectureData: LectureResource
+}
+
+const Html = ({ singleLectureData }: Props) => {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -24,7 +29,7 @@ const Html = ({ lecture }: any) => {
               <Typography
                 sx={{ fontSize: { xl: "40px", xs: "20px" }, textAlign: "left" }}
               >
-                {lecture.resourceTitle}
+                {singleLectureData.resourceTitle}
               </Typography>
             </Item>
           </Grid>

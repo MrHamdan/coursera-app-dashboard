@@ -28,7 +28,7 @@ import LectureContent from "components/lecturecontent/LectureContent";
 
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "redux/reducers";
-import { Course } from "datatypes/coursetypes";
+import { Course, CourseWeek } from "datatypes/coursetypes";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
 
@@ -109,15 +109,25 @@ function a11yProps(index: number) {
   };
 }
 
-const LectureDetails = ({ courses, week }: any) => {
-  const dispatch = useDispatch();
+type Props = {
+  courses : Course[]
+  weekModules: CourseWeek[]
+}
 
-  useEffect(() => {
-    dispatch({
-      type: "COURSE_FETCH",
-      payload: courses.courses,
-    });
-  }, [courses, dispatch]);
+const LectureDetails = ({courses, weekModules}: Props) => {
+
+
+  // console.log(weekModules);
+
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch({
+  //     type: "COURSE_FETCH",
+  //     payload: courses.courses,
+  //   });
+  // }, [courses, dispatch]);
 
   
 
@@ -127,9 +137,9 @@ const LectureDetails = ({ courses, week }: any) => {
     setValue(newValue);
   };
 
-  const course: Course = useSelector(
-    (state: State) => state.courses.courseData
-  );
+  // const course: Course = useSelector(
+  //   (state: State) => state.courses.courseData
+  // );
   return (
     <div>
       <Box>
@@ -203,7 +213,37 @@ const LectureDetails = ({ courses, week }: any) => {
                                       marginTop: "-30px",
                                     }}
                                   >
-                                    {courses?.courseWeeks?.map((weekModule: any) => (
+                                    {
+                                      courses.map(course =>(
+                                        course.courseWeeks.map((weeklink) => (
+                                          <Tab
+                                        key={weeklink.id}
+                                        label={
+                                          <>
+                                            <Link
+                                              href={`/home/week/${weeklink.id}`}
+                                            >
+                                              <Box sx={{ display: "flex" }}>
+                                                <span className="circle"></span>
+                                                <Typography
+                                                  sx={{
+                                                    textTransform: "none",
+                                                    marginLeft: "10px",
+                                                  }}
+                                                >
+                                                  {weeklink.weekTitle}
+                                                </Typography>
+                                              </Box>
+                                            </Link>
+                                          </>
+                                        }
+                                        {...a11yProps(0)}
+                                      />
+                                        ))
+                                      ))
+                                    }
+
+                                    {/* {courses?.courseWeeks?.map((weekModule: any) => (
                                       <Tab
                                         key={weekModule.id}
                                         label={
@@ -227,7 +267,7 @@ const LectureDetails = ({ courses, week }: any) => {
                                         }
                                         {...a11yProps(0)}
                                       />
-                                    ))}
+                                    ))} */}
                                   </Tabs>
                                 </Box>
                               </Item>
@@ -293,10 +333,10 @@ const LectureDetails = ({ courses, week }: any) => {
               <Grid item xs={12} xl={6} md={4}>
                 <Item sx={{ padding: "0px !important", boxShadow: "0" }}>
                   <TabPanel value={value} index={0}>
-                    <LectureContent week={week} />
+                    <LectureContent weekModules={weekModules} />
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                    <LectureContent week={week} />
+                    <LectureContent weekModules={weekModules} />
                   </TabPanel>
                 </Item>
               </Grid>

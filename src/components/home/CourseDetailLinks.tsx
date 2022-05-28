@@ -57,16 +57,23 @@ function a11yProps(index: number) {
   };
 }
 
-const CourseDetailLinks = (courses:any) => {
+type Props = {
+  course: Course;
+}
+
+const CourseDetailLinks = (props:Props) => {
+
+  const { course } = props;
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-const course: Course = useSelector(
-  (state: State) => state.courses.courseData
-);
+// const course: Course = useSelector(
+//   (state: State) => state.courses.courseData
+// );
 
   // console.log(course);
   return (
@@ -142,7 +149,7 @@ const course: Course = useSelector(
               </Grid>
               <Grid item xs={12} xl={4}>
                 <Item sx={{ boxShadow: "0" }}>
-                  <CourseShortDetail />
+                  <CourseShortDetail course={course}/>
                 </Item>
               </Grid>
               <Grid item xs={12} xl={8}>

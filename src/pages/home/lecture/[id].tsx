@@ -14,8 +14,9 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { useRouter } from "next/router";
 import Html from "components/html/Html";
 import Video from "components/video/Video";
-import { Course } from "datatypes/coursetypes";
+
 import { GetStaticPaths, GetStaticProps } from "next";
+import { Course, CourseWeek, LectureResource } from "datatypes/coursetypes";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -63,9 +64,14 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   console.info("You clicked a breadcrumb.");
 }
 
-const Index = ({ weeks, lecture }: any) => {
-  console.log(weeks);
-  //   console.log(lecture);
+type Props = {
+  lectureDetails: CourseWeek;
+  singleLectureData: LectureResource;
+}
+
+
+const Index = ({lectureDetails, singleLectureData}: Props) => {
+    console.log(lectureDetails);
 
   const [value, setValue] = React.useState(0);
 
@@ -169,11 +175,8 @@ const Index = ({ weeks, lecture }: any) => {
                                 borderColor: "divider",
                               }}
                             >
-                              {weeks?.lectureResources?.map((item: any) => (
-                                <Link
-                                  key={item.id}
-                                  href={`/home/lecture/${item.id}`}
-                                >
+                              {lectureDetails?.lectureResources?.map((item: any) => (
+                                
                                   <Tab
                                     label={
                                       <>
@@ -209,7 +212,7 @@ const Index = ({ weeks, lecture }: any) => {
                                     }
                                     {...a11yProps(0)}
                                   />
-                                </Link>
+                                
                               ))}
                             </Tabs>
                           </Box>
@@ -222,22 +225,22 @@ const Index = ({ weeks, lecture }: any) => {
               <Grid item xs={12} xl={8}>
                 <Item sx={{ boxShadow: "0" }}>
                   <TabPanel value={value} index={0}>
-                    {/* <Html lecture={lecture} /> */}
+                    <Html singleLectureData={singleLectureData} />
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                    {/* <Video lecture={lecture} /> */}
+                    <Video singleLectureData={singleLectureData} />
                   </TabPanel>
                   <TabPanel value={value} index={2}>
-                    {/* <Video lecture={lecture} /> */}
+                    <Video singleLectureData={singleLectureData} />
                   </TabPanel>
                   <TabPanel value={value} index={3}>
-                    {/* <Video lecture={lecture} /> */}
+                    <Video singleLectureData={singleLectureData} />
                   </TabPanel>
                   <TabPanel value={value} index={4}>
-                    {/* <Video lecture={lecture} /> */}
+                    <Video singleLectureData={singleLectureData} />
                   </TabPanel>
                   <TabPanel value={value} index={5}>
-                    {/* <Html lecture={lecture} /> */}
+                    <Html singleLectureData={singleLectureData} />
                   </TabPanel>
                   <TabPanel value={value} index={6}>
                     Item Seven
@@ -254,41 +257,94 @@ const Index = ({ weeks, lecture }: any) => {
 
 export default Index;
 
-export async function getStaticPaths() {
-  const res = await fetch("https://jsonkeeper.com/b/21U8");
-  const courses: Course = await res.json();
 
-  const paths = courses.courseWeeks
-    .map((week) =>
-      week?.lectureResources?.map((lecture) => ({
-        params: {
-          id: lecture.id,
-        },
-      }))
-    )
-    .flat();
 
-  console.log(paths);
+  export async function getStaticPaths() {
+    const res = await fetch("https://jsonkeeper.com/b/F4DY");
+    const courses : Course[] = await res.json();
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+    const lectureData = courses.map ((course : Course) => course.courseWeeks).flat();
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
-  const res = await fetch("https://jsonkeeper.com/b/21U8");
-  const courses: Course = await res.json();
+    const weeks = lectureData.map((week : CourseWeek) => week.lectureResources).flat();
+    
+    
+    const paths = weeks.map ((lectureDetails : LectureResource) => ({
+      params: {
+        id: lectureDetails.id,
+      }
+    })).flat();
 
-  const weeks = courses?.courseWeeks?.find(
-    (lecture) => lecture
-  );
 
-  console.log(weeks);
+    console.log(paths);
+  
 
-  return {
-    props: {
-      weeks,
-    },
-  };
-};
+    return {
+      paths,
+      fallback: false,
+    }
+  }
+
+
+
+
+  export async function getStaticProps(context : any) {
+    const res = await fetch("https://jsonkeeper.com/b/F4DY");
+    const courses : Course[] = await res.json();
+    const coursesData = courses.map((course : Course) => course.courseWeeks).flat();
+    const weeks = coursesData.map((course : CourseWeek) => course.lectureResources).flat();
+    const lectureDetails = coursesData.find((week : CourseWeek) => week)
+
+    console.log(lectureDetails)
+
+    const singleLectureData = weeks.find((lecture : LectureResource) => lecture.id === context.params.id);
+
+    console.log(singleLectureData);
+
+    
+
+    return {
+      props: {
+        lectureDetails,
+        singleLectureData,
+      }
+    }
+  }
+
+// export async function getStaticPaths() {
+//   const res = await fetch("https://jsonkeeper.com/b/21U8");
+//   const courses: Course = await res.json();
+
+//   const paths = courses.courseWeeks
+//     .map((week) =>
+//       week?.lectureResources?.map((lecture) => ({
+//         params: {
+//           id: lecture.id,
+//         },
+//       }))
+//     )
+//     .flat();
+
+//   console.log(paths);
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
+
+// export const getStaticProps: GetStaticProps = async (context: any) => {
+//   const res = await fetch("https://jsonkeeper.com/b/21U8");
+//   const courses: Course = await res.json();
+
+//   const weeks = courses?.courseWeeks?.find(
+//     (lecture) => lecture
+//   );
+
+//   console.log(weeks);
+
+//   return {
+//     props: {
+//       weeks,
+//     },
+//   };
+// };

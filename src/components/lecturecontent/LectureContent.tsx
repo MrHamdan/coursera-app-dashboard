@@ -24,7 +24,7 @@ import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import LoupeOutlinedIcon from "@mui/icons-material/LoupeOutlined";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Course } from "datatypes/coursetypes";
+import { Course, CourseWeek } from "datatypes/coursetypes";
 import { useRouter } from "next/router";
 
 const Accordion = styled((props: AccordionProps) => (
@@ -104,13 +104,21 @@ function a11yProps(index: number) {
   };
 }
 
-const LectureContent = ({ week }: any) => {
-  // console.log(week, "wweekkksakkewkek");
+type Props = {
+  weekModules: CourseWeek[];
+}
+
+const LectureContent = ({weekModules}: Props) => {
+  
+  console.log(weekModules);
 
   return (
     <div>
       <Box>
-        <Box sx={{ flexGrow: 1 }}>
+        {
+          weekModules.map((weekModule) => (
+            <Box key={weekModule.id}>
+              <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} xl={12}>
               <Item sx={{ padding: "0px !important" }}>
@@ -125,7 +133,7 @@ const LectureContent = ({ week }: any) => {
                     id="panel1a-header"
                     sx={{ backgroundColor: "transparent" }}
                   >
-                    <Typography>{week?.lectureTitle}</Typography>
+                    <Typography>{weekModule?.lectureTitle}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Box sx={{ flexGrow: 1 }}>
@@ -152,7 +160,7 @@ const LectureContent = ({ week }: any) => {
                                             marginTop: "2px",
                                           }}
                                         >
-                                          {week.lectureVideos}
+                                          {weekModule.lectureVideos}
                                         </Typography>
                                       </Box>
                                     </Box>
@@ -182,7 +190,7 @@ const LectureContent = ({ week }: any) => {
                                             marginTop: "2px",
                                           }}
                                         >
-                                          {week.lectureSheet}
+                                          {weekModule.lectureSheet}
                                         </Typography>
                                       </Box>
                                     </Box>
@@ -206,7 +214,7 @@ const LectureContent = ({ week }: any) => {
                                             marginTop: "2px",
                                           }}
                                         >
-                                          {week.lectureAssignment}
+                                          {weekModule.lectureAssignment}
                                         </Typography>
                                       </Box>
                                     </Box>
@@ -224,7 +232,7 @@ const LectureContent = ({ week }: any) => {
                                     }}
                                   >
                                     <Typography sx={{ textAlign: "left" }}>
-                                      {week.lectureDescription}
+                                      {weekModule.lectureDescription}
                                     </Typography>
                                   </Item>
                                 </Grid>
@@ -279,10 +287,10 @@ const LectureContent = ({ week }: any) => {
                         <Box sx={{ flexGrow: 1 }}>
                           <Grid container spacing={2}>
                             <Grid item xs={12}>
-                              {week?.lectureResources?.map((lecture: any) => (
+                              {weekModule?.lectureResources?.map((lectureDetails) => (
                               <Link
-                                key={lecture.id}
-                                href={`/home/lecture/${lecture.id}`}
+                                key={lectureDetails.id}
+                                href={`/home/lecture/${lectureDetails.id}`}
                               >
                                 <Item
                                   sx={{
@@ -315,9 +323,9 @@ const LectureContent = ({ week }: any) => {
                                           marginLeft: "20px",
                                         }}
                                       >
-                                        {lecture.resourceTitle} <br />{" "}
-                                          {lecture.resourceType}.
-                                          {lecture.resourceDuration}
+                                        {lectureDetails.resourceTitle} <br />{" "}
+                                          {lectureDetails.resourceType}.
+                                          {lectureDetails.resourceDuration}
                                       </Typography>
                                     </Box>
                                   </Box>
@@ -335,6 +343,10 @@ const LectureContent = ({ week }: any) => {
             </Grid>
           </Grid>
         </Box>
+            </Box>
+          ))
+        }
+
       </Box>
     </div>
   );
