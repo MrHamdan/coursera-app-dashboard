@@ -178,6 +178,7 @@ const Index = ({lectureDetails, singleLectureData}: Props) => {
                               {lectureDetails?.lectureResources?.map((item: any) => (
                                 
                                   <Tab
+                                  key={item.id}
                                     label={
                                       <>
                                         <Box
