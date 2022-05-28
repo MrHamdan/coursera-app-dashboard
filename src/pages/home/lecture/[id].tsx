@@ -122,7 +122,7 @@ const Index = ({lectureDetails, singleLectureData}: Props) => {
                         color="inherit"
                         href="/material-ui/getting-started/installation/"
                       >
-                        <Typography>Week 1</Typography>
+                        <Typography>{lectureDetails.id}</Typography>
                       </Link>
                       <Typography color="text.primary">
                         Supplements for Lecture 1
@@ -292,7 +292,7 @@ export default Index;
     const courses : Course[] = await res.json();
     const coursesData = courses.map((course : Course) => course.courseWeeks).flat();
     const weeks = coursesData.map((course : CourseWeek) => course.lectureResources).flat();
-    const lectureDetails = coursesData.find((week : CourseWeek) => week)
+    const lectureDetails = coursesData.find((course : CourseWeek) => course.lectureResources.find((lecture : LectureResource) => lecture.id === context.params.id));
 
     console.log(lectureDetails)
 
