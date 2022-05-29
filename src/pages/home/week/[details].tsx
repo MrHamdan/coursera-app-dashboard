@@ -22,7 +22,7 @@ export default Index;
 
 
 export async function getStaticPaths () {
-  const res = await fetch("https://jsonkeeper.com/b/F4DY");
+  const res = await fetch("https://jsonkeeper.com/b/AG7S");
   const weeks: Course[] = await res.json();
 
   const paths = weeks.map((lectureweek)=> (
@@ -42,7 +42,7 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps (context : any) {
-  const res = await fetch("https://jsonkeeper.com/b/F4DY");
+  const res = await fetch("https://jsonkeeper.com/b/AG7S");
   const courses: Course[] = await res.json();
 
   const weeksModules = courses.map((course) => (

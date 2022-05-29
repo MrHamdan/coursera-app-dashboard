@@ -38,5 +38,10 @@ export interface LectureResource {
   resourceDescription?: string;
   resourceType:         string;
   resourceDuration:     string;
+  isCompleted?:         boolean;
   resourceVideoLink?:   string;
+  videoTimeFirst?:      string;
+  videoTimeSecond?:     string;
+  videoDetailFirst?:    string;
+  videoDetailSecond?:   string;
 }

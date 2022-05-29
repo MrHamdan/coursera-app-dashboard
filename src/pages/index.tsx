@@ -39,7 +39,7 @@ const Home: NextPage<{ courses: Course[] }> = ({courses}) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("https://jsonkeeper.com/b/F4DY");
+  const res = await fetch("https://jsonkeeper.com/b/AG7S");
   const courses: Course[] = await res.json();
   return {
     props: {

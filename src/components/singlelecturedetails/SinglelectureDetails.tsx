@@ -141,8 +141,8 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
     
     if (value < 6) {
       setProgress(
-        // there is 7 tab from the tab make progress bar 100%
-        (value + 1) / 7 * 100
+        // there is 6 tab from the tab make progress bar 100%
+        (value + 1) / 6 * 100
       );
 
       setValue(value + 1);
@@ -219,8 +219,10 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
               <Grid item xs={12} xl={4}>
                 <Item sx={{ boxShadow: "0", display:'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <CircularProgressWithLabel value={progress} />
+                  <Box sx={{marginLeft:'30px'}}>
                   {value > 0 && <Button sx={{textTransform:'none'}}  onClick={handleBack}><ArrowBackIosIcon sx={{fontSize:'14px'}}/> Previous</Button>}
                   <Button sx={{textTransform:'none'}}  onClick={handleNext}>Next <ArrowForwardIosIcon sx={{fontSize:'14px'}}/></Button>
+                  </Box>
                 </Item>
               </Grid>
               <Grid item xs={12} xl={3}>

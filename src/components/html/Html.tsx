@@ -125,10 +125,10 @@ const Html = ({ singleLectureData }: Props) => {
           <Item sx={{boxShadow: "0" }}>
           <Box sx={{display:'flex'}}>
               <Box>
-                  <OutlinedFlagIcon sx={{color:'#0056D2', marginLeft: "10px"}}/>
+                  <OutlinedFlagIcon sx={{color:'#0056D2'}}/>
               </Box>
               <Box>
-                <Typography sx={{color:'#0056D2'}}>
+                <Typography sx={{color:'#0056D2', marginLeft: "10px"}}>
                   Report an Issue
                 </Typography>
               </Box>
