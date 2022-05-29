@@ -117,17 +117,7 @@ type Props = {
 const LectureDetails = ({courses, weekModules}: Props) => {
 
 
-  // console.log(weekModules);
-
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch({
-  //     type: "COURSE_FETCH",
-  //     payload: courses.courses,
-  //   });
-  // }, [courses, dispatch]);
+  
 
   
 
