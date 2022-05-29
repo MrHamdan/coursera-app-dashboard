@@ -308,12 +308,7 @@ const LectureContent = ({weekModules}: Props) => {
                                     }}
                                   >
                                     <Box>
-                                      <AutoStoriesIcon
-                                        sx={{
-                                          border: "2px solid #666666",
-                                          borderRadius: "50%",
-                                          padding: "3px",
-                                        }}
+                                      <PlayCircleOutlineIcon
                                       />
                                     </Box>
                                     <Box>

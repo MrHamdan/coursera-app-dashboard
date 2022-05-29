@@ -20,7 +20,8 @@ import CircularProgress, {
   CircularProgressProps,
 } from '@mui/material/CircularProgress';
 import Link from "next/link";
-
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
 function CircularProgressWithLabel(
@@ -151,9 +152,13 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
     }
   };
 
+
+  console.log( lectureDetails.lectureResources);
+
   const handleBack = () => {
 
     lectureDetails.lectureResources.map((lecture) => {
+      
         
       // when click previous  index of the tab then router push to the next id
       if (lecture.id === singleLectureData.id) {
@@ -214,8 +219,8 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
               <Grid item xs={12} xl={4}>
                 <Item sx={{ boxShadow: "0", display:'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <CircularProgressWithLabel value={progress} />
-                  <Button variant='contained' onClick={handleBack}>Previous</Button>
-                  <Button variant='contained' onClick={handleNext}>Next</Button>
+                  {value > 0 && <Button sx={{textTransform:'none'}}  onClick={handleBack}><ArrowBackIosIcon sx={{fontSize:'14px'}}/> Previous</Button>}
+                  <Button sx={{textTransform:'none'}}  onClick={handleNext}>Next <ArrowForwardIosIcon sx={{fontSize:'14px'}}/></Button>
                 </Item>
               </Grid>
               <Grid item xs={12} xl={3}>
