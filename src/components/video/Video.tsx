@@ -88,7 +88,7 @@ const Video = ({ singleLectureData }: Props) => {
               <Typography sx={{textAlign: "left", fontSize:'40px'}}>{singleLectureData.resourceTitle}</Typography>
               <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={2}>
+        <Grid item xs={12} xl={2}>
           <Item sx={{boxShadow: "0"}}>
             <Box sx={{display:'flex', alignItems:'center'}}>
               <Box>
@@ -102,7 +102,7 @@ const Video = ({ singleLectureData }: Props) => {
             </Box>
           </Item>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} xl={2}>
           <Item sx={{ boxShadow: "0" }}>
           <Box sx={{display:'flex', alignItems:'center'}}>
               <Box>
@@ -126,7 +126,7 @@ const Video = ({ singleLectureData }: Props) => {
             </Item>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} sx={{borderBottom :'1px solid lightgray'}}>
-        <Grid item xs={2} >
+        <Grid item xs={12} xl={2}>
         <Item sx={{boxShadow: "0"}}>
             <Box sx={{display:'flex'}}>
               <Box>
@@ -140,7 +140,7 @@ const Video = ({ singleLectureData }: Props) => {
             </Box>
           </Item>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} xl={2}>
         <Item sx={{boxShadow: "0"}}>
             <Box sx={{display:'flex' }}>
               <Box>
@@ -163,10 +163,11 @@ const Video = ({ singleLectureData }: Props) => {
             </Typography>
           </Item>
         </Grid>
-        <Grid item xs={12} sx={{marginTop:'-20px'}}>
-          <Item sx={{boxShadow: "0"}}>
-            <Box sx={{display:'flex', alignItems: 'center'}}>
-              <Box>
+        <Box sx={{ flexGrow: 1, marginBottom: "20px" }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} xl={5}>
+          <Item sx={{ boxShadow: "0" }}>
+          <Box sx={{textAlign:'left'}}>
               <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
         <Select
           multiple
@@ -199,12 +200,17 @@ const Video = ({ singleLectureData }: Props) => {
         </Select>
       </FormControl>
               </Box>
-              <Box>
-                <Typography sx={{marginTop:'20px', marginLeft:'10px', color:'#0056D2'}}>Help Us Translate</Typography>
-              </Box>
-            </Box>
           </Item>
         </Grid>
+        <Grid item xs={12} xl={3}>
+          <Item sx={{ boxShadow: "0" }}>
+          <Box sx={{textAlign: "left"}}>
+                <Typography sx={{marginTop:'40px', marginLeft:{xl:'-60px', xs:'0px'}, color:'#0056D2', textAlign:'left'}}>Help Us Translate</Typography>
+              </Box>
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} sx={{borderBottom:'1px solid lightgray'}}>
         <Grid item xs={2}>
@@ -214,7 +220,7 @@ const Video = ({ singleLectureData }: Props) => {
             </Typography>
           </Item>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
           <Item sx={{boxShadow: "0"}}>
             <Typography sx={{textAlign: "left"}}>
             {singleLectureData.videoDetailFirst}
@@ -228,7 +234,7 @@ const Video = ({ singleLectureData }: Props) => {
             </Typography>
           </Item>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
           <Item sx={{boxShadow: "0"}}>
             <Typography sx={{textAlign: "left"}}>
               {singleLectureData.videoDetailSecond}
@@ -243,7 +249,11 @@ const Video = ({ singleLectureData }: Props) => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Item sx={{boxShadow: "0"}}>
-            <Box sx={{display:'flex'}}>
+          <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} xl={2}>
+          <Item sx={{boxShadow: "0"}}>
+          <Box sx={{display:'flex'}}>
               <Box>
                 <ThumbUpOffAltIcon sx={{color:'#0056D2'}}/>
               </Box>
@@ -252,31 +262,53 @@ const Video = ({ singleLectureData }: Props) => {
                   Like
                 </Typography>
               </Box>
+            </Box>
+          </Item>
+        </Grid>
+        <Grid item xs={12} xl={2}>
+        <Item sx={{boxShadow: "0"}}>
+          <Box sx={{display:'flex'}}>
               <Box>
-                <ThumbDownOffAltIcon sx={{color:'#0056D2', marginLeft: '20px'}}/>
+                <ThumbDownOffAltIcon sx={{color:'#0056D2'}}/>
               </Box>
               <Box>
-                <Typography sx={{color:'#0056D2', marginLeft: '10px'}}>
-                  Dislike
-                </Typography>
-              </Box>
-              <Box>
-                <OutlinedFlagIcon sx={{color:'#0056D2', marginLeft: '20px'}}/>
-              </Box>
-              <Box>
-                <Typography sx={{color:'#0056D2', marginLeft: '10px'}}>
-                  Report an issue
-                </Typography>
-              </Box>
-              <Box>
-                <IosShareOutlinedIcon sx={{color:'#0056D2', marginLeft: '20px'}}/>
-              </Box>
-              <Box>
-                <Typography sx={{color:'#0056D2', marginLeft: '10px'}}>
-                  Share
+                <Typography sx={{color:'#0056D2', marginLeft: '20px'}}>
+                Dislike
                 </Typography>
               </Box>
             </Box>
+          </Item>
+        </Grid>
+        <Grid item xs={12} xl={3}>
+        <Item sx={{boxShadow: "0"}}>
+          <Box sx={{display:'flex'}}>
+              <Box>
+                <OutlinedFlagIcon sx={{color:'#0056D2'}}/>
+              </Box>
+              <Box>
+                <Typography sx={{color:'#0056D2', marginLeft: '20px'}}>
+                Report an issue
+                </Typography>
+              </Box>
+            </Box>
+          </Item>
+        </Grid>
+        <Grid item xs={12} xl={2}>
+        <Item sx={{boxShadow: "0"}}>
+          <Box sx={{display:'flex'}}>
+              <Box>
+                <IosShareOutlinedIcon sx={{color:'#0056D2'}}/>
+              </Box>
+              <Box>
+                <Typography sx={{color:'#0056D2', marginLeft: '20px'}}>
+                Share
+                </Typography>
+              </Box>
+            </Box>
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
           </Item>
         </Grid>
       </Grid>

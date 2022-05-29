@@ -92,9 +92,11 @@ const Html = ({ singleLectureData }: Props) => {
             </Item>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} sx={{marginTop:'30px', borderTop: '1px solid lightgray'}}>
-        <Grid item xs={2}>
-          <Item sx={{boxShadow: "0" }}>
-            <Box sx={{display:'flex'}}>
+      <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} xl={2}>
+          <Item sx={{boxShadow: "0"}}>
+          <Box sx={{display:'flex'}}>
               <Box>
                   <ThumbUpOffAltIcon sx={{color:'#0056D2'}}/>
               </Box>
@@ -104,11 +106,10 @@ const Html = ({ singleLectureData }: Props) => {
                 </Typography>
               </Box>
             </Box>
-
           </Item>
         </Grid>
-        <Grid item xs={2}>
-          <Item sx={{boxShadow: "0" }}>
+        <Grid item xs={12} xl={2}>
+          <Item sx={{boxShadow: "0"}}>
           <Box sx={{display:'flex'}}>
               <Box>
                   <ThumbDownOffAltIcon sx={{color:'#0056D2'}}/>
@@ -121,8 +122,8 @@ const Html = ({ singleLectureData }: Props) => {
             </Box>
           </Item>
         </Grid>
-        <Grid item xs={3}>
-          <Item sx={{boxShadow: "0" }}>
+        <Grid item xs={12} xl={3}>
+          <Item sx={{boxShadow: "0"}}>
           <Box sx={{display:'flex'}}>
               <Box>
                   <OutlinedFlagIcon sx={{color:'#0056D2'}}/>
@@ -135,6 +136,8 @@ const Html = ({ singleLectureData }: Props) => {
             </Box>
           </Item>
         </Grid>
+      </Grid>
+    </Box>
       </Grid>
     </Box>
           </Grid>

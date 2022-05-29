@@ -95,41 +95,4 @@ export default Index;
     }
   }
 
-// export async function getStaticPaths() {
-//   const res = await fetch("https://jsonkeeper.com/b/21U8");
-//   const courses: Course = await res.json();
 
-//   const paths = courses.courseWeeks
-//     .map((week) =>
-//       week?.lectureResources?.map((lecture) => ({
-//         params: {
-//           id: lecture.id,
-//         },
-//       }))
-//     )
-//     .flat();
-
-//   console.log(paths);
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// export const getStaticProps: GetStaticProps = async (context: any) => {
-//   const res = await fetch("https://jsonkeeper.com/b/21U8");
-//   const courses: Course = await res.json();
-
-//   const weeks = courses?.courseWeeks?.find(
-//     (lecture) => lecture
-//   );
-
-//   console.log(weeks);
-
-//   return {
-//     props: {
-//       weeks,
-//     },
-//   };
-// };
