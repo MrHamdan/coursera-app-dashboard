@@ -146,14 +146,19 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                   <Typography sx={{ textAlign: "left", marginLeft: "20px" }}>
                     Princeton University
                   </Typography>
-                  <Accordion sx={{ marginTop: "20px" }}>
+                  <Accordion sx={{ marginTop: "0px" }}>
                     <AccordionSummary
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                       sx={{
-                        backgroundColor: "white",
+                        "&:hover": {
+                          backgroundColor: "#F3F8FF",
+                          border: "2px solid black",
+                        },
                         marginTop: "10px",
                         marginBottom: "10px",
+                        borderRadius: "5px",
+                        backgroundColor: "transparent",
                       }}
                     >
                       <Typography>Course Material</Typography>
