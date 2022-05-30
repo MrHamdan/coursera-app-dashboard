@@ -1,65 +1,61 @@
 import { Course, CourseWeek } from "datatypes/coursetypes";
-import { GetStaticProps } from "next";
 import LectureDetails from "components/lecturedetails/LectureDetails";
 
 type Props = {
   courses: Course[];
   weekModules: CourseWeek[];
-}
+};
 
-const Index = ({courses, weekModules}: Props) => {
-
-  // console.log(weekModules);
-
+const Index = ({ courses, weekModules }: Props) => {
   return (
     <div>
-      <LectureDetails courses={courses}  weekModules={weekModules}/>
+      <LectureDetails courses={courses} weekModules={weekModules} />
     </div>
   );
 };
 
 export default Index;
 
-
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   const res = await fetch("https://jsonkeeper.com/b/AG7S");
   const weeks: Course[] = await res.json();
 
-  const paths = weeks.map((lectureweek)=> (
-    lectureweek.courseWeeks.map((week)=> ({
-      params: {
-        details: week.id
-      }
-    }))
-  )).flat();
+  const paths = weeks
+    .map((lectureweek) =>
+      lectureweek.courseWeeks.map((week) => ({
+        params: {
+          details: week.id,
+        },
+      }))
+    )
+    .flat();
 
   console.log(paths);
 
   return {
     paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
 
-export async function getStaticProps (context : any) {
+export async function getStaticProps(context: any) {
   const res = await fetch("https://jsonkeeper.com/b/AG7S");
   const courses: Course[] = await res.json();
 
-  const weeksModules = courses.map((course) => (
-    course.courseWeeks.find((singleWeek) => singleWeek.id === context.params.details)
-  )).flat();
+  const weeksModules = courses
+    .map((course) =>
+      course.courseWeeks.find(
+        (singleWeek) => singleWeek.id === context.params.details
+      )
+    )
+    .flat();
 
-  console.log(weeksModules)
+  console.log(weeksModules);
 
   return {
     props: {
       courses,
-      weekModules: weeksModules
-    }
-  }
-  
+      weekModules: weeksModules,
+    },
+  };
 }
-
-
-
-

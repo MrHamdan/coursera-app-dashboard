@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from "react";
+import React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -13,11 +13,6 @@ import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import CircleIcon from "@mui/icons-material/Circle";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import QuizIcon from "@mui/icons-material/Quiz";
 import Link from "next/link";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
@@ -25,12 +20,7 @@ import LoupeOutlinedIcon from "@mui/icons-material/LoupeOutlined";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import LectureContent from "components/lecturecontent/LectureContent";
-
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "redux/reducers";
 import { Course, CourseWeek } from "datatypes/coursetypes";
-import { useRouter } from "next/router";
-import { GetStaticProps } from "next";
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -110,26 +100,17 @@ function a11yProps(index: number) {
 }
 
 type Props = {
-  courses : Course[]
-  weekModules: CourseWeek[]
-}
+  courses: Course[];
+  weekModules: CourseWeek[];
+};
 
-const LectureDetails = ({courses, weekModules}: Props) => {
-
-
-  
-
-  
-
+const LectureDetails = ({ courses, weekModules }: Props) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  // const course: Course = useSelector(
-  //   (state: State) => state.courses.courseData
-  // );
   return (
     <div>
       <Box>
@@ -203,61 +184,33 @@ const LectureDetails = ({courses, weekModules}: Props) => {
                                       marginTop: "-30px",
                                     }}
                                   >
-                                    {
-                                      courses.map(course =>(
-                                        course.courseWeeks.map((weeklink) => (
-                                          <Tab
-                                        key={weeklink.id}
-                                        label={
-                                          <>
-                                            <Link
-                                              href={`/home/week/${weeklink.id}`}
-                                            >
-                                              <Box sx={{ display: "flex" }}>
-                                                <span className="circle"></span>
-                                                <Typography
-                                                  sx={{
-                                                    textTransform: "none",
-                                                    marginLeft: "10px",
-                                                  }}
-                                                >
-                                                  {weeklink.weekTitle}
-                                                </Typography>
-                                              </Box>
-                                            </Link>
-                                          </>
-                                        }
-                                        {...a11yProps(0)}
-                                      />
-                                        ))
+                                    {courses.map((course) =>
+                                      course.courseWeeks.map((weeklink) => (
+                                        <Tab
+                                          key={weeklink.id}
+                                          label={
+                                            <>
+                                              <Link
+                                                href={`/home/week/${weeklink.id}`}
+                                              >
+                                                <Box sx={{ display: "flex" }}>
+                                                  <span className="circle"></span>
+                                                  <Typography
+                                                    sx={{
+                                                      textTransform: "none",
+                                                      marginLeft: "10px",
+                                                    }}
+                                                  >
+                                                    {weeklink.weekTitle}
+                                                  </Typography>
+                                                </Box>
+                                              </Link>
+                                            </>
+                                          }
+                                          {...a11yProps(0)}
+                                        />
                                       ))
-                                    }
-
-                                    {/* {courses?.courseWeeks?.map((weekModule: any) => (
-                                      <Tab
-                                        key={weekModule.id}
-                                        label={
-                                          <>
-                                            <Link
-                                              href={`/home/week/${weekModule.id}`}
-                                            >
-                                              <Box sx={{ display: "flex" }}>
-                                                <span className="circle"></span>
-                                                <Typography
-                                                  sx={{
-                                                    textTransform: "none",
-                                                    marginLeft: "10px",
-                                                  }}
-                                                >
-                                                  {weekModule.weekTitle}
-                                                </Typography>
-                                              </Box>
-                                            </Link>
-                                          </>
-                                        }
-                                        {...a11yProps(0)}
-                                      />
-                                    ))} */}
+                                    )}
                                   </Tabs>
                                 </Box>
                               </Item>

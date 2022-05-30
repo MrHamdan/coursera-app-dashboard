@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -13,22 +13,19 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { useRouter } from "next/router";
 import Html from "components/html/Html";
 import Video from "components/video/Video";
-import DoneIcon from "@mui/icons-material/Done";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { Course, CourseWeek, LectureResource } from "datatypes/coursetypes";
+import { CourseWeek, LectureResource } from "datatypes/coursetypes";
 import CircularProgress, {
   CircularProgressProps,
-} from '@mui/material/CircularProgress';
+} from "@mui/material/CircularProgress";
 import Link from "next/link";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function CircularProgressWithLabel(
-  props: CircularProgressProps & { value: number },
+  props: CircularProgressProps & { value: number }
 ) {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+    <Box sx={{ position: "relative", display: "inline-flex" }}>
       <CircularProgress variant="determinate" {...props} />
       <Box
         sx={{
@@ -36,10 +33,10 @@ function CircularProgressWithLabel(
           left: 0,
           bottom: 0,
           right: 0,
-          position: 'absolute',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Typography
@@ -51,7 +48,6 @@ function CircularProgressWithLabel(
     </Box>
   );
 }
-
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -102,19 +98,14 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 type Props = {
   lectureDetails: CourseWeek;
   singleLectureData: LectureResource;
-}
+};
 
+const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
+  console.log(lectureDetails);
 
-const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
-    console.log(lectureDetails);
+  const [progress, setProgress] = React.useState(0);
 
-
-    const [progress, setProgress] = React.useState(0);
-
-    React.useEffect(() => {
-      
-    }, []);
-
+  React.useEffect(() => {}, []);
 
   const [value, setValue] = React.useState(0);
 
@@ -122,12 +113,10 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
     setValue(newValue);
   };
 
-  const router  = useRouter();
+  const router = useRouter();
 
   const handleNext = () => {
     lectureDetails.lectureResources.map((lecture) => {
-        
-      // when click next start from the zero index of the tab then router push to the next id
       if (lecture.id === singleLectureData.id) {
         let index = lectureDetails.lectureResources.indexOf(lecture);
         if (index + 1 < lectureDetails.lectureResources.length) {
@@ -136,14 +125,10 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
           );
         }
       }
-    
-  })
-    
+    });
+
     if (value < 6) {
-      setProgress(
-        // there is 6 tab from the tab make progress bar 100%
-        (value + 1) / 6 * 100
-      );
+      setProgress(((value + 1) / 6) * 100);
 
       setValue(value + 1);
     } else {
@@ -152,15 +137,10 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
     }
   };
 
-
-  console.log( lectureDetails.lectureResources);
+  console.log(lectureDetails.lectureResources);
 
   const handleBack = () => {
-
     lectureDetails.lectureResources.map((lecture) => {
-      
-        
-      // when click previous  index of the tab then router push to the next id
       if (lecture.id === singleLectureData.id) {
         let index = lectureDetails.lectureResources.indexOf(lecture);
         if (index - 1 >= 0) {
@@ -169,9 +149,7 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
           );
         }
       }
-    
-  })
-
+    });
 
     if (value > 0) {
       setValue(value - 1);
@@ -179,6 +157,7 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
       console.info("You can't go back");
     }
   };
+
   return (
     <div>
       <Box>
@@ -197,13 +176,12 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
                 >
                   <div role="presentation" onClick={handleClick}>
                     <Breadcrumbs separator="›" aria-label="breadcrumb">
-                      <Link  color="inherit" href="/">
+                      <Link color="inherit" href="/">
                         <Typography>
                           Computer Science: Programming Concepts
                         </Typography>
                       </Link>
                       <Link
-                        
                         color="inherit"
                         href="/material-ui/getting-started/installation/"
                       >
@@ -217,11 +195,27 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
                 </Item>
               </Grid>
               <Grid item xs={12} xl={4}>
-                <Item sx={{ boxShadow: "0", display:'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Item
+                  sx={{
+                    boxShadow: "0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <CircularProgressWithLabel value={progress} />
-                  <Box sx={{marginLeft:'30px'}}>
-                  {value > 0 && <Button sx={{textTransform:'none'}}  onClick={handleBack}><ArrowBackIosIcon sx={{fontSize:'14px'}}/> Previous</Button>}
-                  <Button sx={{textTransform:'none'}}  onClick={handleNext}>Next <ArrowForwardIosIcon sx={{fontSize:'14px'}}/></Button>
+                  <Box sx={{ marginLeft: "30px" }}>
+                    {value > 0 && (
+                      <Button
+                        sx={{ textTransform: "none" }}
+                        onClick={handleBack}
+                      >
+                        <ArrowBackIosIcon sx={{ fontSize: "14px" }} /> Previous
+                      </Button>
+                    )}
+                    <Button sx={{ textTransform: "none" }} onClick={handleNext}>
+                      Next <ArrowForwardIosIcon sx={{ fontSize: "14px" }} />
+                    </Button>
                   </Box>
                 </Item>
               </Grid>
@@ -263,47 +257,48 @@ const SinglelectureDetails = ({lectureDetails, singleLectureData}: Props) => {
                                 borderColor: "divider",
                               }}
                             >
-                              {lectureDetails?.lectureResources?.map((item: any) => (
-                                
+                              {lectureDetails?.lectureResources?.map(
+                                (item: any) => (
                                   <Tab
-                                  key={item.id}
+                                    key={item.id}
                                     label={
                                       <>
-                                      <Link href={`/home/lecture/${item.id}`}>
-                                        <Box
-                                          sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                          }}
-                                        >
-                                          <Box>
-                                            <PlayCircleOutlineIcon
-                                              sx={{ color: "gray" }}
-                                            />
+                                        <Link href={`/home/lecture/${item.id}`}>
+                                          <Box
+                                            sx={{
+                                              display: "flex",
+                                              alignItems: "center",
+                                            }}
+                                          >
+                                            <Box>
+                                              <PlayCircleOutlineIcon
+                                                sx={{ color: "gray" }}
+                                              />
+                                            </Box>
+                                            <Box>
+                                              <Typography
+                                                sx={{
+                                                  textAlign: "left",
+                                                  fontSize: "14px",
+                                                  textTransform: "none",
+                                                  marginLeft: "10px",
+                                                }}
+                                              >
+                                                <span className="reading">
+                                                  {item.resourceType}
+                                                </span>
+                                                : {item.resourceTitle} <br />{" "}
+                                                {item.resourceDuration}
+                                              </Typography>
+                                            </Box>
                                           </Box>
-                                          <Box>
-                                            <Typography
-                                              sx={{
-                                                textAlign: "left",
-                                                fontSize: "14px",
-                                                textTransform: "none",
-                                                marginLeft: "10px",
-                                              }}
-                                            >
-                                              <span className="reading">
-                                                {item.resourceType}
-                                              </span>
-                                              : {item.resourceTitle} <br />{" "}
-                                              {item.resourceDuration}
-                                            </Typography>
-                                          </Box>
-                                        </Box>
                                         </Link>
                                       </>
                                     }
                                     {...a11yProps(0)}
-                                  /> 
-                              ))}
+                                  />
+                                )
+                              )}
                             </Tabs>
                           </Box>
                         </Item>

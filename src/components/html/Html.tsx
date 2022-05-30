@@ -6,9 +6,9 @@ import Grid from "@mui/material/Grid";
 import { Button, Typography } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 import { LectureResource } from "datatypes/coursetypes";
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import OutlinedFlagIcon from '@mui/icons-material/OutlinedFlag';
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import OutlinedFlagIcon from "@mui/icons-material/OutlinedFlag";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -19,8 +19,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 type Props = {
-  singleLectureData: LectureResource
-}
+  singleLectureData: LectureResource;
+};
 
 const Html = ({ singleLectureData }: Props) => {
   return (
@@ -91,55 +91,65 @@ const Html = ({ singleLectureData }: Props) => {
               </Box>
             </Item>
             <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} sx={{marginTop:'30px', borderTop: '1px solid lightgray'}}>
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} xl={2}>
-          <Item sx={{boxShadow: "0"}}>
-          <Box sx={{display:'flex'}}>
-              <Box>
-                  <ThumbUpOffAltIcon sx={{color:'#0056D2'}}/>
-              </Box>
-              <Box>
-                <Typography sx={{color:'#0056D2', marginLeft: "10px" }}>
-                  Like
-                </Typography>
-              </Box>
+              <Grid
+                container
+                spacing={2}
+                sx={{ marginTop: "30px", borderTop: "1px solid lightgray" }}
+              >
+                <Box sx={{ flexGrow: 1 }}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} xl={2}>
+                      <Item sx={{ boxShadow: "0" }}>
+                        <Box sx={{ display: "flex" }}>
+                          <Box>
+                            <ThumbUpOffAltIcon sx={{ color: "#0056D2" }} />
+                          </Box>
+                          <Box>
+                            <Typography
+                              sx={{ color: "#0056D2", marginLeft: "10px" }}
+                            >
+                              Like
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Item>
+                    </Grid>
+                    <Grid item xs={12} xl={2}>
+                      <Item sx={{ boxShadow: "0" }}>
+                        <Box sx={{ display: "flex" }}>
+                          <Box>
+                            <ThumbDownOffAltIcon sx={{ color: "#0056D2" }} />
+                          </Box>
+                          <Box>
+                            <Typography
+                              sx={{ color: "#0056D2", marginLeft: "10px" }}
+                            >
+                              Dislike
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Item>
+                    </Grid>
+                    <Grid item xs={12} xl={3}>
+                      <Item sx={{ boxShadow: "0" }}>
+                        <Box sx={{ display: "flex" }}>
+                          <Box>
+                            <OutlinedFlagIcon sx={{ color: "#0056D2" }} />
+                          </Box>
+                          <Box>
+                            <Typography
+                              sx={{ color: "#0056D2", marginLeft: "10px" }}
+                            >
+                              Report an Issue
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Item>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Grid>
             </Box>
-          </Item>
-        </Grid>
-        <Grid item xs={12} xl={2}>
-          <Item sx={{boxShadow: "0"}}>
-          <Box sx={{display:'flex'}}>
-              <Box>
-                  <ThumbDownOffAltIcon sx={{color:'#0056D2'}}/>
-              </Box>
-              <Box>
-                <Typography sx={{color:'#0056D2', marginLeft: "10px"}}>
-                  Dislike
-                </Typography>
-              </Box>
-            </Box>
-          </Item>
-        </Grid>
-        <Grid item xs={12} xl={3}>
-          <Item sx={{boxShadow: "0"}}>
-          <Box sx={{display:'flex'}}>
-              <Box>
-                  <OutlinedFlagIcon sx={{color:'#0056D2'}}/>
-              </Box>
-              <Box>
-                <Typography sx={{color:'#0056D2', marginLeft: "10px"}}>
-                  Report an Issue
-                </Typography>
-              </Box>
-            </Box>
-          </Item>
-        </Grid>
-      </Grid>
-    </Box>
-      </Grid>
-    </Box>
           </Grid>
         </Grid>
       </Box>
