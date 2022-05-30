@@ -161,7 +161,9 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                         backgroundColor: "transparent",
                       }}
                     >
-                      <Typography>Course Material</Typography>
+                      <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
+                        Course Material
+                      </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
@@ -231,7 +233,12 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                         <Grid item xs={12}>
                           <Item sx={{ boxShadow: "0" }}>
                             <Typography
-                              sx={{ textAlign: "left", marginLeft: "30px" }}
+                              sx={{
+                                textAlign: "left",
+                                marginLeft: "30px",
+                                fontWeight: "bold",
+                                fontSize: "14px",
+                              }}
                             >
                               Grades
                             </Typography>
@@ -240,7 +247,12 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                         <Grid item xs={12}>
                           <Item sx={{ boxShadow: "0" }}>
                             <Typography
-                              sx={{ textAlign: "left", marginLeft: "30px" }}
+                              sx={{
+                                textAlign: "left",
+                                marginLeft: "30px",
+                                fontWeight: "bold",
+                                fontSize: "14px",
+                              }}
                             >
                               Notes
                             </Typography>
@@ -249,7 +261,12 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                         <Grid item xs={12}>
                           <Item sx={{ boxShadow: "0" }}>
                             <Typography
-                              sx={{ textAlign: "left", marginLeft: "30px" }}
+                              sx={{
+                                textAlign: "left",
+                                marginLeft: "30px",
+                                fontWeight: "bold",
+                                fontSize: "14px",
+                              }}
                             >
                               Discussion Forms
                             </Typography>
@@ -258,7 +275,12 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                         <Grid item xs={12}>
                           <Item sx={{ boxShadow: "0" }}>
                             <Typography
-                              sx={{ textAlign: "left", marginLeft: "30px" }}
+                              sx={{
+                                textAlign: "left",
+                                marginLeft: "30px",
+                                fontWeight: "bold",
+                                fontSize: "14px",
+                              }}
                             >
                               Messages
                             </Typography>
@@ -267,7 +289,12 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                         <Grid item xs={12}>
                           <Item sx={{ boxShadow: "0" }}>
                             <Typography
-                              sx={{ textAlign: "left", marginLeft: "30px" }}
+                              sx={{
+                                textAlign: "left",
+                                marginLeft: "30px",
+                                fontWeight: "bold",
+                                fontSize: "14px",
+                              }}
                             >
                               Resources
                             </Typography>

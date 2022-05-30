@@ -20,13 +20,14 @@ import CircularProgress, {
 import Link from "next/link";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 function CircularProgressWithLabel(
   props: CircularProgressProps & { value: number }
 ) {
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
-      <CircularProgress variant="determinate" {...props} />
+      <CircularProgress variant="determinate" size="4rem" {...props} />
       <Box
         sx={{
           top: 0,
@@ -124,6 +125,9 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
             `/home/lecture/${lectureDetails.lectureResources[index + 1].id}`
           );
         }
+      }
+      if (lecture.id === singleLectureData.id) {
+        lecture.isCompleted = true;
       }
     });
 
@@ -270,11 +274,18 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
                                               alignItems: "center",
                                             }}
                                           >
-                                            <Box>
-                                              <PlayCircleOutlineIcon
-                                                sx={{ color: "gray" }}
+                                            {item.isCompleted === true ? (
+                                              <CheckCircleIcon
+                                                sx={{ color: "#1F8354" }}
                                               />
-                                            </Box>
+                                            ) : (
+                                              <Box>
+                                                <PlayCircleOutlineIcon
+                                                  sx={{ color: "gray" }}
+                                                />
+                                              </Box>
+                                            )}
+
                                             <Box>
                                               <Typography
                                                 sx={{

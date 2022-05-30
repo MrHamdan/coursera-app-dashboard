@@ -88,7 +88,12 @@ const LectureContent = ({ weekModules }: Props) => {
                       <AccordionSummary
                         aria-controls="panel1a-content"
                         id="panel1a-header"
-                        sx={{ backgroundColor: "transparent" }}
+                        sx={{
+                          backgroundColor: "transparent",
+                          "&:hover": {
+                            backgroundColor: "#F3F8FF",
+                          },
+                        }}
                       >
                         <Typography>{weekModule?.lectureTitle}</Typography>
                       </AccordionSummary>
@@ -218,6 +223,9 @@ const LectureContent = ({ weekModules }: Props) => {
                                     sx={{
                                       boxShadow: "0",
                                       backgroundColor: "transparent",
+                                      "&:hover": {
+                                        backgroundColor: "#F3F8FF",
+                                      },
                                     }}
                                   >
                                     <Typography sx={{ textAlign: "left" }}>

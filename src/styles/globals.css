@@ -83,52 +83,52 @@ a {
   left: 0 !important;
 } */
 
-.date{
+.date {
   font-weight: bold;
 }
-.dates{
+.dates {
   background-color: lightgray;
   border-radius: 3px;
   padding: 2px;
   font-size: 14px;
   font-weight: bold;
 }
-.text-graded{
+.text-graded {
   font-size: 14px;
   font-weight: bold;
 }
-.circle{
+.circle {
   width: 20px;
-    min-width: 20px;
-    height: 20px;
-    background: #c3c5c6;
-    border-radius: 100px;
+  min-width: 20px;
+  height: 20px;
+  background: #c3c5c6;
+  border-radius: 100px;
 }
 /* .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
   align-items: flex-start !important;
 } */
-.reading{
+.reading {
   font-weight: bold;
 }
-.video{
+.video {
   font-weight: bold;
 }
-.quiz{
+.quiz {
   font-weight: bold;
 }
 
-.MuiButtonBase-root{
-  
+.MuiButtonBase-root {
 }
 
-.MuiTabs-indicator{
-  left:0;
+.MuiTabs-indicator {
+  left: 0;
+  width: 6px !important;
 }
 
-.MuiTab-root{
+.MuiTab-root {
   align-items: flex-start !important;
 }
 
-.MuiBox-root{
+.MuiBox-root {
   padding: 0px !important;
 }
