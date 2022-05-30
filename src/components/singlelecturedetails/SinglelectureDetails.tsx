@@ -139,6 +139,12 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
       setProgress(100);
       console.info("You can't go next");
     }
+
+    if (value === 6) {
+      router.push(`/home/lecture/week2content1`);
+      setProgress(0);
+      setValue(0);
+    }
   };
 
   console.log(lectureDetails.lectureResources);
