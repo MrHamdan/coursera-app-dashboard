@@ -79,7 +79,7 @@ const Video = ({ singleLectureData }: Props) => {
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid item xs={8} xl={12} md={12}>
+          <Grid item xs={12} xl={12} md={12}>
             <Item sx={{ marginTop: "0px", boxShadow: "0" }}>
               <Typography sx={{ textAlign: "left", fontSize: "40px" }}>
                 {singleLectureData.resourceTitle}
@@ -120,11 +120,14 @@ const Video = ({ singleLectureData }: Props) => {
                   </Grid>
                 </Grid>
               </Box>
-              <ReactPlayer
-                width="100%"
-                height="500px"
-                url={singleLectureData?.resourceVideoLink}
-              />
+              <div className="player-wrapper">
+                <ReactPlayer
+                  className="react-player"
+                  url={singleLectureData?.resourceVideoLink}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </Item>
             <Box sx={{ flexGrow: 1 }}>
               <Grid

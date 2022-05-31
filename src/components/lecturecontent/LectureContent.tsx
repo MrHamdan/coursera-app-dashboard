@@ -70,6 +70,11 @@ type Props = {
 };
 
 const LectureContent = ({ weekModules }: Props) => {
+  const [expanded, setExpanded] = React.useState<string | false>("panel1");
+  const handleChange =
+    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+      setExpanded(newExpanded ? panel : false);
+    };
   return (
     <div>
       <Box>
@@ -84,6 +89,8 @@ const LectureContent = ({ weekModules }: Props) => {
                         border: "1px solid black",
                         backgroundColor: "transparent",
                       }}
+                      expanded={expanded === "panel1"}
+                      onChange={handleChange("panel1")}
                     >
                       <AccordionSummary
                         aria-controls="panel1a-content"
@@ -206,6 +213,8 @@ const LectureContent = ({ weekModules }: Props) => {
                         </Box>
                         <Accordion
                           sx={{ "&:hover": { border: "1px solid black" } }}
+                          expanded={expanded === "panel1"}
+                          onChange={handleChange("panel1")}
                         >
                           <AccordionSummary
                             aria-controls="panel2a-content"
