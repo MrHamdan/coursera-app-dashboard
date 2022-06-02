@@ -417,6 +417,7 @@ const Navbar = () => {
                             sx={{
                               backgroundColor: "#0056d2",
                               fontSize: "40px",
+                              color: "white",
                             }}
                           />
                           <StyledInputBase
