@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
+import Link from "next/Link";
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import { Course } from "datatypes/coursetypes";
@@ -61,38 +61,26 @@ const CourseOverview = (props: Props) => {
                   <div role="presentation" onClick={handleClick}>
                     <Breadcrumbs separator="›" aria-label="breadcrumb">
                       <Link
-                        underline="hover"
+                       
                         color="white"
                         href="/"
-                        sx={{
-                          fontFamily: "Open Sans",
-                          fontWeight: "700",
-                          fontSize: "14px",
-                        }}
+                      
                       >
                         Browse
                       </Link>
                       <Link
-                        underline="hover"
+                       
                         color="white"
                         href="/material-ui/getting-started/installation/"
-                        sx={{
-                          fontFamily: "Open Sans",
-                          fontWeight: "700",
-                          fontSize: "14px",
-                        }}
+                       
                       >
                         Computer Science
                       </Link>
                       <Link
-                        underline="hover"
+                      
                         color="white"
                         href="/material-ui/getting-started/installation/"
-                        sx={{
-                          fontFamily: "Open Sans",
-                          fontWeight: "700",
-                          fontSize: "14px",
-                        }}
+                        
                       >
                         Software Development
                       </Link>
@@ -224,7 +212,7 @@ const CourseOverview = (props: Props) => {
                 >
                   <Link
                     href={`/home/week/week1`}
-                    sx={{ textDecoration: "none" }}
+                  
                   >
                     <Button
                       sx={{

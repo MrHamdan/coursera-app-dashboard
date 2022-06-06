@@ -1,0 +1,256 @@
+[
+  {
+  "id": "lecture1",
+  "progress": "0",
+  "title": "Computer Science: Programming with a Purpose",
+  "rating": "4.7",
+  "instructorName": "Robert Sedgewick",
+  "enrolledStudents": "164,534 already enrolled",
+  "recentViews": "166,920 recent views",
+  "courseDescription": "The basis for education in the last millennium was “reading, writing, and arithmetic;” now it is reading, writing, and computing. Learning to program is an essential part of the education of every student, not just in the sciences and engineering, but in the arts, social sciences, and humanities, as well. Beyond direct applications, it is the first step in understanding the nature of computer science’s undeniable impact on the modern world. This course covers the first half of our book Computer Science: An Interdisciplinary Approach (the second half is covered in our Coursera course Computer Science: Algorithms, Theory, and Machines). Our intent is to teach programming to those who need or want to learn it, in a scientific context. We begin by introducing basic programming elements such as variables, conditionals, loops, arrays, and I/O. Next, we turn to functions, introducing key concepts such as recursion, modular programming, and code reuse. Then, we present a modern introduction to object-oriented programming. We use the Java programming language and teach basic skills for computational problem solving that are applicable in many modern computing environments. Proficiency in Java is a goal, but we focus on fundamental concepts in programming, not Java per se. All the features of this course are available for free. It does not offer a certificate upon completion.",
+  "skillOne": "Programming Principles",
+  "skillTwo": "Computer Science",
+  "skillThree": "Algorithms",
+  "skillFour": "Java Programming",
+  "courseDeadline": "Flexible deadlines",
+  "courseState": "100% Online",
+  "courseLevel": "Beginner Level",
+  "courseDuration": "Approx. 88hours to complete",
+  "courseLanguage": "English",
+  "courseWeeks": [
+  {
+  "id": "week1",
+  "weekTitle": "Week 1",
+  "lectureTitle": "BASIC PROGRAMMING CONCEPTS WEEK 1",
+  "lectureVideos": "58 minutes of videos left",
+  "lectureSheet": "10 min of reading left",
+  "lectureAssignment": "2 graded assignments left",
+  "lectureDescription": "Why program? This lecture addresses that basic question. Then it describes the anatomy of your first program and the process of developing a program in Java using either virtual terminals or a program development environment, with some historical context. Most of the lecture is devoted to a thorough coverage of Javas built-in data types, with example programs for each.",
+  "lectureResourceTitle": "Lecture1: BASIC PROGRAMMING CONCEPTS",
+  "lectureResourceAssignment": "2 graded assignments left",
+  "lectureResources": [
+  {
+  "id": "week1content1",
+  "resourceTitle": "Suppliments For Lecture 1",
+  "resourceDescription": "This lecture is based on Sections 1.1 and 1.2 (pages 1–49) in Computer Science: An Interdisciplinary Approach and these online materials. Here are the lecture slides.",
+  "resourceType": "Reading",
+  "resourceDuration": "10 min",
+  "isCompleted": false
+  },
+  {
+  "id": "week1content2",
+  "resourceTitle": "Why Programming?",
+  "resourceType": "Video",
+  "resourceDuration": "15 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=eugNlBrFZ1g",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week1content3",
+  "resourceTitle": "Programming Development",
+  "resourceType": "Video",
+  "resourceDuration": "16 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=KIH0gajeevo",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week1content4",
+  "resourceTitle": "Built-in Data Types",
+  "resourceType": "Video",
+  "resourceDuration": "32 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=L9nXM-DvNEc",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week1content5",
+  "resourceTitle": "Type Conversion",
+  "resourceType": "Video",
+  "resourceDuration": "10 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=uI10H1jzw00",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week1content6",
+  
+  "resourceTitle": "Basic Programming Concepts",
+  "resourceType": "Quiz",
+  "resourceDuration": "4 Questions Grade:--",
+  "quiz":[
+    {"id":1,
+      "quizType":"oneSelect",
+      "quizPoint":1,
+      "question":" Of the following, which best describes a  variable? ",
+      "option":[
+          {"id":1,
+              "text":"A name that refers to a value","isCorrect":true},
+          {"id":2,
+              "text":"A name that refers to a literal","isCorrect":false},
+          {"id":3,
+              "text":"A programming-language representation of a type ","isCorrect":false},
+          {"id":4,
+              "text":"A programming-language representation of a value ","isCorrect":false},
+          {"id":5,
+              "text":"A statement that associates a variable with a type  ","isCorrect":false},
+          {"id":6,
+              "text":"A statement that associates a value with a variable ","isCorrect":false}
+      ],
+      "answer":1
+    
+  },{
+      "id":2,
+      "quizType":"oneSelect",
+      "quizPoint":1,
+      "question":"True or false: In Java, it is  necessary to declare the types of variables.",
+      "option":[
+          {"id":1,
+              "text":"true","isCorrect":false},
+          {"id":2,
+              "text":"false","isCorrect":true}
+         
+      ],
+      "answer":2
+      
+  },{
+      "id":3,
+      "quizType":"multiplySelect",
+      "quizPoint":1,
+      "question":" Which of the following expressions produce a value of type int? Mark all that apply.",
+      "option":[
+          {"id":1,
+              "text":"2 + 2","isCorrect":false},
+          {"id":2,
+              "text":"Integer.parseInt(2)","isCorrect":true},
+          {"id":3,
+              "text":"2 + 2.0","isCorrect":false},
+          {"id":4,
+              "text":"7 / 3","isCorrect":true},
+          {"id":4,
+              "text":"11 * (int) 0.25","isCorrect":false}
+      ],
+      "answer":2,
+      "module":"Using Colors Like A Pro"
+  },{
+      "id":4,
+      "quizType":"input",
+      "quizPoint":1,
+      "question":"What does this statement print?",
+      "option":[
+          {"id":1,
+              "text":"System.out.println(5 + 'bc')"}
+         
+      ],
+      "answer":"5bc",
+      "module":"READ BEFORE YOU "
+  }
+  ],
+  "isCompleted": false
+  },
+  {
+  "id": "week1content7",
+  "resourceTitle": "Hello, World",
+  "resourceType": "Programming Assignment",
+  "resourceDuration": "8h Grade:--",
+  "isCompleted": false
+  }
+  ]
+  },
+  {
+  "id": "week2",
+  "weekTitle": "Week 2",
+  "lectureTitle": "BASIC PROGRAMMING CONCEPTS WEEK 2",
+  "lectureVideos": "58 minutes of videos left",
+  "lectureSheet": "10 min of reading left",
+  "lectureAssignment": "2 graded assignments left",
+  "lectureDescription": "Why program? This lecture addresses that basic question. Then it describes the anatomy of your first program and the process of developing a program in Java using either virtual terminals or a program development environment, with some historical context. Most of the lecture is devoted to a thorough coverage of Javas built-in data types, with example programs for each.",
+  "lectureResourceTitle": "Lecture1: BASIC PROGRAMMING CONCEPTS",
+  "lectureResourceAssignment": "2 graded assignments left",
+  "lectureResources": [
+  {
+  "id": "week2content1",
+  "resourceTitle": "Suppliments For Lecture 2",
+  "resourceDescription": "This lecture is based on Sections 1.1 and 1.2 (pages 1–49) in Computer Science: An Interdisciplinary Approach and these online materials. Here are the lecture slides.",
+  "resourceType": "Reading",
+  "resourceDuration": "10 min",
+  "isCompleted": false
+  },
+  {
+  "id": "week2content2",
+  "resourceTitle": "Why Programming?",
+  "resourceType": "Video",
+  "resourceDuration": "15 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=eugNlBrFZ1g",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week2content3",
+  "resourceTitle": "Programming Development",
+  "resourceType": "Video",
+  "resourceDuration": "16 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=KIH0gajeevo",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week2content4",
+  "resourceTitle": "Built-in Data Types",
+  "resourceType": "Video",
+  "resourceDuration": "32 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=L9nXM-DvNEc",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week2content5",
+  "resourceTitle": "Type Conversion",
+  "resourceType": "Video",
+  "resourceDuration": "10 min",
+  "resourceVideoLink": "https://www.youtube.com/watch?v=uI10H1jzw00",
+  "videoTimeFirst": "0:03",
+  "videoTimeSecond": "0:24",
+  "videoDetailFirst": "Today, we're going to talk about what you need to know in order to get started programming. It's quite a bit of information, but I think you'll find that it all comes pretty naturally, and also, we'll talk about some historical contexts just to make it a little bit more interesting and engaging.",
+  "videoDetailSecond": "Okay. As a matter of fact, let's start with a question. Why programming at all? Here's a quote from a science fiction novel, where the author lists all the things that really every human being should be able to do. I don't know if we all agree that we need to know how to die gallantly and so forth, but I think the point is that everyone should know how to program a computer and that's really the point of view that we take in this course. So, that's the first thing, computers are omnipresent and it's something that everybody should be able to control. Really, what you need to know how to program for is to really get the computer to do what you want it to do. Now, naive ideal that you might think is, well, why not just tell the computer what you want it to do. See in this example here; please, simulate the motion of N heavenly bodies subject to Newton's laws. It would be nice if we could get a computer to do that. Actually, you're going to write a program to do this in a little while, but it's really naive to expect the computer to really be able to do that. Another alternative is maybe there's a prepackaged solution or an app that does- it's fine to have an app if it does what you want done. We all have our computers and mobile devices all littered with apps of all different types. But there's lots of things that there's no app for. What programming enables you to do is to make a computer do really anything you want. Well, almost anything, and we'll talk at the end of the course about what you can do with a computer.",
+  "isCompleted": false
+  },
+  {
+  "id": "week2content6",
+  "resourceTitle": "Basic Programming Concepts",
+  "resourceType": "Quiz",
+  "resourceDuration": "4 Questions Grade:--"
+  },
+  {
+  "id": "week2content7",
+  "resourceTitle": "Hello, World",
+  "resourceType": "Programming Assignment",
+  "resourceDuration": "8h Grade:--"
+  }
+  ]
+  }
+  ]
+  }
+  ]

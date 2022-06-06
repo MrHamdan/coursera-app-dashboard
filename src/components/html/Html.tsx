@@ -9,6 +9,8 @@ import { LectureResource } from "datatypes/coursetypes";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import OutlinedFlagIcon from "@mui/icons-material/OutlinedFlag";
+// import { useRouter } from "next/router";
+// import { useDispatch } from "react-redux";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,6 +25,17 @@ type Props = {
 };
 
 const Html = ({ singleLectureData }: Props) => {
+
+    // const router = useRouter()
+    // const dispacth = useDispatch()
+    // console.log(singleLectureData);
+    // React.useEffect(()=>{
+    //   if(singleLectureData.resourceType=='Quiz'){
+    //     dispacth({type:'QUIZ',payload:singleLectureData})
+    //       router.push('/quizs')
+    //   } 
+    // })
+    
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>

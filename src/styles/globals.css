@@ -117,8 +117,7 @@ a {
   font-weight: bold;
 }
 
-.MuiButtonBase-root {
-}
+
 
 .MuiTabs-indicator {
   left: 0;
@@ -127,8 +126,12 @@ a {
 
 .MuiTab-root {
   align-items: flex-start !important;
+  color: rgb(46, 45, 45);
 }
-
+.MuiTab-root.Mui-selected{
+  color: #333;
+  background:rgb(245, 247, 248);
+}
 .MuiBox-root {
   padding: 0px !important;
 }

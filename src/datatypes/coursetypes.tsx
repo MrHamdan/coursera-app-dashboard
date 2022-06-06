@@ -44,4 +44,20 @@ export interface LectureResource {
   videoTimeSecond?:     string;
   videoDetailFirst?:    string;
   videoDetailSecond?:   string;
+  quiz?:                Quiz[];
+}
+export interface Quiz {
+  id:        number;
+  quizType:  string;
+  quizPoint: number;
+  question:  string;
+  option:    Option[];
+  answer:    number | string;
+  module?:   string;
+}
+
+export interface Option {
+  id:         number;
+  text:       string;
+  isCorrect?: boolean;
 }

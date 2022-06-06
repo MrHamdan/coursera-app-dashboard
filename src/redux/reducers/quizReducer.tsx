@@ -1,37 +1,46 @@
+import { LectureResource } from "datatypes/coursetypes";
 
 
-type Option ={
-    id:string;
-    option:string;
-    isCorrect:boolean;
-}
+// type Option ={
+//     id:         number;
+//     text:       string;
+//     isCorrect?: boolean;
+// }
 
-type Quiz ={
-    questionId:string;
-    question:string;
-    options:Option[];
-    selectedAnswer:Option;
-    level:string
-}
+// type Quiz ={
+//     id:        number;
+//     quizType:  string;
+//     quizPoint: number;
+//     question:  string;
+//     option:    Option[];
+//     answer:    number | string;
+//     module?:   string;
+// }
 
 interface QuizState {
-    finalAnswer:Quiz[]
+    quiz:any
+    // finalAnswer:Quiz[]
 }
 const initialState ={
-  
-    finalAnswer:[]
+    quiz:[]
+    // finalAnswer:[]
 }
-type Action ={
+interface Action {
     type:string;
-    payload:Quiz[]
+    payload:LectureResource
 }
 export const quizReducer=(state:QuizState=initialState,action:Action):QuizState=>{
         switch(action.type){
-            case  "SUBMIT_QUIZ":
+            case "QUIZ":
                 return{
                     ...state,
-                    finalAnswer:action.payload
-                }     
+                    quiz:action.payload
+                }
+            // case  "SUBMIT_QUIZ":
+            //     return{
+            //         ...state,
+            //         finalAnswer:action.payload
+            //     }     
             default :
                 return state    
         }

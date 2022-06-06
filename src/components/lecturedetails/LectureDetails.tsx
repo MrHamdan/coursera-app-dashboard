@@ -146,7 +146,7 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                   <Typography sx={{ textAlign: "left", marginLeft: "20px" }}>
                     Princeton University
                   </Typography>
-                  <Accordion sx={{ marginTop: "0px" }}>
+                  <Accordion sx={{ marginTop: "0px",}}>
                     <AccordionSummary
                       aria-controls="panel1a-content"
                       id="panel1a-header"
@@ -156,16 +156,16 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                           border: "2px solid black",
                         },
                         marginTop: "10px",
-                        marginBottom: "10px",
+
                         borderRadius: "5px",
                         backgroundColor: "transparent",
                       }}
                     >
-                      <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
+                      <Typography sx={{ fontWeight: "bold", fontSize: "14px",py:'7px' }}>
                         Course Material
                       </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails sx={{}}>
                       <Typography>
                         <Box sx={{ flexGrow: 1 }}>
                           <Grid container spacing={2}>
@@ -186,6 +186,7 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                                     onChange={handleChange}
                                     aria-label="Vertical tabs example"
                                     sx={{
+                                      width: "100%",
                                       borderRight: 0,
                                       borderColor: "divider",
                                       marginTop: "-30px",
@@ -194,6 +195,7 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                                     {courses.map((course) =>
                                       course.courseWeeks.map((weeklink) => (
                                         <Tab
+                                        sx={{'&:hover':{background:'rgb(245, 247, 248)'},mt:1}}
                                           key={weeklink.id}
                                           label={
                                             <>
@@ -204,6 +206,8 @@ const LectureDetails = ({ courses, weekModules }: Props) => {
                                                   <span className="circle"></span>
                                                   <Typography
                                                     sx={{
+                                                      color:'#333',
+                                                      fontSize:'14px',
                                                       textTransform: "none",
                                                       marginLeft: "10px",
                                                     }}
