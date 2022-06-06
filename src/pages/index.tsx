@@ -32,7 +32,7 @@ const Home: NextPage<{ courses: Course[] }> = ({ courses }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("https://coursera-app-dashboard.vercel.app/assets/data.json");
+  const res = await fetch("https://coursera-app-dashboard-9adbrebl6-mrhamdan.vercel.app/assets/data.json");
   const courses: Course[] = await res.json();
   return {
     props: {
