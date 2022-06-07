@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "next/Link";
+import Link from "next/link";
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import { Course } from "datatypes/coursetypes";

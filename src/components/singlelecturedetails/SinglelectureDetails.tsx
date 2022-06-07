@@ -21,6 +21,7 @@ import Link from "next/link";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import QuizHome from "components/quiz/QuizHome";
 
 function CircularProgressWithLabel(
   props: CircularProgressProps & { value: number }
@@ -105,10 +106,17 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
   console.log(lectureDetails);
 
   const [progress, setProgress] = React.useState(0);
-
-  React.useEffect(() => {}, []);
-
+  const [isShow, setIsShow] = React.useState(false)
   const [value, setValue] = React.useState(0);
+  React.useEffect(() => {
+    if (value == 5) {
+      setIsShow(true)
+    }
+    else {
+      // setIsShow(false)
+    }
+  }, [value]);
+
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -141,13 +149,14 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
     }
 
     if (value === 6) {
+
       router.push(`/home/lecture/week2content1`);
       setProgress(0);
       setValue(0);
     }
   };
 
-  console.log(lectureDetails.lectureResources);
+  console.log(value, isShow);
 
   const handleBack = () => {
     lectureDetails.lectureResources.map((lecture) => {
@@ -171,8 +180,9 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
   return (
     <div>
       <Box>
-        <NavbarCourse />
-        <Container maxWidth="xl">
+        {isShow == false &&  <NavbarCourse />}
+        {isShow == false && <Container maxWidth="xl">
+        
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} xl={8}>
@@ -341,9 +351,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
                   <TabPanel value={value} index={4}>
                     <Video singleLectureData={singleLectureData} />
                   </TabPanel>
-                  <TabPanel value={value} index={5}>
-                    <Html singleLectureData={singleLectureData} />
-                  </TabPanel>
+
                   <TabPanel value={value} index={6}>
                     Item Seven
                   </TabPanel>
@@ -351,7 +359,10 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
               </Grid>
             </Grid>
           </Box>
-        </Container>
+        </Container>}
+        <TabPanel value={value} index={5}>
+          <QuizHome singleLectureData={singleLectureData}/>
+        </TabPanel>
       </Box>
     </div>
   );

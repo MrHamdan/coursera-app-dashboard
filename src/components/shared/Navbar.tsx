@@ -21,6 +21,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ExploreNav from "components/home/ExploreNav";
 import MenuNav from "components/home/MenuNav";
+import Link from "next/link";
 
 const pages = [
   "Online Degrees",
@@ -140,7 +141,7 @@ const Navbar = () => {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+             
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -151,12 +152,12 @@ const Navbar = () => {
                 textDecoration: "none",
               }}
             >
-              <Image
+              <Link href='/'><Image
                 src="/assets/images/courseralogo.svg"
                 width="127px"
                 height="32px"
                 alt="Courseralogo"
-              />
+              /></Link>
               <Box onClick={handleClick}>
                 <Button
                   sx={{

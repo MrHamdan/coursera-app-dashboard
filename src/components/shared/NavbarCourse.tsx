@@ -141,7 +141,7 @@ const NavbarCourse = () => {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+            
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -152,12 +152,14 @@ const NavbarCourse = () => {
                 textDecoration: "none",
               }}
             >
-              <Image
+             <Link href='/'>
+             <Image
                 src="/assets/images/courseralogo.svg"
                 width="127px"
                 height="32px"
                 alt="Courseralogo"
               />
+             </Link>
               <Box
                 onClick={handleClick}
                 sx={{ borderLeft: "1px solid lightgray", marginLeft: "10px" }}

@@ -31,12 +31,28 @@ const Home: NextPage<{ courses: Course[] }> = ({ courses }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("https://jsonkeeper.com/b/05OZ");
-  const courses: Course[] = await res.json();
-  return {
-    props: {
-      courses,
-    },
-  };
-};
+
+export async function getStaticProps() {
+  try {
+    const res = await fetch("https://jsonkeeper.com/b/05OZ");
+    const courses: Course[] = await res.json();
+    return {
+      props: {
+        courses,
+      },
+    };
+  }
+  catch (err) {
+    return {notFound:true}
+  }
+}
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   const res = await fetch("https://jsonkeeper.com/b/05OZ");
+//   const courses: Course[] = await res.json();
+//   return {
+//     props: {
+//       courses,
+//     },
+//   };
+// };
