@@ -1,7 +1,10 @@
-import { Box, Button, Checkbox, Container, FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+import { Box, Button, Checkbox, Container, Divider, FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import { LectureResource } from 'datatypes/coursetypes';
 import React from 'react'
 import QuizNav from './QuizNav';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 type Props = {
   singleLectureData: LectureResource;
 };
@@ -86,7 +89,7 @@ const QuizHome = ({ singleLectureData }: Props) => {
               }
             </Box>
           </Box>
-          <Box sx={{ mt: 6 }}>
+          <Box sx={{ mt: 6 ,mb:'40px'}}>
             <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}>Coursera Honor Code <span style={{
               marginLeft: '5px',
               color: 'blue',
@@ -106,6 +109,12 @@ const QuizHome = ({ singleLectureData }: Props) => {
             <Box sx={{mt:6}}>
                 <Button variant='contained'sx={{fontWeight:'bold',py:2,px:4,mr:3}}>Submit</Button> <Button variant='outlined' sx={{fontWeight:'bold',py:2,px:3}}>Save Draft</Button>
             </Box>
+          </Box>
+          <Divider />
+          <Box >
+            <Button sx={{fontSize:'13px', fontWeight:'600',mr:2}}><ThumbUpIcon  sx={{fontSize:'16px',mr:1}}/>   Like</Button>
+            <Button sx={{fontSize:'13px', fontWeight:'600',mr:2}}><FlagOutlinedIcon  sx={{fontSize:'16px',mr:1}}/> Report an issue</Button>
+            <Button sx={{fontSize:'13px', fontWeight:'600',mr:2}}><ThumbDownOffAltIcon  sx={{fontSize:'16px',mr:1}}/>Dislike</Button>
           </Box>
         </Box>
       </Container>

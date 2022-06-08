@@ -103,7 +103,7 @@ type Props = {
 };
 
 const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
-  console.log(lectureDetails);
+  
 
   const [progress, setProgress] = React.useState(0);
   const [isShow, setIsShow] = React.useState(false)
@@ -156,7 +156,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
     }
   };
 
-  console.log(value, isShow);
+  
 
   const handleBack = () => {
     lectureDetails.lectureResources.map((lecture) => {

@@ -50,7 +50,7 @@ export async function getStaticProps(context: any) {
     )
     .flat();
 
-  console.log(weeksModules);
+  
 
   return {
     props: {

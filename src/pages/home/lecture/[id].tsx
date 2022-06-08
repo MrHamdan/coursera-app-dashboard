@@ -43,7 +43,7 @@ export async function getStaticPaths() {
     }))
     .flat();
 
-  console.log(paths);
+  
 
   return {
     paths,
@@ -66,13 +66,13 @@ export async function getStaticProps(context: any) {
     )
   );
 
-  console.log(lectureDetails);
+  
 
   const singleLectureData = weeks.find(
     (lecture: LectureResource) => lecture.id === context.params.id
   );
 
-  console.log(singleLectureData);
+  
 
   return {
     props: {

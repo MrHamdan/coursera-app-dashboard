@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-type Props = {
+interface Props  {
   singleLectureData: LectureResource;
 };
 
