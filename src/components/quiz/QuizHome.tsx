@@ -1,4 +1,4 @@
-import { Box, Checkbox, Container, FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+import { Box, Button, Checkbox, Container, FormControl, FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import { LectureResource } from 'datatypes/coursetypes';
 import React from 'react'
 import QuizNav from './QuizNav';
@@ -33,7 +33,7 @@ const QuizHome = ({ singleLectureData }: Props) => {
                           </Box>
                           <Typography sx={{ background: 'rgb(229, 231, 232)', fontWeight: 'bold', fontSize: { xs: '0.7rem', md: '0.8rem' }, p: '4px', borderRadius: '5px' }}>{quiz.quizPoint} point</Typography>
                         </Box>
-                        {quiz.quizType == 'oneSelect' && <FormControl>
+                        {quiz.quizType == 'oneSelect' && <FormControl sx={{mb:6}}>
                           <RadioGroup aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group" sx={{ pl: 3 }}>
                             {
@@ -48,7 +48,7 @@ const QuizHome = ({ singleLectureData }: Props) => {
                           </RadioGroup>
                         </FormControl>}
                         {
-                          quiz.quizType == 'multiplySelect' && <FormControl sx={{ pl: 3 }}>
+                          quiz.quizType == 'multiplySelect' && <FormControl sx={{ pl: 3,mb:6 }}>
                             {
                               quiz.option.map(opt => (
                                 <FormControlLabel sx={{ fontSize: '1rem', color: 'rgb(93, 93, 93)' }}
@@ -62,17 +62,17 @@ const QuizHome = ({ singleLectureData }: Props) => {
                           </FormControl>
                         }
                         {
-                          quiz.quizType == 'input' && <Box sx={{ ml:3 }}>
+                          quiz.quizType == 'input' && <Box sx={{ ml: 3 ,mb:6}}>
                             {
                               quiz.option.map(opt => (<Box key={opt.id}>
 
 
 
-                                <Box  sx={{ border: '1px solid #ddd',p:5 }}>
-                                  <Typography sx={{pb:5,pt:1,pl:4,fontSize: '0.9rem', color: 'rgb(93, 93, 93)'}}>1.  {opt.text}</Typography>
-                                
+                                <Box sx={{ border: '1px solid #ddd', p: 5 }}>
+                                  <Typography sx={{ pb: 5, pt: 1, pl: 4, fontSize: '0.9rem', color: 'rgb(93, 93, 93)' }}>1.  {opt.text}</Typography>
+
                                 </Box>
-                                <TextField placeholder='Enter Your Answer Here'  sx={{width:'100%',mt:5}}/>
+                                <TextField placeholder='Enter Your Answer Here' sx={{ width: '100%', mt: 5 }} />
                               </Box>
                               ))
                             }
@@ -84,6 +84,27 @@ const QuizHome = ({ singleLectureData }: Props) => {
                   </>
                 ))
               }
+            </Box>
+          </Box>
+          <Box sx={{ mt: 6 }}>
+            <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}>Coursera Honor Code <span style={{
+              marginLeft: '5px',
+              color: 'blue',
+              textDecoration: 'underline', fontWeight: '400'
+            }}>Learn more </span></Typography>
+            <Box>
+
+              <FormControlLabel
+                sx={{ color: 'rgb(55, 58, 60)' }}
+                label="I understand that submitting work that isnt my own may result in permanent failure of this course or deactivation of my Coursera account"
+                control={<Checkbox />}
+              />
+              <TextField sx={{ ml: 4, mt: 4, width: "380px", }} placeholder='Enter Your legal name' />
+              <Typography sx={{ fontSize: '0.8rem', color: 'rgb(55, 58, 60)', ml: 4, mt: 1 }}>Use the name government issued ID</Typography>
+            </Box>
+
+            <Box sx={{mt:6}}>
+                <Button variant='contained'sx={{fontWeight:'bold',py:2,px:4,mr:3}}>Submit</Button> <Button variant='outlined' sx={{fontWeight:'bold',py:2,px:3}}>Save Draft</Button>
             </Box>
           </Box>
         </Box>
