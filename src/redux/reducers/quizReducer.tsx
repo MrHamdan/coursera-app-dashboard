@@ -19,15 +19,20 @@ import { LectureResource } from "datatypes/coursetypes";
 
 interface QuizState {
     quiz:any
+    multipleOption:any
+    singleSelect:any
+    inputUserAns:any
     // finalAnswer:Quiz[]
 }
 const initialState ={
-    quiz:[]
-    // finalAnswer:[]
+    quiz:[],
+    multipleOption:{},
+    singleSelect:[],
+    inputUserAns:{}
 }
 interface Action {
     type:string;
-    payload:LectureResource
+    payload:any
 }
 export const quizReducer=(state:QuizState=initialState,action:Action):QuizState=>{
         switch(action.type){
@@ -36,11 +41,21 @@ export const quizReducer=(state:QuizState=initialState,action:Action):QuizState=
                     ...state,
                     quiz:action.payload
                 }
-            // case  "SUBMIT_QUIZ":
-            //     return{
-            //         ...state,
-            //         finalAnswer:action.payload
-            //     }     
+            case "MULTIPLE_SELECT":
+                return{
+                    ...state,
+                    multipleOption:action.payload
+                }
+            case "SINGLE_SELECT" :
+                return{
+                    ...state,
+                    singleSelect:action.payload
+                }       
+            case  "INPUT_ANS":
+                return{
+                    ...state,
+                    inputUserAns:action.payload
+                }     
             default :
                 return state    
         }

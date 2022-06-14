@@ -1,4 +1,5 @@
 {
     "editor.tabSize": 4,
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    "editor.cursorSmoothCaretAnimation": true
 }

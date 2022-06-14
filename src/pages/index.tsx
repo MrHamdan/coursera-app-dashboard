@@ -34,7 +34,7 @@ export default Home;
 
 export async function getStaticProps() {
   try {
-    const res = await fetch("https://jsonkeeper.com/b/05OZ");
+    const res = await fetch(" https://jsonkeeper.com/b/9Y6A");
     const courses: Course[] = await res.json();
     return {
       props: {
