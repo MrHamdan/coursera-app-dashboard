@@ -32,7 +32,7 @@ const QuizHome = ({ singleLectureData }: Props) => {
 
   const handleOnChangeRadio = (opt: Option, quiz: Quiz, index: number) => {
     const index1 = singleSelect.findIndex((element: any) => element.id === quiz.id);
-   
+    console.log(index1);
     const rightAnswer = {
       id: quiz.id,
       question: quiz.question,

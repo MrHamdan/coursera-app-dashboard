@@ -283,7 +283,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
                               {lectureDetails?.lectureResources?.map(
                                 (item: any) => (
                                   <Tab
-                                    sx={{"&:hover":{background:'#f5f7f8',borderLeft:'6px solid rgb(25, 118, 210)'}}}
+                                    sx={{"&:hover":{background:'#f5f7f8',borderLeft:'6px solid rgb(25, 118, 210)'},borderLeft:'6px solid transparent'}}
                                     key={item.id}
                                     label={
                                       <>
