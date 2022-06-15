@@ -22,6 +22,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import QuizHome from "components/quiz/QuizHome";
+import QuizStart from "components/quiz/QuizStart";
 
 function CircularProgressWithLabel(
   props: CircularProgressProps & { value: number }
@@ -103,27 +104,29 @@ type Props = {
 };
 
 const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
-  
+
 
   const [progress, setProgress] = React.useState(0);
   const [isShow, setIsShow] = React.useState(false)
   const [value, setValue] = React.useState(0);
-  React.useEffect(() => {
-    if (value == 5) {
-      setIsShow(true)
-    }
-    else {
-      // setIsShow(false)
-    }
-  }, [value]);
+  // React.useEffect(() => {
+  //   if (value == 5) {
+  //     setIsShow(true)
+  //   }
+  //   else {
+  //     // setIsShow(false)
+  //   }
+  // }, [value]);
 
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
-  const router = useRouter();
-
+  console.log(singleLectureData);
+  const router = useRouter()
+  
+  const id = (router.asPath.slice(26,30));
+  
   const handleNext = () => {
     lectureDetails.lectureResources.map((lecture) => {
       if (lecture.id === singleLectureData.id) {
@@ -156,7 +159,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
     }
   };
 
-  
+
 
   const handleBack = () => {
     lectureDetails.lectureResources.map((lecture) => {
@@ -180,9 +183,9 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
   return (
     <div>
       <Box>
-        {isShow == false &&  <NavbarCourse />}
+        {isShow == false && <NavbarCourse />}
         {isShow == false && <Container maxWidth="xl">
-        
+
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} xl={8}>
@@ -351,7 +354,10 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
                   <TabPanel value={value} index={4}>
                     <Video singleLectureData={singleLectureData} />
                   </TabPanel>
-
+                  <TabPanel value={value} index={5}>
+                    {/* <QuizHome singleLectureData={singleLectureData} /> */}
+                    <QuizStart setIsShow={setIsShow}/>
+                  </TabPanel>
                   <TabPanel value={value} index={6}>
                     Item Seven
                   </TabPanel>
@@ -360,9 +366,10 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
             </Grid>
           </Box>
         </Container>}
-        <TabPanel value={value} index={5}>
-          <QuizHome singleLectureData={singleLectureData}/>
-        </TabPanel>
+        {/* <TabPanel value={value} index={5}>
+          <QuizHome singleLectureData={singleLectureData} />
+        </TabPanel> */}
+         { isShow &&<QuizHome singleLectureData={singleLectureData} />}
       </Box>
     </div>
   );

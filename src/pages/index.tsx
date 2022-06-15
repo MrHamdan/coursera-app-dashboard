@@ -34,7 +34,7 @@ export default Home;
 
 export async function getStaticProps() {
   try {
-    const res = await fetch(" https://jsonkeeper.com/b/9Y6A");
+    const res = await fetch("https://coursera-app-dashboard-672q6hoz6-mrhamdan.vercel.app/assets/data.json");
     const courses: Course[] = await res.json();
     return {
       props: {

@@ -24,7 +24,7 @@ const Index = ({ lectureDetails, singleLectureData }: Props) => {
 export default Index;
 
 export async function getStaticPaths() {
-  const res = await fetch("https://jsonkeeper.com/b/05OZ");
+  const res = await fetch("https://coursera-app-dashboard-672q6hoz6-mrhamdan.vercel.app/assets/data.json");
   const courses: Course[] = await res.json();
 
   const lectureData = courses
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  const res = await fetch(" https://jsonkeeper.com/b/9Y6A");
+  const res = await fetch("https://coursera-app-dashboard-672q6hoz6-mrhamdan.vercel.app/assets/data.json");
   const courses: Course[] = await res.json();
   const coursesData = courses
     .map((course: Course) => course.courseWeeks)

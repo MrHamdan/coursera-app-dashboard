@@ -41,7 +41,7 @@ const Result = () => {
                 }
             </Box>
             {
-                multipleOption && <Box>
+                multipleOption.question && <Box>
                      <Box sx={{ display: 'flex', justifyContent: 'space-between', my: 2 }}>
                                 <Box sx={{ display: 'flex', }}>
                                     <Typography sx={{ fontWeight: 'bold', mr: 1 }}>3.</Typography>
@@ -55,22 +55,22 @@ const Result = () => {
                 </Box>
             }
             {
-              inputUserAns &&  <Box>
+              inputUserAns.userAns ?   <Box>
                    <Box sx={{ display: 'flex', justifyContent: 'space-between', my: 2 }}>
                                 <Box sx={{ display: 'flex', }}>
-                                    <Typography sx={{ fontWeight: 'bold', mr: 1 }}>3.</Typography>
+                                    <Typography sx={{ fontWeight: 'bold', mr: 1 }}>4.</Typography>
                                     <Typography sx={{ color: 'rgb(93, 93, 93)' }}>{inputUserAns.question}</Typography>
                                 </Box>
-                                <Typography sx={{ background: 'rgb(229, 231, 232)', fontWeight: 'bold', fontSize: { xs: '0.7rem', md: '0.8rem' }, p: '4px', borderRadius: '5px' }}>{inputUserAns.userAns == inputUserAns.rightAns? 1 : 0} /1 point</Typography>
+                                <Typography sx={{ background: 'rgb(229, 231, 232)', fontWeight: 'bold', fontSize: { xs: '0.7rem', md: '0.8rem' }, p: '4px', borderRadius: '5px' }}>{inputUserAns.userAns === inputUserAns.rightAns? 1 : 0} /1 point</Typography>
                             </Box>
                     <Box sx={{ border: '1px solid #ddd', p: 5 }}>
 
                                   <Typography sx={{ pb: 5, pt: 1, pl: 4, fontSize: '0.9rem', color: 'rgb(93, 93, 93)' }}>1.  {inputUserAns.quizText}</Typography>
                 </Box>
                 <Box sx={{ml:4,mt:2}}>
-                                {inputUserAns.userAns == inputUserAns.rightAns ? <Typography sx={{display:'flex',color:'green',background:'#95F9BD',p:2}}><CheckIcon/> Correct </Typography>:<Typography sx={{display:'flex',color:'red',background:'#f7cbcb',p:2}}><ClearIcon/> InCorrect </Typography>}
+                                {inputUserAns?.rightAns===inputUserAns?.userAns ? <Typography sx={{display:'flex',color:'green',background:'#95F9BD',p:2}}><CheckIcon/> Correct </Typography>:<Typography sx={{display:'flex',color:'red',background:'#f7cbcb',p:2}}><ClearIcon/> InCorrect </Typography>}
                             </Box>
-                </Box>
+                </Box>: ''
             }
         </Box>
     )
