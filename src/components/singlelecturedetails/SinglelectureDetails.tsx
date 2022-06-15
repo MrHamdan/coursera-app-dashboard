@@ -105,27 +105,27 @@ type Props = {
 
 const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
 
-
+  const router = useRouter()
   const [progress, setProgress] = React.useState(0);
   const [isShow, setIsShow] = React.useState(false)
   const [value, setValue] = React.useState(0);
-  // React.useEffect(() => {
-  //   if (value == 5) {
-  //     setIsShow(true)
-  //   }
-  //   else {
-  //     // setIsShow(false)
-  //   }
-  // }, [value]);
-
-
+  const id = parseInt(router.asPath.slice(26,30));
+  React.useEffect(() => {
+    
+      setValue(id-1)
+    
+  }, [id]);
+  console.log(lectureDetails.lectureResources);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  console.log(singleLectureData);
-  const router = useRouter()
+  console.log(id);
+
   
-  const id = (router.asPath.slice(26,30));
+  if(!singleLectureData){
+    return <Box>loading</Box>
+  }
+
   
   const handleNext = () => {
     lectureDetails.lectureResources.map((lecture) => {
@@ -179,7 +179,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
       console.info("You can't go back");
     }
   };
-
+ 
   return (
     <div>
       <Box>
@@ -283,6 +283,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
                               {lectureDetails?.lectureResources?.map(
                                 (item: any) => (
                                   <Tab
+                                    sx={{"&:hover":{background:'#f5f7f8',borderLeft:'6px solid rgb(25, 118, 210)'}}}
                                     key={item.id}
                                     label={
                                       <>
@@ -291,6 +292,7 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
                                             sx={{
                                               display: "flex",
                                               alignItems: "center",
+
                                             }}
                                           >
                                             {item.isCompleted === true ? (
@@ -340,23 +342,24 @@ const SinglelectureDetails = ({ lectureDetails, singleLectureData }: Props) => {
               <Grid item xs={12} xl={8}>
                 <Item sx={{ boxShadow: "0" }}>
                   <TabPanel value={value} index={0}>
-                    <Html singleLectureData={singleLectureData} />
+                    {id==1?<Html singleLectureData={singleLectureData} />: <Box sx={{display:'flex',alignItems:'center',height:'50vh',justifyContent:'center'}}>  <CircularProgress /></Box> }
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                    <Video singleLectureData={singleLectureData} />
+                    {id==2 ?<Video singleLectureData={singleLectureData} />:<Box sx={{display:'flex',alignItems:'center',height:'50vh',justifyContent:'center'}}>  <CircularProgress /></Box> }
                   </TabPanel>
                   <TabPanel value={value} index={2}>
-                    <Video singleLectureData={singleLectureData} />
+                  {id==3 ?<Video singleLectureData={singleLectureData} />:<Box sx={{display:'flex',alignItems:'center',height:'50vh',justifyContent:'center'}}>  <CircularProgress /></Box> }
                   </TabPanel>
                   <TabPanel value={value} index={3}>
-                    <Video singleLectureData={singleLectureData} />
+                  {id==4 ?<Video singleLectureData={singleLectureData} />:<Box sx={{display:'flex',alignItems:'center',height:'50vh',justifyContent:'center'}}>  <CircularProgress /></Box> }
                   </TabPanel>
                   <TabPanel value={value} index={4}>
-                    <Video singleLectureData={singleLectureData} />
+                  {id==5 ?<Video singleLectureData={singleLectureData} />:<Box sx={{display:'flex',alignItems:'center',height:'50vh',justifyContent:'center'}}>  <CircularProgress /></Box> }
                   </TabPanel>
                   <TabPanel value={value} index={5}>
                     {/* <QuizHome singleLectureData={singleLectureData} /> */}
-                    <QuizStart setIsShow={setIsShow}/>
+                    {id==6 ? <QuizStart setIsShow={setIsShow}/>:<Box sx={{display:'flex',alignItems:'center',height:'50vh',justifyContent:'center'}}>  <CircularProgress /></Box> }
+                   
                   </TabPanel>
                   <TabPanel value={value} index={6}>
                     Item Seven

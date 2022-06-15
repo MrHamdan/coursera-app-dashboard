@@ -74,11 +74,12 @@ const Video = ({ singleLectureData }: Props) => {
       typeof value === "string" ? value.split(",") : value
     );
   };
-
+  console.log(singleLectureData);
+  // resourceType: "Video"
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
+        {singleLectureData.resourceType=="Video"?<Grid container spacing={2}>
           <Grid item xs={12} xl={12} md={12}>
             <Item sx={{ marginTop: "0px", boxShadow: "0" }}>
               <Typography sx={{ textAlign: "left", fontSize: "40px" }}>
@@ -355,7 +356,7 @@ const Video = ({ singleLectureData }: Props) => {
               </Grid>
             </Grid>
           </Box>
-        </Grid>
+        </Grid>:<Box>Loading</Box>}
       </Box>
     </div>
   );
